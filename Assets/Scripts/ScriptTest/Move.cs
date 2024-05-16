@@ -11,10 +11,16 @@ namespace ScriptTest
         [SerializeField] private float speed;
         private Rigidbody _rb;
         private float _x, _y;
-        
-        
+
+        //private void Start()
+        //{
+        //    _rb.useGravity = false;
+        //}
+       
+
         private void Update()
         {
+            
             _x = Input.GetAxisRaw(horizontal);
             _y = Input.GetAxisRaw(vertical);
             
@@ -23,7 +29,7 @@ namespace ScriptTest
 
         private void FixedUpdate()
         {
-            transform.Translate(_x*speed,0f,_y*speed);
+            transform.Translate(-_x*speed,0f,-_y*speed);
         }
         
     }

@@ -2,7 +2,7 @@ namespace Interactable
 {
     public interface IDetector
     {
-        void Interaction();
+        public void Interaction();
     }
 }
 

@@ -1,44 +1,45 @@
+using Interactable;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 
 public class PickUp : MonoBehaviour
 {
-    public GameObject meat;
-    private bool condicion = false;
+    [SerializeField] private GameObject meat; 
+    public float radius;
+    public LayerMask mask;
+   private void Collision()
+   {
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-        
-    //}
+       Collider [] colliders = Physics.OverlapSphere(transform.position, radius,mask);
+       foreach (Collider colliderDetected in colliders)
+        { 
+           if(!colliderDetected) continue;
 
-    //// Update is called once per frame
+           colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
+           component?.Interaction();
+            meat.transform.SetParent(this.transform);
+            meat.transform.localPosition = new Vector3(0f, 0f, -0.930999994f);
+        }
+            
+    }
+
+
+    
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
     void Update()
     {
-        if(condicion)
-        {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                meat.transform.SetParent(this.transform);
 
-                meat.transform.localPosition = new Vector3(0f, 0f, -0.930999994f);
-
-            }
-        }
-
-
-    }
-    private void OnCollisionEnter(Collision other)
-    {
-        if(other.gameObject.CompareTag("meat"))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
 
-            condicion = true;
-          
-
-            
+            Collision();
         }
-           
     }
+
 }

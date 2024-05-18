@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1260569582326072248}
   - component: {fileID: 4713771787316971386}
   - component: {fileID: 2692891310932930033}
+  - component: {fileID: 3430715360989482456}
   m_Layer: 0
   m_Name: Bread
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3430715360989482456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103079697912358116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439a665e2751f5c42b3472979887555d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &5620945688013706829
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +235,7 @@ GameObject:
   - component: {fileID: 4499808272784746687}
   - component: {fileID: 9211180562004427379}
   - component: {fileID: 4190400943457545119}
+  - component: {fileID: 7195462434237288805}
   m_Layer: 0
   m_Name: Meat (1)
   m_TagString: meat
@@ -293,6 +308,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7195462434237288805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6118827750355454202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439a665e2751f5c42b3472979887555d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
 --- !u!1 &7064810941513108337
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +332,7 @@ GameObject:
   - component: {fileID: 202431998606157683}
   - component: {fileID: 3504941663752256953}
   - component: {fileID: 8154149404357445319}
+  - component: {fileID: 568537645829235223}
   m_Layer: 0
   m_Name: Bread
   m_TagString: Untagged
@@ -376,3 +405,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &568537645829235223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064810941513108337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439a665e2751f5c42b3472979887555d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ScriptTest
@@ -9,21 +8,29 @@ namespace ScriptTest
         [SerializeField] private string horizontal;
         [SerializeField] private string vertical;
         [SerializeField] private float speed;
+        [SerializeField] private float rSpeed = 100f;
         private Rigidbody _rb;
-        private float _x, _y;
+        private float _x, _z;
         
-        
+        void Awake()
+        {
+            _rb = GetComponent<Rigidbody>();
+        }
+
         private void Update()
         {
             _x = Input.GetAxisRaw(horizontal);
-            _y = Input.GetAxisRaw(vertical);
-            
-            
+            _z = Input.GetAxisRaw(vertical);
         }
 
         private void FixedUpdate()
         {
-            transform.Translate(_x*speed,0f,_y*speed);
+            Vector3 forwardMovement = transform.forward * (_z * speed);
+
+            _rb.velocity = new Vector3(forwardMovement.x, _rb.velocity.y, forwardMovement.z);
+            
+            Quaternion deltaRotation = Quaternion.Euler(Vector3.up * (_x * rSpeed * Time.fixedDeltaTime));
+            _rb.MoveRotation(_rb.rotation * deltaRotation);
         }
         
     }

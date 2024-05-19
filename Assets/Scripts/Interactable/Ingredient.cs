@@ -10,7 +10,8 @@ namespace Interactable
         
         private bool _isPicked;
         private Rigidbody _rb;
-        private Character _character;
+        [SerializeField] private GameObject _character;
+        public int id;
 
 
         private void Awake()

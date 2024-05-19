@@ -1,16 +1,18 @@
 using Interactable;
+using Playable;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class FoodPick : MonoBehaviour, IDetector
 {
-    public GameObject _player;
+    public Character _player;
     private Rigidbody _rb;
 
     private bool isPicked;
     
     private void Start()
     {
+        
         _rb = GetComponent<Rigidbody>();
     }
     

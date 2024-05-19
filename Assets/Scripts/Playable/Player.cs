@@ -14,12 +14,15 @@ namespace Playable
         [SerializeField] private Character character;
         [SerializeField] private float radius;
         [SerializeField] private LayerMask mask;
+        [SerializeField] private Transform _transform;
         
         private float _x, _z;
 
         private void Start()
         {
-            character.CharacterSetUp(speed, rotationSpeed, radius, mask);
+            _transform = transform;
+            character.CharacterSetUp(speed,rotationSpeed, radius, mask);
+           
         }
 
         private void Update()
@@ -37,11 +40,11 @@ namespace Playable
         {
             character.Move(_x, _z);
         }
-        
-        void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, radius);
-        }
+
+        // void OnDrawGizmosSelected()
+        // {
+        //     Gizmos.color = Color.red;
+        //     Gizmos.DrawWireSphere(transform.position, radius);
+        // }
     }
 }

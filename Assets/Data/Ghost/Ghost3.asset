@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b666a014bbf14b62a839372cc0c6b389, type: 3}
-  m_Name: Ingredients
+  m_Script: {fileID: 11500000, guid: 59f822781b2a4a63b2bfb19a7d283bab, type: 3}
+  m_Name: Ghost3
   m_EditorClassIdentifier: 
-  id: 0
-  ingredientName: 
+  id: 2
+  ghostName: Fantasmin3
   sprite: {fileID: 0}
-  ingredientPrefab: {fileID: 0}
+  ghostPrefab: {fileID: 0}

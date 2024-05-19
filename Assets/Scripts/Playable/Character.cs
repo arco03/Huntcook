@@ -1,8 +1,11 @@
+using System;
 using Interactable;
+using UnityEditor;
 using UnityEngine;
 
 namespace Playable
 {
+    [Serializable]
     [RequireComponent((typeof(Rigidbody)))]
     public class Character : MonoBehaviour
     {
@@ -11,17 +14,26 @@ namespace Playable
         private float _rotationSpeed;
         private float _radius;
         private LayerMask _mask;
+        [SerializeField] Transform _transform;
+        
         
         private Rigidbody _rb;
 
-        public void CharacterSetUp(float speed, float rotationSpeed, float radius, LayerMask mask)
+        public void CharacterSetUp(float speed,float rotationSpeed, float radius, LayerMask mask)
         {
+           
             _speed = speed;
             _rotationSpeed = rotationSpeed;
             _radius = radius;
             _mask = mask;
+            
         }
-        
+
+        public void Start()
+        {
+          
+        }
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
@@ -39,7 +51,8 @@ namespace Playable
 
         public void Use()
         {
-            Collider [] colliders = Physics.OverlapSphere(transform.position, _radius,_mask);
+            // Physics.OverlapSphere(transform.position, _radius,_mask);
+            Collider [] colliders = Physics.OverlapCapsule(transform.position,transform.position, _radius, _mask);
             foreach (Collider colliderDetected in colliders)
             { 
                 if(!colliderDetected) continue;

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class FoodPick : MonoBehaviour, IDetector
 {
-    public Character _player;
+    public GameObject _player;
     private Rigidbody _rb;
 
     private bool isPicked;

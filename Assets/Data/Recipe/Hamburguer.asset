@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4650721d27084426a7e6dd6cab6ed029, type: 3}
-  m_Name: Recipe
+  m_Name: Hamburguer
   m_EditorClassIdentifier: 
-  id: 0
-  recipeName: 
-  dish: {fileID: 0}
+  recipeList:
+  - {fileID: 2886729072184278678, guid: 0759ddb7321034f408f6a7748f09b6da, type: 3}
+  - {fileID: 6916756084287853809, guid: 792db3ee64e70674e949237b7be67bfc, type: 3}
+  - {fileID: -7719127496702147853, guid: c85e5ee7e55d7804aa792513b98a5b73, type: 3}

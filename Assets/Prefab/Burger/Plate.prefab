@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1260569582326072248
 Transform:
   m_ObjectHideFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
+  character: {fileID: 0}
 --- !u!1 &5620945688013706829
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,8 +137,8 @@ GameObject:
   - component: {fileID: 6720051899289129136}
   - component: {fileID: 6625002604822505865}
   - component: {fileID: 9091363281090386201}
-  - component: {fileID: 3721273932305555184}
   - component: {fileID: 8675790444762751925}
+  - component: {fileID: 8876237874891525924}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -153,9 +154,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5620945688013706829}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.19, y: 1.14, z: 4.03}
-  m_LocalScale: {x: 1.5, y: -0.02, z: 1.5}
+  m_LocalScale: {x: 1.4999999, y: -0.02, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 202431998606157683}
@@ -191,7 +192,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c2ff49c5e7a8dfb4da63ed4920339124, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,24 +214,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3721273932305555184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5620945688013706829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 670911a639c64802aec82cc728f8424d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 1
-  mask:
-    serializedVersion: 2
-    m_Bits: 8
-  meat: {fileID: 6118827750355454202}
-  meatPeople: {fileID: 0}
 --- !u!65 &8675790444762751925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -252,6 +235,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8876237874891525924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620945688013706829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b723d86aa5d0495fa0d170c9bd2a622b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipeData: {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
 --- !u!1 &6118827750355454202
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4499808272784746687
 Transform:
   m_ObjectHideFlags: 0
@@ -377,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  character: {fileID: 0}
 --- !u!1 &7064810941513108337
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &202431998606157683
 Transform:
   m_ObjectHideFlags: 0
@@ -502,3 +499,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  character: {fileID: 0}

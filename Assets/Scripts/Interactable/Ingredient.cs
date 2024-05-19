@@ -1,5 +1,4 @@
-﻿using Playable;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Interactable
 {
@@ -8,10 +7,11 @@ namespace Interactable
     {
         //Dependencies
         
+        public int id;
         private bool _isPicked;
         private Rigidbody _rb;
-        [SerializeField] private GameObject _character;
-        public int id;
+        [SerializeField] private GameObject character;
+        
 
 
         private void Awake()
@@ -25,7 +25,7 @@ namespace Interactable
             _isPicked = !_isPicked;
             if (_isPicked)
             {
-                transform.SetParent(_character.transform);
+                transform.SetParent(character.transform);
                 transform.localPosition = new Vector3(0f, 0.161f, 1f);
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
             }
@@ -34,7 +34,7 @@ namespace Interactable
                 transform.SetParent(null);
                 _rb.constraints = RigidbodyConstraints.None;
             }
-            
+            Debug.Log(id);
         }
     }
 }

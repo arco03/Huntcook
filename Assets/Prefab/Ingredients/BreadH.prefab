@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4695950510677012274}
   - component: {fileID: 2835560004794371255}
   - component: {fileID: 1320276008445047631}
-  - component: {fileID: 3499790720833279183}
   - component: {fileID: 2886729072184278678}
   m_Layer: 3
   m_Name: BreadH
@@ -30,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7498589510496062118}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.7, y: 1.07, z: -5.62}
   m_LocalScale: {x: 0.58, y: 0.12, z: 0.48999998}
   m_ConstrainProportionsScale: 0
@@ -135,19 +134,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &3499790720833279183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7498589510496062118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf80e024dbde49748ba73ee6b4b48379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 708802172702471401, guid: c8427c642b51b99498f33f7f63cb276a, type: 3}
 --- !u!114 &2886729072184278678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67b28a0aafa4204b8573249b74f4572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _character: {fileID: 4710046826062048804, guid: c8427c642b51b99498f33f7f63cb276a,
-    type: 3}
   id: 0
+  character: {fileID: 0}

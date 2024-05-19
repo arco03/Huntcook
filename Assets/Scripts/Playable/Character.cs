@@ -14,7 +14,7 @@ namespace Playable
         private float _rotationSpeed;
         private float _radius;
         private LayerMask _mask;
-        [SerializeField] Transform _transform;
+        //[SerializeField] Transform _transform;
         
         
         private Rigidbody _rb;

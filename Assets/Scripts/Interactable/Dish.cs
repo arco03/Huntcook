@@ -6,42 +6,27 @@ namespace Interactable
 {
     public class Dish : MonoBehaviour
     {
-        [SerializeField] private IngredientsData _ingredientsData;
+        [SerializeField] private List<Ingredient> ordenDeIngredientes = new List<Ingredient>();
+        private int indiceActual = 0;
+        private Ingredient _ingredientsData;
         private Queue<Ingredient> _recipeQueue;
-        private List<Ingredient> _currentRecipe;
+
+        private List<Ingredient> _currentRecipe = new List<Ingredient>();
+
         //[SerializeField] private Ingredient ingredient;
         public float radius;
         public LayerMask mask;
 
         private void Start()
         {
-            _recipeQueue = new Queue<Ingredient>(_ingredientsData.prefabs);
-            _currentRecipe = new List<Ingredient>();
+             _currentRecipe = new List<Ingredient>();
+             
         }
+
         private void Update()
         {
-            Usar();
-            //AddIngredient();
-        }
+           Usar();
 
-        private void AddIngredient()
-        {
-            if (_recipeQueue.Count == 0)
-            {
-                Debug.Log("La cola esta vacía");
-            }
-
-            Ingredient nextIngredient = _recipeQueue.Peek();
-            if (_ingredientsData.GetPrefab() == nextIngredient.id)
-            {
-                _recipeQueue.Dequeue();
-                Debug.Log($"se agregó {_ingredientsData} a la receta");
-                //Destroy(ingredient);
-            }
-            else
-            {
-                Debug.Log($"Incorrect ingredient. Expected {nextIngredient.id}.");
-            }
         }
 
         private void Usar()
@@ -52,11 +37,51 @@ namespace Interactable
             {
                 if (!colliderDetected) continue;
 
-                Debug.Log($"Entró ");
-                
+                Ingredient ingredient = colliderDetected.GetComponent<Ingredient>();
+
+                if (ingredient)
+                {
+                    AddIngredient(ingredient);
+
+                }
+
+
             }
+
+        }
+
+        public void AddIngredient(Ingredient ingredient)
+        {
+
+            if (indiceActual < ordenDeIngredientes.Count && ordenDeIngredientes[indiceActual] == ingredient &&
+                ingredient.currentState == State.Captured)
+            {
+                AgregarIngredienteALaReceta(ingredient);
+                // Avanza al siguiente ingrediente en la lista
+                Debug.Log("indice" + indiceActual);
+                indiceActual++;
+            }
+
+
+        }
+
+        private void AgregarIngredienteALaReceta(Ingredient ingredient)
+        {
+            _currentRecipe.Add(ingredient);
+            Debug.Log($"Se agregó el ingrediente con ID {ingredient.id} a la receta.");
             
+            Debug.Log($"order {ordenDeIngredientes.Count} ");
+            if (ingredient.id == ordenDeIngredientes.Count)
+            {
+                Debug.Log("¡Receta completa!");
+                
+                // Aquí puedes hacer algo cuando se completa la receta
+            }
         }
     }
-
 }
+
+        
+
+    
+

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028359, g: 0.22571385, b: 0.30692258, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,27 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &271866741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6162877708510354223, guid: 792db3ee64e70674e949237b7be67bfc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1716882252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &271866748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271866741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67b28a0aafa4204b8573249b74f4572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1774915599}
+  currentState: 0
+  id: 2
 --- !u!1 &442012613
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +380,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573287245}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &656576889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7498589510496062118, guid: 0759ddb7321034f408f6a7748f09b6da,
+    type: 3}
+  m_PrefabInstance: {fileID: 2103659045}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &656576896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656576889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67b28a0aafa4204b8573249b74f4572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1774915599}
+  currentState: 0
+  id: 1
 --- !u!1 &772273368
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +866,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meat
       objectReference: {fileID: 0}
+    - target: {fileID: 6162877708510354223, guid: 792db3ee64e70674e949237b7be67bfc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916756084287853809, guid: 792db3ee64e70674e949237b7be67bfc,
+        type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6916756084287853809, guid: 792db3ee64e70674e949237b7be67bfc,
         type: 3}
       propertyPath: character
@@ -879,10 +931,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6916756084287853809, guid: 792db3ee64e70674e949237b7be67bfc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6162877708510354223, guid: 792db3ee64e70674e949237b7be67bfc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 271866748}
   m_SourcePrefab: {fileID: 100100000, guid: 792db3ee64e70674e949237b7be67bfc, type: 3}
 --- !u!1 &1774915599
 GameObject:
@@ -1055,7 +1112,7 @@ MonoBehaviour:
   radius: 1
   mask:
     serializedVersion: 2
-    m_Bits: 200
+    m_Bits: 448
   _transform: {fileID: 0}
 --- !u!1 &1832114819
 GameObject:
@@ -1175,6 +1232,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1909681768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2415893929982603212, guid: c85e5ee7e55d7804aa792513b98a5b73,
+    type: 3}
+  m_PrefabInstance: {fileID: 2069232984}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1909681775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909681768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67b28a0aafa4204b8573249b74f4572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1774915599}
+  currentState: 0
+  id: 3
 --- !u!1001 &2069232984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1183,6 +1261,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7719127496702147853, guid: c85e5ee7e55d7804aa792513b98a5b73,
+        type: 3}
+      propertyPath: id
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -7719127496702147853, guid: c85e5ee7e55d7804aa792513b98a5b73,
         type: 3}
       propertyPath: character
@@ -1248,10 +1331,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7719127496702147853, guid: c85e5ee7e55d7804aa792513b98a5b73, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2415893929982603212, guid: c85e5ee7e55d7804aa792513b98a5b73,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1909681775}
   m_SourcePrefab: {fileID: 100100000, guid: c85e5ee7e55d7804aa792513b98a5b73, type: 3}
 --- !u!1001 &2103659045
 PrefabInstance:
@@ -1313,6 +1401,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2886729072184278678, guid: 0759ddb7321034f408f6a7748f09b6da,
         type: 3}
+      propertyPath: id
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2886729072184278678, guid: 0759ddb7321034f408f6a7748f09b6da,
+        type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 1774915599}
@@ -1326,10 +1419,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2886729072184278678, guid: 0759ddb7321034f408f6a7748f09b6da, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7498589510496062118, guid: 0759ddb7321034f408f6a7748f09b6da,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 656576896}
   m_SourcePrefab: {fileID: 100100000, guid: 0759ddb7321034f408f6a7748f09b6da, type: 3}
 --- !u!1001 &726650097993537510
 PrefabInstance:
@@ -1402,7 +1500,7 @@ PrefabInstance:
     - target: {fileID: 8876237874891525924, guid: 90ba0c6a04c85654ba760a1e005c6561,
         type: 3}
       propertyPath: mask.m_Bits
-      value: 200
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8876237874891525924, guid: 90ba0c6a04c85654ba760a1e005c6561,
         type: 3}
@@ -1410,6 +1508,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: bc54677a8e0cf4b43bd2c40c7016ca0b,
         type: 2}
+    - target: {fileID: 8876237874891525924, guid: 90ba0c6a04c85654ba760a1e005c6561,
+        type: 3}
+      propertyPath: ordenDeIngredientes.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876237874891525924, guid: 90ba0c6a04c85654ba760a1e005c6561,
+        type: 3}
+      propertyPath: ordenDeIngredientes.Array.data[0]
+      value: 
+      objectReference: {fileID: 656576896}
+    - target: {fileID: 8876237874891525924, guid: 90ba0c6a04c85654ba760a1e005c6561,
+        type: 3}
+      propertyPath: ordenDeIngredientes.Array.data[1]
+      value: 
+      objectReference: {fileID: 271866748}
+    - target: {fileID: 8876237874891525924, guid: 90ba0c6a04c85654ba760a1e005c6561,
+        type: 3}
+      propertyPath: ordenDeIngredientes.Array.data[2]
+      value: 
+      objectReference: {fileID: 1909681775}
+    - target: {fileID: 8876237874891525924, guid: 90ba0c6a04c85654ba760a1e005c6561,
+        type: 3}
+      propertyPath: ordenDeIngredientes.Array.data[3]
+      value: 
+      objectReference: {fileID: 1909681775}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

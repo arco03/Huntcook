@@ -1,4 +1,7 @@
-﻿using System;using UnityEngine;
+﻿using System;
+using Installer;
+using Playable;
+using UnityEngine;
 
 namespace Interactable
 {
@@ -16,15 +19,18 @@ namespace Interactable
         private static int nextID = 0;
         private bool _isPicked;
         private Rigidbody _rb;
-        [SerializeField] private GameObject character;
+        private Character character;
         public State currentState;
         public int id;
 
         private void Awake()
         {
+            id = nextID;
+            nextID++;
             _rb = GetComponent<Rigidbody>();
             _rb.useGravity = false;
             currentState = State.Point;
+            character = FindObjectOfType<Character>();
         }
 
         public void Interaction()

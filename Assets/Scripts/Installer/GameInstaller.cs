@@ -3,6 +3,7 @@ using Interactable;
 using Playable;
 using Scriptable;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 namespace Installer
@@ -11,7 +12,7 @@ namespace Installer
     {
         [SerializeField] private ListGhost config;
         [SerializeField] private IngredientsData configFood;
-      
+        
         private ConfigureFactory _enemy;
         private FactoryFood _food;
         
@@ -28,12 +29,17 @@ namespace Installer
         {
             for(int i = 0; i < 3; i++)
             { 
+                float posX = Random.Range(-5, 5);
+                float posZ = Random.Range(-3, 8);
+                
                 GhostGame enemy = _enemy.Create(0);
                 Ingredient food = _food.Create(i);
                 
                 food.transform.position = new Vector3(6.57000017f,1.71200001f ,0f+i * 2);
-                enemy.transform.position = new Vector3(-1.48000002f + i, 1f, 3.6500001f + i);
-                
+                enemy.transform.position = new Vector3(posX , 1f, posZ );
+
+                // enemy.AddIngredient(food);
+
             }
             
             

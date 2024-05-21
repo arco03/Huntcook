@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hamburguer
   m_EditorClassIdentifier: 
   recipeList:
-  - {fileID: 3336274884889717181, guid: 06dcfa60d26724a4390d738641c59459, type: 3}
-  - {fileID: 6595132448279656250, guid: f9be8ac3fc8f5f748930249924bbfbbd, type: 3}
-  - {fileID: 2762723294121221245, guid: ec32c974415e8e04787cd68dd7f6ebf0, type: 3}
+  - {fileID: 2886729072184278678, guid: 0759ddb7321034f408f6a7748f09b6da, type: 3}
+  - {fileID: 6916756084287853809, guid: 792db3ee64e70674e949237b7be67bfc, type: 3}
+  - {fileID: -7719127496702147853, guid: c85e5ee7e55d7804aa792513b98a5b73, type: 3}

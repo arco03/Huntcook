@@ -824,11 +824,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Meat
       objectReference: {fileID: 0}
-    - target: {fileID: 6916756084287853809, guid: 792db3ee64e70674e949237b7be67bfc,
-        type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 1774915599}
     - target: {fileID: 9163335944637199492, guid: 792db3ee64e70674e949237b7be67bfc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1056,7 +1051,6 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 200
-  _transform: {fileID: 0}
 --- !u!1 &1832114819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,20 +1177,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7719127496702147853, guid: c85e5ee7e55d7804aa792513b98a5b73,
-        type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 1774915599}
     - target: {fileID: 2415893929982603212, guid: c85e5ee7e55d7804aa792513b98a5b73,
         type: 3}
       propertyPath: m_Name
       value: Bread2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415893929982603212, guid: c85e5ee7e55d7804aa792513b98a5b73,
-        type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8402784925618356413, guid: c85e5ee7e55d7804aa792513b98a5b73,
         type: 3}
@@ -1311,20 +1295,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2886729072184278678, guid: 0759ddb7321034f408f6a7748f09b6da,
-        type: 3}
-      propertyPath: character
-      value: 
-      objectReference: {fileID: 1774915599}
     - target: {fileID: 7498589510496062118, guid: 0759ddb7321034f408f6a7748f09b6da,
         type: 3}
       propertyPath: m_Name
       value: BreadH
-      objectReference: {fileID: 0}
-    - target: {fileID: 7498589510496062118, guid: 0759ddb7321034f408f6a7748f09b6da,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

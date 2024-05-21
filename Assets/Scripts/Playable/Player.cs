@@ -14,13 +14,11 @@ namespace Playable
         [SerializeField] private Character character;
         [SerializeField] private float radius;
         [SerializeField] private LayerMask mask;
-        [SerializeField] private Transform _transform;
         
         private float _x, _z;
 
         private void Start()
         {
-            _transform = transform;
             character.CharacterSetUp(speed,rotationSpeed, radius, mask);
            
         }

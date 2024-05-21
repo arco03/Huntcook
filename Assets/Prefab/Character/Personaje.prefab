@@ -343,12 +343,11 @@ MonoBehaviour:
   vertical: Vertical
   speed: 10
   rotationSpeed: 180
-  character: {fileID: 0}
+  character: {fileID: 1777460480515452284}
   radius: 1
   mask:
     serializedVersion: 2
     m_Bits: 8
-  _transform: {fileID: 8061012455252980502}
 --- !u!114 &1777460480515452284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,5 +360,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6599f2eee48d88242a053c5d9a8cf517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transform: {fileID: 0}
-  _character: {fileID: 0}

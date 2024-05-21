@@ -29,10 +29,6 @@ namespace Playable
             
         }
 
-        public void Start()
-        {
-          
-        }
 
         private void Awake()
         {

@@ -147,4 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  character: {fileID: 0}
+  character: {fileID: 4710046826062048804, guid: c8427c642b51b99498f33f7f63cb276a,
+    type: 3}

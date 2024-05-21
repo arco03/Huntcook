@@ -86,10 +86,7 @@ namespace Interactable
         {
             if (ingredient.id == indiceActual && indiceActual<configFood.recipeList.Count)
             {
-                if (ingredient!= null)
-                {
-                    Destroy(ingredient.gameObject);
-                }
+                if (ingredient!= null) Destroy(ingredient.gameObject);
                 
                 Ingredient food = _food.Create(indiceActual);
                 food.transform.SetParent(this.transform);

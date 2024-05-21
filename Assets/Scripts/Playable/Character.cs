@@ -45,6 +45,7 @@ namespace Playable
             _rb.MoveRotation(_rb.rotation * deltaRotation);
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         public void Use()
         {
             // Physics.OverlapSphere(transform.position, _radius,_mask);

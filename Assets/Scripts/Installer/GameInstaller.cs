@@ -27,13 +27,16 @@ namespace Installer
         public void Start()
         {
             for(int i = 0; i < 3; i++)
-            {
-                GhostGame enemy = _enemy.Create(i);
+            { 
+                GhostGame enemy = _enemy.Create(0);
                 Ingredient food = _food.Create(i);
                 
-                food.transform.position = new Vector3(-5.18715763f + i,1.04999995f,-5.63000011f);
-                enemy.transform.position = new Vector3(-1.48000002f + i, 1f, 3.6500001f);
+                food.transform.position = new Vector3(6.57000017f,1.71200001f ,0f+i * 2);
+                enemy.transform.position = new Vector3(-1.48000002f + i, 1f, 3.6500001f + i);
+                
             }
+            
+            
 
 
 

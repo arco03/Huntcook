@@ -39,10 +39,10 @@ namespace Playable
             character.Move(_x, _z);
         }
 
-        // void OnDrawGizmosSelected()
-        // {
-        //     Gizmos.color = Color.red;
-        //     Gizmos.DrawWireSphere(transform.position, radius);
-        // }
+         void OnDrawGizmosSelected()
+         {
+             Gizmos.color = Color.red;
+             Gizmos.DrawWireSphere(transform.position, radius);
+         }
     }
 }

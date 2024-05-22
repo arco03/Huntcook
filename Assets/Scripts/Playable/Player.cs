@@ -14,7 +14,8 @@ namespace Playable
         [SerializeField] private Character character;
         [SerializeField] private float radius;
         [SerializeField] private LayerMask mask;
-        
+        [SerializeField] private Transform tf;
+        // [SerializeField] private GameObject light;
         private float _x, _z;
 
         private void Start()
@@ -32,17 +33,22 @@ namespace Playable
             {
                 character.Use();
             }
+            character.Rayo();
         }
 
         private void FixedUpdate()
         {
             character.Move(_x, _z);
         }
-
+         
          void OnDrawGizmosSelected()
          {
              Gizmos.color = Color.red;
              Gizmos.DrawWireSphere(transform.position, radius);
+             Vector3 direction = tf.TransformDirection(Vector3.forward) * 3;
+             Gizmos.DrawRay(tf.position, direction);
+            
+             
          }
     }
 }

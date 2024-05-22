@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Interactable;
 using Playable;
 using Scriptable;
+using Spawner;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -21,57 +22,44 @@ namespace Installer
         [SerializeField] private Transform ghostVector1;
         [SerializeField] private Transform ghostVector2;
         [SerializeField] private List<Transform> ingredientsSpawnPoints;
-        
+        [SerializeField] private RecipeData _recipeData;
+
+        // MonoState
+        public static List<Ingredient> Ingredients = new List<Ingredient>();
+        public static List<GhostGame> Ghosts = new List<GhostGame>();
+
         private ConfigureFactory _enemy;
-        private FactoryFood _food;
+        private IngredientSpawner _ingredientSpawner;
 
         public int id;
 
         public void Awake()
         {
             _enemy = new ConfigureFactory(config);
-            _food = new FactoryFood(configFood);
-
+            FactoryFood factoryFood = new FactoryFood(configFood);
+            _ingredientSpawner = new IngredientSpawner(ingredientsSpawnPoints, factoryFood, _recipeData.recipeList);
         }
 
         private void Start()
         {
-            StartCoroutine(Timer());
-
+            _ingredientSpawner.Initialize();
         }
         
-
-        public void Spawners()
+        private void SpawnGhosts()
         {
             for (int i = 0; i < 3; i++)
             {
                 float posEnemyX = Random.Range(Mathf.Max(ghostVector1.position.x, ghostVector2.position.x),Mathf.Min(ghostVector1.position.x, ghostVector2.position.x));
                 float posEnemyZ = Random.Range(Mathf.Max(ghostVector1.position.z, ghostVector2.position.z), Mathf.Min(ghostVector1.position.z, ghostVector2.position.z));
-                
-                int randomIndex = Random.Range(0, ingredientsSpawnPoints.Count);
-                
-                Transform randomSpawnPoint = ingredientsSpawnPoints[randomIndex];
-                
                 GhostGame enemy = _enemy.Create(0);
-                Ingredient food = _food.Create(i);
-
-                food.transform.position = new Vector3(randomSpawnPoint.position.x,randomSpawnPoint.position.y,randomSpawnPoint.position.z);
+                
+                Ghosts.Add(enemy);
+                
                 enemy.transform.position = new Vector3(posEnemyX, 1f, posEnemyZ);
-                
-                
-                
-                //float posFoodX = Random.Range(Mathf.Max(ingredientsVector1.position.x,ingredientsVector2.position.x),Mathf.Min(ingredientsVector1.position.x,ingredientsVector2.position.x));
-               //float posFoodZ = Random.Range(Mathf.Max(ingredientsVector1.position.z,ingredientsVector2.position.z),Mathf.Min(ingredientsVector1.position.z,ingredientsVector2.position.z));
-                // enemy.AddIngredient(food);
             }
         }
-        IEnumerator Timer()
-        {
-            
-            yield return new WaitForSeconds(5f);
-            Spawners();
-            
-        }
+
+
     }
 }
 

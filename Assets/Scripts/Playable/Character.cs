@@ -14,6 +14,7 @@ namespace Playable
         private float _rotationSpeed;
         private float _radius;
         private LayerMask _mask;
+        // private  GameObject _light;
         //[SerializeField] Transform _transform;
         
         
@@ -21,7 +22,7 @@ namespace Playable
 
         public void CharacterSetUp(float speed,float rotationSpeed, float radius, LayerMask mask)
         {
-           
+            // _light = light;
             _speed = speed;
             _rotationSpeed = rotationSpeed;
             _radius = radius;
@@ -34,6 +35,7 @@ namespace Playable
         {
             _rb = GetComponent<Rigidbody>();
         }
+        
 
         public void Move(float x, float z)
         { 
@@ -50,12 +52,32 @@ namespace Playable
         {
             // Physics.OverlapSphere(transform.position, _radius,_mask);
             Collider [] colliders = Physics.OverlapCapsule(transform.position,transform.position, _radius, _mask);
+           
             foreach (Collider colliderDetected in colliders)
             { 
                 if(!colliderDetected) continue;
            
                 colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
                 component?.Interaction();
+            }
+
+
+            
+        }
+
+        public void Rayo()
+        {
+            Ray ray = new Ray(transform.position, transform.forward);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 3f, _mask))
+            { 
+                // _light.gameObject.SetActive(true);
+                Debug.Log("detecto");
+                
+            }
+            else
+            {
+                // _light.gameObject.SetActive(false);
             }
         }
     }

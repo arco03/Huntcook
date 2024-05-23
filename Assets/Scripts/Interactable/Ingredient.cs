@@ -28,7 +28,7 @@ namespace Interactable
             id = nextID;
             nextID++;
             _rb = GetComponent<Rigidbody>();
-            _rb.useGravity = false;
+            // _rb.useGravity = false;
             currentState = State.Point;
             character = FindObjectOfType<Character>();
         }

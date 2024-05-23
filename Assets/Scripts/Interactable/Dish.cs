@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Installer;
 using Scriptable;
@@ -98,9 +99,17 @@ namespace Interactable
             {
                 anim.enabled = true;
                 Debug.Log("Receta lista");
-                
+                StartCoroutine(Timer());
+
             }
  
+            
+        }
+        IEnumerator Timer()
+        {
+            
+            yield return new WaitForSeconds(5f);
+            anim.SetTrigger("Activate");
             
         }
 

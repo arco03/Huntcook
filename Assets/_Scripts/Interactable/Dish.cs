@@ -5,11 +5,16 @@ using UnityEngine;
 
 namespace Interactable
 {
+    public enum DishState
+    {
+        Clean,
+        Done,
+    }
     public class Dish : MonoBehaviour
     {
         [SerializeField] private DishData recipeData;
         [SerializeField] private List<GameObject> ingredientsPrefabs;
-        
+        public DishState currentState;
         private Animator _anim;
         private int _currentIngredient;
         
@@ -21,6 +26,7 @@ namespace Interactable
 
         private void Start()
         {
+            currentState = DishState.Clean;
             foreach (GameObject prefab in ingredientsPrefabs)
             {
                 prefab.SetActive(false);
@@ -44,6 +50,7 @@ namespace Interactable
             if (_currentIngredient >= recipeData.ingredientsList.Count)
             {
                 _anim.enabled = true;
+                currentState = DishState.Done;
                 StartCoroutine(Timer());
             }
         }

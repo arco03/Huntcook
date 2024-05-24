@@ -18,6 +18,7 @@ namespace Interactable
         private Animator _anim;
         private int _currentIngredient;
         
+        
         private void Awake()
         {
             _anim = GetComponent<Animator>();

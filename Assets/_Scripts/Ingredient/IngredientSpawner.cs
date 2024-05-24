@@ -38,6 +38,7 @@ namespace _Scripts.Ingredient
 
                 Vector3 ingredientPointTransform = ingredientPoint.transform.position;
                 food.transform.position = new Vector3(ingredientPointTransform.x, ingredientPointTransform.y, ingredientPointTransform.z);
+                
             }
         }
 

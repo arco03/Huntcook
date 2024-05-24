@@ -7,7 +7,7 @@ namespace _Scripts.Ghost
         private readonly Transform _ghostVector1;
         private readonly Transform _ghostVector2;
         private readonly GhostFactory _ghostFactory;
-
+        [HideInInspector] public Ghost enemy;
         public GhostSpawner(Transform ghostVector1, Transform ghostVector2, GhostFactory ghostFactory)
         {
             _ghostVector1 = ghostVector1;
@@ -15,7 +15,7 @@ namespace _Scripts.Ghost
             _ghostFactory = ghostFactory;
         }
 
-        public void Spawn(GhostData data)
+        public void Spawn(GhostData data,Transform parent)
         {
             float posEnemyX = Random.Range(
                 Mathf.Max(_ghostVector1.position.x, _ghostVector2.position.x),
@@ -25,8 +25,10 @@ namespace _Scripts.Ghost
                 Mathf.Max(_ghostVector1.position.z, _ghostVector2.position.z),
                 Mathf.Min(_ghostVector1.position.z, _ghostVector2.position.z)
                 );
-            Ghost enemy = _ghostFactory.Create(data);
+            enemy = _ghostFactory.Create(data);
             enemy.transform.position = new Vector3(posEnemyX, 1f, posEnemyZ);
+            
+            enemy.transform.SetParent(parent);
         }
     }
 }

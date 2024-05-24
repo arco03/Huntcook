@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace _Scripts.Ghost
 {
@@ -8,8 +9,8 @@ namespace _Scripts.Ghost
     {
         public GhostData ghostData;
         public Transform target;
-
-        private bool _takeDamage = false;
+        
+       
         private int _maxHealth;
         private int _currentHealth;
 
@@ -18,10 +19,12 @@ namespace _Scripts.Ghost
             _maxHealth = 3;
             _currentHealth = _maxHealth;
         }
-        
+
+
+
         public void TakeDamage(int damage)
         {
-            _takeDamage = true;
+            
             _currentHealth -= damage;
 
             if (_currentHealth <= 0)
@@ -29,7 +32,8 @@ namespace _Scripts.Ghost
                 Debug.Log("Ghost Destroyed");
                 Destroy(gameObject);
             }
-            _takeDamage = false;
+            
         }
+        
     }
 }

@@ -14,7 +14,7 @@ namespace _Scripts.Installer
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
         [SerializeField] private DishData dishData;
         [SerializeField] private GhostData ghostData;
-
+        [SerializeField] private Transform ghost;
         [Header("Spawner Configurations")]
         [SerializeField] private float repeatingTime;
         
@@ -36,12 +36,9 @@ namespace _Scripts.Installer
 
         private void Start()
         {
-            _ingredientSpawner.Initialize();
-
-            for (int i = 0; i < 3; i++)
-            {
-                _ghostSpawner.Spawn(ghostData);
-            }
+            _ingredientSpawner.Initialize(); 
+            _ghostSpawner.Spawn(ghostData,ghost);
+            
 
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
         }

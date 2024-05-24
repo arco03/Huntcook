@@ -17,6 +17,7 @@ namespace _Scripts.Dish
         private Animator _anim;
         private int _currentIngredient;
         
+        
         private void Awake()
         {
             _anim = GetComponent<Animator>();

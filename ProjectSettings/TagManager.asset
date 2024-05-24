@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - meat
+  - Ghost
   layers:
   - Default
   - TransparentFX

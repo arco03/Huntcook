@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Installer;
-using Interactable;
-using Scriptable;
-using Spawner;
+﻿using System.Collections.Generic;
+using _Scripts.Dish;
+using _Scripts.Ghost;
+using _Scripts.Ingredient;
 using UnityEngine;
 
 namespace _Scripts.Installer

@@ -26,7 +26,7 @@ namespace _Scripts.Ingredient
             currentState = State.Point;
         }
         
-        public void Interaction(Character character)
+        public void Interaction(Transform character)
         {
             _isPicked = !_isPicked;
             if (_isPicked)

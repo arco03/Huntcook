@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using _Scripts.Dish;
 using _Scripts.Ghost;
 using _Scripts.Ingredient;
 using UnityEngine;
+using Vector3 = System.Numerics.Vector3;
 
 namespace _Scripts.Installer
 {
@@ -13,7 +16,7 @@ namespace _Scripts.Installer
         [SerializeField] private GhostConfiguration ghostConfiguration;
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
         [SerializeField] private DishData dishData;
-        [SerializeField] private GhostData ghostData;
+        [SerializeField] private GhostData[] ghostData;
         [SerializeField] private Transform ghost;
         [Header("Spawner Configurations")]
         [SerializeField] private float repeatingTime;
@@ -21,8 +24,11 @@ namespace _Scripts.Installer
         [Header("Spawner Positions")]
         [SerializeField] private Transform ghostVector1;
         [SerializeField] private Transform ghostVector2;
-        [SerializeField] private List<IngredientPoint> ingredientPoints;
-        
+        public List<IngredientPoint> ingredientPoints;
+        private readonly Dictionary<StateIa, UnityEngine.Vector3> _positions = new ();
+        public StateIa[] enums;
+        private static GameInstaller _instance;
+        public static GameInstaller Instance => _instance;
         private GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
 
@@ -36,16 +42,36 @@ namespace _Scripts.Installer
 
         private void Start()
         {
-            _ingredientSpawner.Initialize(); 
-            _ghostSpawner.Spawn(ghostData,ghost);
-            
+            for (int i = 0; i < enums.Length; i++)
+            {
+                _positions.Add( enums[i],ingredientPoints[i].transform.position );
+            }
+            _instance = this;
+            _ingredientSpawner.Initialize();
+            StartCoroutine(GhostTime());
+  
 
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
+        }
+
+        public void Update()
+        {
+            
         }
 
         private void Spawn()
         {
             _ingredientSpawner.Spawn();
+        }
+
+        IEnumerator GhostTime()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                _ghostSpawner.Spawn(ghostData[i],ghost);
+                yield return new WaitForSeconds(2f);
+            }
+            
         }
     }
 }

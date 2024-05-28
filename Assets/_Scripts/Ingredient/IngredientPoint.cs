@@ -12,12 +12,18 @@ namespace _Scripts.Ingredient
     
     public class IngredientPoint : MonoBehaviour
     {
-        public PointState state;
+        public  PointState state;
         public IngredientData ingredientData;
+
+
+        private void Start()
+        {
+            
+            GetComponent<MeshRenderer>().enabled = false;
+            
+        } 
         
-        private void Start() => GetComponent<MeshRenderer>().enabled = false;
-        
-        private void OnTriggerEnter(Collider other)
+        public void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent<Ingredient>(out Ingredient ingredient))
             {
@@ -28,9 +34,10 @@ namespace _Scripts.Ingredient
                 }
             }
             Debug.Log($"{name}: Enter {other.name}");
+            
         }
 
-        private void OnTriggerExit(Collider other)
+        public void OnTriggerExit(Collider other)
         {
             if (other.TryGetComponent<Ingredient>(out Ingredient ingredient))
             {
@@ -41,5 +48,6 @@ namespace _Scripts.Ingredient
             }
             Debug.Log($"{name}: Exit {other.name}");
         }
+
     }
 }

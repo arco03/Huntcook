@@ -8,7 +8,14 @@ public class Door : MonoBehaviour
    [SerializeField] private Animator anim;
    [SerializeField] private String detected;
 
-    private void OnCollisionEnter(Collision other)
+   
+
+   private void Start()
+   {
+       anim.enabled = false;
+   }
+
+   private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag(detected))
         {

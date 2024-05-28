@@ -202,6 +202,8 @@ GameObject:
   - component: {fileID: 5287986198921984675}
   - component: {fileID: 4735200592730983361}
   - component: {fileID: 4405650380731400405}
+  - component: {fileID: 8470781869286572785}
+  - component: {fileID: -896934218435837982}
   m_Layer: 11
   m_Name: Ghost 3
   m_TagString: Ghost
@@ -219,7 +221,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.8, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2036858965358562222}
@@ -340,3 +342,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostData: {fileID: 11400000, guid: d4df81cffc431a744935ec2e5278a0d2, type: 2}
   target: {fileID: 0}
+--- !u!114 &8470781869286572785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710046826062048804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cca31ec1a44c8b9bccf9a8523362b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _point: 0
+  agent: {fileID: -896934218435837982}
+  name: Meat
+  offsetUpper: {x: 0, y: 1, z: 1}
+  offsetLower: {x: 0, y: -1, z: 1}
+  radius: 1
+  ingredientMask:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!195 &-896934218435837982
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710046826062048804}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

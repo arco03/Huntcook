@@ -56,7 +56,7 @@ namespace _Scripts.Player
                 if(!colliderDetected) continue;
            
                 colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
-                component?.Interaction(this);
+                component?.Interaction(this.transform);
                 Debug.Log("Entra aca");
                 break;
             }

@@ -32,7 +32,7 @@ namespace _Scripts.Ingredient
             if (_isPicked)
             {
                 transform.SetParent(character);
-                transform.localPosition = new Vector3(0f, 0.161f, 1f);
+                transform.localPosition = Vector3.zero;
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
                 currentState = State.Captured;
             }
@@ -40,9 +40,14 @@ namespace _Scripts.Ingredient
             {
                 transform.SetParent(null);
                 _rb.constraints = RigidbodyConstraints.None;
-                
             }
         
+        }
+
+        public void Destroy()
+        {
+            Debug.Log(name);
+            Destroy(gameObject);
         }
         
     }

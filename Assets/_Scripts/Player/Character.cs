@@ -16,7 +16,8 @@ namespace _Scripts.Player
         [SerializeField] private LayerMask ingredientMask;
         [SerializeField] private LayerMask ghostMask;
         [SerializeField] private float attackRadius;
-
+        [SerializeField] private Transform collectPoint;
+        
         
         private int _attackDamage = 1;
         public bool isAttacking;
@@ -56,7 +57,7 @@ namespace _Scripts.Player
                 if(!colliderDetected) continue;
            
                 colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
-                component?.Interaction(this.transform);
+                component?.Interaction(collectPoint);
                 Debug.Log("Entra aca");
                 break;
             }

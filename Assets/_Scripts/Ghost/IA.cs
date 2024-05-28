@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using _Scripts.Ingredient;
 using _Scripts.Installer;
 using Unity.VisualScripting;
@@ -8,7 +6,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
 using Color = UnityEngine.Color;
-using State = _Scripts.Ingredient.State;
 
 namespace _Scripts.Ghost
 {
@@ -20,15 +17,16 @@ namespace _Scripts.Ghost
     }
     public class IA : MonoBehaviour
     {
-        public StateIa _point;
+        public StateIa point;
         [SerializeField] private NavMeshAgent agent;
-        [SerializeField] private String name;
+        [SerializeField] private IngredientData data;
         private readonly Dictionary<StateIa, Vector3> _positions = new Dictionary<StateIa, Vector3>();
         [SerializeField] private Vector3 offsetUpper;
         [SerializeField] private Vector3 offsetLower;
         [SerializeField] private float radius;
         [SerializeField] private LayerMask ingredientMask;
-        private List<IngredientPoint> pointIngredient;
+        [SerializeField] private Transform collectPoint;
+        
         private Ingredient.Ingredient _ingredient;
         private Ghost _ghost;
         private IngredientData _ingredientData;
@@ -37,48 +35,44 @@ namespace _Scripts.Ghost
         {
             agent = GetComponent<NavMeshAgent>();
             _ghost = FindObjectOfType<Ghost>();
-             pointIngredient = GameInstaller.Instance.ingredientPoints;
+             
              _ingredient = FindObjectOfType<Ingredient.Ingredient>();
             
+             
+             SetUpLocation();
         }
         public void Update()
         {
-           Location();
            Detection();
-           Move(_point);
-
+           Move(point);
         }
 
          private void Move(StateIa state)
          {
              Vector3 destine = _positions[state];
              agent.SetDestination(destine);
-        
          }
 
-         private void Location()
+         private void SetUpLocation()
          {
-            
-             foreach (var points in pointIngredient)
+             List<IngredientPoint> pointIngredient= GameInstaller.Instance.ingredientPoints;
+             foreach (IngredientPoint points in pointIngredient)
              {
-                  if (points.state == PointState.Taken && points.ingredientData.ingredientName == name)
+                  if (points.state == PointState.Taken && points.ingredientData == data)
                  {
                      _positions[StateIa.Search] = points.transform.position;
-                     _point = StateIa.Search;
+                     point = StateIa.Search;
                      break; 
                  }
                   
              }
-
-     
-             
          }
 
 
-
-         // ReSharper disable Unity.PerformanceAnalysis
          private void Detection()
          {
+             if (_ghostDetection) return;
+             
              Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
              Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
          
@@ -90,17 +84,18 @@ namespace _Scripts.Ghost
            
              foreach (Collider colliderDetected in colliders)
              { 
-                 if(!colliderDetected) continue;
-              
-                     colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
-                     component?.Interaction(this.transform);
-                     
-                     
-                     var transformPosition = GameInstaller.Instance._ghostSpawner.Enemypositions;
-                      _point = StateIa.Taken;
-                     _positions[StateIa.Taken] = transformPosition;
-                     // _ghostDetection = true;
-                     break;
+                if(!colliderDetected) continue;
+                
+                colliderDetected.gameObject.TryGetComponent(out Ingredient.Ingredient ingredient);
+                if (ingredient.ingredientData != data) continue;
+
+                ingredient.Interaction(collectPoint);
+                Vector3 transformPosition = GameInstaller.Instance._ghostSpawner.Enemypositions;
+                _positions[StateIa.Taken] = transformPosition;
+                point = StateIa.Taken;
+
+                _ghostDetection = true;
+                break;
              }
          }
 
@@ -108,8 +103,12 @@ namespace _Scripts.Ghost
          // {
          //     if (other.gameObject.CompareTag("Door") && _ghostDetection)
          //     {
-         //         Destroy(this._ingredient.gameObject);
-         //         _point = StateIa.Search;
+         //         if (_ingredient != null)
+         //         {
+         //            _ingredient.Destroy();
+         //            point = StateIa.Search;
+         //         }
+         //
          //     }
          // }
 

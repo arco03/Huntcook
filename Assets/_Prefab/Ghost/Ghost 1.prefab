@@ -354,9 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cca31ec1a44c8b9bccf9a8523362b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: 0
-  _agent: {fileID: -5306307342354255108}
-  current: 0
+  _point: 0
+  agent: {fileID: -5306307342354255108}
   name: Bread A
   offsetUpper: {x: 0, y: 1, z: 1}
   offsetLower: {x: 0, y: -1, z: 1}

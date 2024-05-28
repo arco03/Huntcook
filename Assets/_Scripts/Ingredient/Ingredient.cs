@@ -31,7 +31,7 @@ namespace _Scripts.Ingredient
             _isPicked = !_isPicked;
             if (_isPicked)
             {
-                transform.SetParent(character.transform);
+                transform.SetParent(character);
                 transform.localPosition = new Vector3(0f, 0.161f, 1f);
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
                 currentState = State.Captured;

@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using System.Drawing;
 using _Scripts.Ingredient;
 using _Scripts.Installer;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
 using Color = UnityEngine.Color;
+using State = _Scripts.Ingredient.State;
 
 namespace _Scripts.Ghost
 {
     public enum StateIa
     {
+       
         Search,
         Taken,
     }
     public class IA : MonoBehaviour
     {
-        private StateIa _point;
+        public StateIa _point;
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private String name;
         private readonly Dictionary<StateIa, Vector3> _positions = new Dictionary<StateIa, Vector3>();
@@ -25,9 +28,18 @@ namespace _Scripts.Ghost
         [SerializeField] private Vector3 offsetLower;
         [SerializeField] private float radius;
         [SerializeField] private LayerMask ingredientMask;
+        private List<IngredientPoint> pointIngredient;
+        private Ingredient.Ingredient _ingredient;
+        private Ghost _ghost;
+        private IngredientData _ingredientData;
+        private bool _ghostDetection = false;
         public void Start()
         {
             agent = GetComponent<NavMeshAgent>();
+            _ghost = FindObjectOfType<Ghost>();
+             pointIngredient = GameInstaller.Instance.ingredientPoints;
+             _ingredient = FindObjectOfType<Ingredient.Ingredient>();
+            
         }
         public void Update()
         {
@@ -46,25 +58,30 @@ namespace _Scripts.Ghost
 
          private void Location()
          {
-             var pointIngredient = GameInstaller.Instance.ingredientPoints;
+            
              foreach (var points in pointIngredient)
              {
-                 if (points.state == PointState.Taken && points.ingredientData.ingredientName == name)
+                  if (points.state == PointState.Taken && points.ingredientData.ingredientName == name)
                  {
                      _positions[StateIa.Search] = points.transform.position;
                      _point = StateIa.Search;
-                     return; 
+                     break; 
                  }
-                
+                  
              }
+
+     
+             
          }
+
+
 
          // ReSharper disable Unity.PerformanceAnalysis
          private void Detection()
          {
              Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
              Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
-
+         
              Collider [] colliders = Physics.OverlapCapsule(
                  transform.position + rotatedOffsetUpper,
                  transform.position + rotatedOffsetLower,
@@ -74,22 +91,29 @@ namespace _Scripts.Ghost
              foreach (Collider colliderDetected in colliders)
              { 
                  if(!colliderDetected) continue;
-
-
-                 colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
-                 component?.Interaction(this.transform);
-                 
-                 _positions[StateIa.Taken] = new Vector3(0f, 0f, 0f);
-                 _point = StateIa.Taken;
-                 // if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
-                 // {
-                 //     Ingredient.Ingredient ingredient = colliderDetected.GetComponent<Ingredient.Ingredient>();
-                 //     Destroy(ingredient.gameObject);
-                 // }
-
-                 break;
+              
+                     colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
+                     component?.Interaction(this.transform);
+                     
+                     
+                     var transformPosition = GameInstaller.Instance._ghostSpawner.Enemypositions;
+                      _point = StateIa.Taken;
+                     _positions[StateIa.Taken] = transformPosition;
+                     // _ghostDetection = true;
+                     break;
              }
          }
+
+         // private void OnTriggerEnter(Collider other)
+         // {
+         //     if (other.gameObject.CompareTag("Door") && _ghostDetection)
+         //     {
+         //         Destroy(this._ingredient.gameObject);
+         //         _point = StateIa.Search;
+         //     }
+         // }
+
+
          void OnDrawGizmos()
          {
              //Ingredient Gizmos
@@ -108,50 +132,7 @@ namespace _Scripts.Ghost
              //Ghost Gizmos
             
          }
-         
-
-    
-
-     
-
-        // public GameObject prefabDelObjeto; // Asigna el prefab desde el editor de Unity
-        //
-        // void Start()
-        // {
-        //     GhostSpawner ghost = GetComponent<GhostSpawner>();
-        //     GameObject objetoInstanciado = ghost.Spawn();
-        //     Vector3 posicionObjetoInstanciado = objetoInstanciado.transform.position;
-        //
-        //     // Asigna la posición del objeto instanciado a otro objeto
-        //     otroObjeto.transform.position = posicionObjetoInstanciado;
-        // }
-        // public GameObject prefabAgente; // Asigna el prefab del agente desde el editor de Unity
-        // private GameObject agenteInstanciado;
-        // private NavMeshAgent navMeshAgent;
-        // private GhostSpawner _ghostSpawner;
-        // void Start()
-        // {
-        //    
-        //     // Instancia el agente
-        //     // agenteInstanciado = Instantiate(prefabAgente, transform.position, transform.rotation);
-        //
-        //     // Asegúrate de que el agente instanciado tenga un componente NavMeshAgent
-        //     navMeshAgent = agenteInstanciado.GetComponent<NavMeshAgent>();
-        //     if (navMeshAgent == null)
-        //     {
-        //         // Si no tiene un componente NavMeshAgent, agrégalo
-        //         navMeshAgent = agenteInstanciado.AddComponent<NavMeshAgent>();
-        //     }
-        //
-        //     // Configura el NavMeshAgent según sea necesario
-        //     // Por ejemplo:
-        //     navMeshAgent.speed = 3f; // Velocidad del agente
-        //     navMeshAgent.angularSpeed = 120f; // Velocidad de rotación del agente
-        //     navMeshAgent.acceleration = 8f; // Aceleración del agente
-        //
-        //     // Establece el destino del NavMeshAgent
-        //     navMeshAgent.SetDestination(new Vector3(10f, 0f, 10f)); // Cambia esto según tu lógica de juego
-        // }
+  
         
 
         

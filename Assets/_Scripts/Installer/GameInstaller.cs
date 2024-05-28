@@ -29,7 +29,7 @@ namespace _Scripts.Installer
         public StateIa[] enums;
         private static GameInstaller _instance;
         public static GameInstaller Instance => _instance;
-        private GhostSpawner _ghostSpawner;
+        [HideInInspector] public GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
 
         public void Awake()
@@ -68,8 +68,9 @@ namespace _Scripts.Installer
         {
             for (int i = 0; i < 3; i++)
             {
+               
+                yield return new WaitForSeconds(5f);
                 _ghostSpawner.Spawn(ghostData[i],ghost);
-                yield return new WaitForSeconds(2f);
             }
             
         }

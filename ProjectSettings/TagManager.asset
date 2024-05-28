@@ -6,6 +6,8 @@ TagManager:
   tags:
   - meat
   - Ghost
+  - Ingredients
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - Water
   - UI
   - ingredient
-  - 
+  - World
   - 
   - light
   - points

@@ -8,6 +8,8 @@ namespace _Scripts.Ghost
         private readonly Transform _ghostVector2;
         private readonly GhostFactory _ghostFactory;
         [HideInInspector] public Ghost enemy;
+        [HideInInspector] public Vector3 Enemypositions;
+        
         public GhostSpawner(Transform ghostVector1, Transform ghostVector2, GhostFactory ghostFactory)
         {
             _ghostVector1 = ghostVector1;
@@ -26,8 +28,8 @@ namespace _Scripts.Ghost
                 Mathf.Min(_ghostVector1.position.z, _ghostVector2.position.z)
                 );
             enemy = _ghostFactory.Create(data);
-            enemy.transform.position = new Vector3(posEnemyX, 1f, posEnemyZ);
-            
+            Enemypositions = new Vector3(posEnemyX, 1f, posEnemyZ);
+            enemy.transform.position = Enemypositions;
             enemy.transform.SetParent(parent);
         }
     }

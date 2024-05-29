@@ -226,6 +226,7 @@ Transform:
   m_Children:
   - {fileID: 2036858965358562222}
   - {fileID: 5186805689400596606}
+  - {fileID: 6767410246101163712}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6897499762969149920
@@ -354,15 +355,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cca31ec1a44c8b9bccf9a8523362b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _point: 0
+  point: 0
   agent: {fileID: 1717276538759867269}
-  name: Bread B
+  data: {fileID: 11400000, guid: 8072095211412a44182933dde1b01649, type: 2}
   offsetUpper: {x: 0, y: 1, z: 1}
   offsetLower: {x: 0, y: -1, z: 1}
   radius: 1
   ingredientMask:
     serializedVersion: 2
     m_Bits: 64
+  collectPoint: {fileID: 6767410246101163712}
 --- !u!195 &1717276538759867269
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -385,3 +387,34 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!1 &6952993040861141070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6767410246101163712}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6767410246101163712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952993040861141070}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.99}
+  m_LocalScale: {x: 0.6666667, y: 0.5555556, z: 0.6666667}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8061012455252980502}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

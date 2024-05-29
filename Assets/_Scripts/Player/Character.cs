@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using _Scripts.Installer;
 using UnityEngine;
 
@@ -17,16 +18,17 @@ namespace _Scripts.Player
         [SerializeField] private LayerMask ghostMask;
         [SerializeField] private float attackRadius;
         [SerializeField] private Transform collectPoint;
-        
+        [SerializeField] private Animator _animator;
         
         private int _attackDamage = 1;
         public bool isAttacking;
-        
+        private bool _igot = false;
         private Rigidbody _rb;
 
         
         private void Awake()
         {
+           
             _rb = GetComponent<Rigidbody>();
         }
         
@@ -63,7 +65,11 @@ namespace _Scripts.Player
             }
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
+        public void Animator()
+        {
+            _animator.SetTrigger("Hand");
+        }
+        
         public void Attack()
         {
             Vector3 rotatedOffsetUpperAttack = transform.rotation * offsetUpper;
@@ -84,7 +90,7 @@ namespace _Scripts.Player
 
             isAttacking = false;
         }
-        
+
         void OnDrawGizmos()
         {
             //Ingredient Gizmos

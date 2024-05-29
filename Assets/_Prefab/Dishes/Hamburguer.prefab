@@ -490,6 +490,7 @@ MonoBehaviour:
   - {fileID: 2488750239555553029}
   - {fileID: 4076261825491253099}
   - {fileID: 81363650895204379}
+  currentState: 0
 --- !u!95 &8668193896844207654
 Animator:
   serializedVersion: 5
@@ -524,11 +525,11 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 34.76951, z: 1.0000002}
-  m_Center: {x: 0.000000039736435, y: -16.384752, z: -0.00000007947286}
+  m_Size: {x: 1.0000001, y: 54.189068, z: 1.0000002}
+  m_Center: {x: 0, y: -9.594544, z: 0}

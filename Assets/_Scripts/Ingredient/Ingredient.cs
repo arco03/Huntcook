@@ -32,7 +32,7 @@ namespace _Scripts.Ingredient
             if (_isPicked)
             {
                 transform.SetParent(character);
-                transform.localPosition = Vector3.zero;
+                transform.localPosition = new Vector3(0.0055999998f,2.53386006e-08f,0f);
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
                 currentState = State.Captured;
             }
@@ -40,6 +40,7 @@ namespace _Scripts.Ingredient
             {
                 transform.SetParent(null);
                 _rb.constraints = RigidbodyConstraints.None;
+                currentState = State.Point;
             }
         
         }

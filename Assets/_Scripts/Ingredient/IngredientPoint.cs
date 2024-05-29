@@ -8,14 +8,14 @@ namespace _Scripts.Ingredient
     {
         Free,
         Taken,
-        // None,
+       
     }
     
     public class IngredientPoint : MonoBehaviour
     {
         public  PointState state;
         public IngredientData ingredientData;
-        // private bool _detected = false;     
+       
 
         private void Start()
         {
@@ -26,25 +26,27 @@ namespace _Scripts.Ingredient
 
         public void Update()
         {
-            // if (_detected)
+            // if (_detected && state == PointState.Free)
             // {
-            //     state == PointState.None;
+            //     state = PointState.None;
             // }
 
         }
 
         public void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<Ingredient>(out Ingredient ingredient))
+            if (other.gameObject.TryGetComponent<Ingredient>(out Ingredient ingredient))
             {
-                if (ingredient.ingredientData == ingredientData)
+                
+                if (ingredient.ingredientData == ingredientData && ingredient.currentState == State.Point )
                 {
                     state = PointState.Taken;
-                    // _detected = true;
                     other.transform.position = transform.position;
+                    
                 }
+ 
             }
-            Debug.Log($"{name}: Enter {other.name}");
+            // Debug.Log($"{name}: Enter {other.name}");
             
         }
 
@@ -57,7 +59,7 @@ namespace _Scripts.Ingredient
                     state = PointState.Free;
                 }
             }
-            Debug.Log($"{name}: Exit {other.name}");
+            // Debug.Log($"{name}: Exit {other.name}");
         }
 
     }

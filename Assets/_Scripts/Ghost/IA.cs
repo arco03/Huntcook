@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Scripts.Ingredient;
 using _Scripts.Installer;
 using Unity.VisualScripting;
@@ -29,26 +30,30 @@ namespace _Scripts.Ghost
         [SerializeField] private Transform collectPoint;
         
         private Ingredient.Ingredient _ingredient;
-        private Ghost _ghost;
         private IngredientData _ingredientData;
-        private bool _ghostDetection = false;
+        public bool _ghostDetection = false;
+     
         public void Start()
         {
             agent = GetComponent<NavMeshAgent>();
-            _ghost = FindObjectOfType<Ghost>();
             _ingredient = FindObjectOfType<Ingredient.Ingredient>();
             
-            SetUpLocation();
             
+          
         }
         public void Update()
         {
-            
-           Detection();
-           Move(point);
+           
+            SetUpLocation();
+            Move(point);
         }
 
-         private void Move(StateIa state)
+        private void FixedUpdate()
+        {
+            Detection(); 
+        }
+
+        private void Move(StateIa state)
          {
              Vector3 destine = _positions[state];
              agent.SetDestination(destine);
@@ -67,17 +72,24 @@ namespace _Scripts.Ghost
                      break; 
                  }
 
-                 if (points.ingredientData == data && points.state == PointState.Free)
-                 {
-                     // _positions[StateIa.Stop] = new Vector3(0f, 0f, 0f);
-                     
-                     _positions[StateIa.Stop] = transform.position;
-                     point = StateIa.Stop;
-                     break;
-                 }
+                 // if (points.ingredientData == data && points.state == PointState.Free)
+                 // {
+                 //     // _positions[StateIa.Stop] = new Vector3(0f, 0f, 0f);
+                 //     
+                 //     _positions[StateIa.Stop] = transform.position;
+                 //     point = StateIa.Stop;
+                 //     break;
+                 // }
                  
              }
 
+             if (_ghostDetection)
+             {
+                 Vector3 transformPosition = GameInstaller.Instance._ghostSpawner.Enemypositions;
+                 _positions[StateIa.Taken] = transformPosition;
+                 point = StateIa.Taken;
+                 
+             }
 
          }
          
@@ -103,27 +115,22 @@ namespace _Scripts.Ghost
                 if (ingredient.ingredientData != data) continue;
 
                 ingredient.Interaction(collectPoint);
-                Vector3 transformPosition = GameInstaller.Instance._ghostSpawner.Enemypositions;
-                _positions[StateIa.Taken] = transformPosition;
-                point = StateIa.Taken;
-
+               
                 _ghostDetection = true;
                 break;
              }
          }
 
-         // private void OnTriggerEnter(Collider other)
-         // {
-         //     if (other.gameObject.CompareTag("Door") && _ghostDetection)
-         //     {
-         //         if (_ingredient != null)
-         //         {
-         //            _ingredient.Destroy();
-         //            point = StateIa.Search;
-         //         }
-         //
-         //     }
-         // }
+         private void OnTriggerEnter(Collider other)
+         {
+             if (other.gameObject.CompareTag("Door") && _ingredient.currentState == State.Captured)
+             {
+                 Debug.Log("LLego");
+                 // _positions[StateIa.Stop] = transform.position;
+                 // point = StateIa.Stop;
+
+             }
+         }
 
 
          void OnDrawGizmos()

@@ -6,12 +6,13 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
 using Color = UnityEngine.Color;
+using State = _Scripts.Ingredient.State;
 
 namespace _Scripts.Ghost
 {
     public enum StateIa
     {
-       
+        Stop,
         Search,
         Taken,
     }
@@ -35,14 +36,14 @@ namespace _Scripts.Ghost
         {
             agent = GetComponent<NavMeshAgent>();
             _ghost = FindObjectOfType<Ghost>();
-             
-             _ingredient = FindObjectOfType<Ingredient.Ingredient>();
+            _ingredient = FindObjectOfType<Ingredient.Ingredient>();
             
-             
-             SetUpLocation();
+            SetUpLocation();
+            
         }
         public void Update()
         {
+            
            Detection();
            Move(point);
         }
@@ -56,6 +57,7 @@ namespace _Scripts.Ghost
          private void SetUpLocation()
          {
              List<IngredientPoint> pointIngredient= GameInstaller.Instance.ingredientPoints;
+             
              foreach (IngredientPoint points in pointIngredient)
              {
                   if (points.state == PointState.Taken && points.ingredientData == data)
@@ -64,10 +66,21 @@ namespace _Scripts.Ghost
                      point = StateIa.Search;
                      break; 
                  }
-                  
-             }
-         }
 
+                 if (points.ingredientData == data && points.state == PointState.Free)
+                 {
+                     // _positions[StateIa.Stop] = new Vector3(0f, 0f, 0f);
+                     
+                     _positions[StateIa.Stop] = transform.position;
+                     point = StateIa.Stop;
+                     break;
+                 }
+                 
+             }
+
+
+         }
+         
 
          private void Detection()
          {

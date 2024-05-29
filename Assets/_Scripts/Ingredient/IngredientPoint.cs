@@ -8,21 +8,31 @@ namespace _Scripts.Ingredient
     {
         Free,
         Taken,
+        // None,
     }
     
     public class IngredientPoint : MonoBehaviour
     {
         public  PointState state;
         public IngredientData ingredientData;
-
+        // private bool _detected = false;     
 
         private void Start()
         {
             
             GetComponent<MeshRenderer>().enabled = false;
             
-        } 
-        
+        }
+
+        public void Update()
+        {
+            // if (_detected)
+            // {
+            //     state == PointState.None;
+            // }
+
+        }
+
         public void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent<Ingredient>(out Ingredient ingredient))
@@ -30,6 +40,7 @@ namespace _Scripts.Ingredient
                 if (ingredient.ingredientData == ingredientData)
                 {
                     state = PointState.Taken;
+                    // _detected = true;
                     other.transform.position = transform.position;
                 }
             }

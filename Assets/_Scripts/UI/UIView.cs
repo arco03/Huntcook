@@ -4,6 +4,19 @@ namespace _Scripts.UI
 {
     public class UIView : MonoBehaviour
     {
-        
+        private int _minutes, _seconds;
+        [SerializeField] private GameObject gameOver;
+
+        public string GetStringTime(float timeElapsed)
+        {
+            _minutes = (int)(timeElapsed / 60f);
+            _seconds = (int)(timeElapsed - _minutes * 60f);
+            
+            return $"{_minutes:00}:{_seconds:00}";
+        }
+        public void ShowGameOver()
+        {
+            gameOver.SetActive(true);
+        }
     }
 }

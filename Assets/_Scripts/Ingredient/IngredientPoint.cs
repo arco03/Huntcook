@@ -8,7 +8,6 @@ namespace _Scripts.Ingredient
     {
         Free,
         Taken,
-       
     }
     
     public class IngredientPoint : MonoBehaviour
@@ -19,35 +18,19 @@ namespace _Scripts.Ingredient
 
         private void Start()
         {
-            
             GetComponent<MeshRenderer>().enabled = false;
-            
-        }
-
-        public void Update()
-        {
-            // if (_detected && state == PointState.Free)
-            // {
-            //     state = PointState.None;
-            // }
-
         }
 
         public void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.TryGetComponent<Ingredient>(out Ingredient ingredient))
             {
-                
-                if (ingredient.ingredientData == ingredientData && ingredient.currentState == State.Point )
+                if (ingredient.ingredientData == ingredientData && ingredient.currentIngredientState == IngredientState.Point )
                 {
                     state = PointState.Taken;
-                    other.transform.position = transform.position;
-                    
+                    ingredient.transform.position = transform.position;
                 }
- 
             }
-            // Debug.Log($"{name}: Enter {other.name}");
-            
         }
 
         public void OnTriggerExit(Collider other)
@@ -59,7 +42,6 @@ namespace _Scripts.Ingredient
                     state = PointState.Free;
                 }
             }
-            // Debug.Log($"{name}: Exit {other.name}");
         }
 
     }

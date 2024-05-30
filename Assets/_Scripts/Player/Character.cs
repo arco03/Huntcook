@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using _Scripts.Ghost;
 using _Scripts.Installer;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Player
 {
@@ -18,11 +20,10 @@ namespace _Scripts.Player
         [SerializeField] private LayerMask ghostMask;
         [SerializeField] private float attackRadius;
         [SerializeField] private Transform collectPoint;
-        [SerializeField] private Animator _animator;
+        [SerializeField] private Animator animator;
         
         private int _attackDamage = 1;
         public bool isAttacking;
-        private bool _igot = false;
         private Rigidbody _rb;
 
         
@@ -60,17 +61,14 @@ namespace _Scripts.Player
            
                 colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
                 component?.Interaction(collectPoint);
-
-                // colliderDetected.gameObject.TryGetComponent<Ingredient.Ingredient>(out Ingredient.Ingredient ingredient);
-                // ingredient.light.intensity = 4f;   
+                Debug.Log("Entra aca");
                 break;
             }
         }
 
         public void Animator()
         {
-            _animator.SetTrigger("Hand");
-            
+            animator.SetTrigger("Hand");
         }
         
         public void Attack()
@@ -88,7 +86,6 @@ namespace _Scripts.Player
             {
                 ghost.gameObject.TryGetComponent<Ghost.Ghost>(out Ghost.Ghost phantom);
                 phantom?.TakeDamage(_attackDamage);
-                Debug.Log($"Damage to the ghost: {_attackDamage}");
             }
 
             isAttacking = false;

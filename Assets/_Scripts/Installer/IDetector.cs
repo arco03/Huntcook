@@ -5,7 +5,7 @@ namespace _Scripts.Installer
 {
     public interface IDetector
     {
-        public void Interaction(Transform character);
+        public void Interaction(Transform point);
     }
 }
 

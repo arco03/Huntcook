@@ -19,11 +19,12 @@ namespace _Scripts.Ingredient
         private Rigidbody _rb;
         public State currentState;
         public Renderer material ;
-        
+        // public Light light;
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
             currentState = State.Point;
+            // light.intensity = 0f;
         }
         
         public void Interaction(Transform character)
@@ -32,7 +33,7 @@ namespace _Scripts.Ingredient
             if (_isPicked)
             {
                 transform.SetParent(character);
-                transform.localPosition = new Vector3(0.0055999998f,2.53386006e-08f,0f);
+                transform.localPosition = new Vector3(-0f,-0f,0.00085f);
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
                 currentState = State.Captured;
             }

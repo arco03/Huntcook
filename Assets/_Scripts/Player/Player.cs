@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using _Scripts.Ingredient;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace _Scripts.Player
 {
@@ -24,12 +25,12 @@ namespace _Scripts.Player
         {
             _x = Input.GetAxisRaw(horizontal);
             _z = Input.GetAxisRaw(vertical);
-
-
+           
+            
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 character.Animator();
- 
+                
             }
 
             if (Input.GetKeyDown(KeyCode.E) && !character.isAttacking)

@@ -60,7 +60,9 @@ namespace _Scripts.Player
            
                 colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
                 component?.Interaction(collectPoint);
-                Debug.Log("Entra aca");
+
+                // colliderDetected.gameObject.TryGetComponent<Ingredient.Ingredient>(out Ingredient.Ingredient ingredient);
+                // ingredient.light.intensity = 4f;   
                 break;
             }
         }
@@ -68,6 +70,7 @@ namespace _Scripts.Player
         public void Animator()
         {
             _animator.SetTrigger("Hand");
+            
         }
         
         public void Attack()

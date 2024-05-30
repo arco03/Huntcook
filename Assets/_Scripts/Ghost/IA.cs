@@ -15,7 +15,7 @@ namespace _Scripts.Ghost
     {
         Stop,
         Search,
-        Taken,
+        Mine,
     }
     public class IA : MonoBehaviour
     {
@@ -28,7 +28,7 @@ namespace _Scripts.Ghost
         [SerializeField] private float radius;
         [SerializeField] private LayerMask ingredientMask;
         [SerializeField] private Transform collectPoint;
-        
+        private Vector3 transformPosition;
         private Ingredient.Ingredient _ingredient;
         private IngredientData _ingredientData;
         public bool _ghostDetection = false;
@@ -37,7 +37,7 @@ namespace _Scripts.Ghost
         {
             agent = GetComponent<NavMeshAgent>();
             _ingredient = FindObjectOfType<Ingredient.Ingredient>();
-            
+            transformPosition = GameInstaller.Instance._ghostSpawner.Enemypositions;
             
           
         }
@@ -59,7 +59,8 @@ namespace _Scripts.Ghost
              agent.SetDestination(destine);
          }
 
-         private void SetUpLocation()
+        // ReSharper disable Unity.PerformanceAnalysis
+        private void SetUpLocation()
          {
              List<IngredientPoint> pointIngredient= GameInstaller.Instance.ingredientPoints;
              
@@ -85,11 +86,24 @@ namespace _Scripts.Ghost
 
              if (_ghostDetection)
              {
-                 Vector3 transformPosition = GameInstaller.Instance._ghostSpawner.Enemypositions;
-                 _positions[StateIa.Taken] = transformPosition;
-                 point = StateIa.Taken;
+                 _positions[StateIa.Mine] = transformPosition;
+                 point = StateIa.Mine;
+                 if (agent.remainingDistance <= agent.stoppingDistance)
+                 {
+                     _positions[StateIa.Stop] = new Vector3(0f, 0f, 0f);
+                     
+                     _positions[StateIa.Stop] = transform.position;
+                     if (_ingredient != null)
+                     {
+                         _ingredient.Destroy();
+                         point = StateIa.Search;
+                     }
+
+                 }
                  
              }
+
+
 
          }
          
@@ -115,22 +129,21 @@ namespace _Scripts.Ghost
                 if (ingredient.ingredientData != data) continue;
 
                 ingredient.Interaction(collectPoint);
-               
-                _ghostDetection = true;
+               _ghostDetection = true;
                 break;
              }
          }
 
-         private void OnTriggerEnter(Collider other)
-         {
-             if (other.gameObject.CompareTag("Door") && _ingredient.currentState == State.Captured)
-             {
-                 Debug.Log("LLego");
-                 // _positions[StateIa.Stop] = transform.position;
-                 // point = StateIa.Stop;
-
-             }
-         }
+         // private void OnTriggerEnter(Collider other)
+         // {
+         //     if (other.gameObject.CompareTag("Door") && _ingredient.currentState == State.Captured)
+         //     {
+         //         Debug.Log("LLego");
+         //         // _positions[StateIa.Stop] = transform.position;
+         //         // point = StateIa.Stop;
+         //
+         //     }
+         // }
 
 
          void OnDrawGizmos()

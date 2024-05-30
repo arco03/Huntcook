@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b666a014bbf14b62a839372cc0c6b389, type: 3}
   m_Name: BreadB
   m_EditorClassIdentifier: 
-  id: 2
   ingredientName: Bread B
   sprite: {fileID: 0}

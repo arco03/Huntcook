@@ -1,10 +1,9 @@
 ﻿using _Scripts.Installer;
-using _Scripts.Player;
 using UnityEngine;
 
 namespace _Scripts.Ingredient
 {
-    public enum State
+    public enum IngredientState
     {   
         Point,
         Captured,
@@ -17,32 +16,35 @@ namespace _Scripts.Ingredient
         
         private bool _isPicked;
         private Rigidbody _rb;
-        public State currentState;
-        public Renderer material ;
+        public IngredientState currentIngredientState;
         
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
-            currentState = State.Point;
+            currentIngredientState = IngredientState.Point;
         }
         
-        public void Interaction(Transform character)
+        public void Interaction(Transform point)
         {
             _isPicked = !_isPicked;
             if (_isPicked)
             {
-                transform.SetParent(character);
-                transform.localPosition = new Vector3(0f, 0.161f, 1f);
+                transform.SetParent(point);
+                transform.localPosition = Vector3.zero;
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
-                currentState = State.Captured;
+                currentIngredientState = IngredientState.Captured;
             }
             else
             {
                 transform.SetParent(null);
                 _rb.constraints = RigidbodyConstraints.None;
-                
+                currentIngredientState = IngredientState.Point;
             }
-        
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
         }
         
     }

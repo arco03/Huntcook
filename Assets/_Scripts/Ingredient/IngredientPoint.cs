@@ -14,27 +14,23 @@ namespace _Scripts.Ingredient
     {
         public  PointState state;
         public IngredientData ingredientData;
-
+       
 
         private void Start()
         {
-            
             GetComponent<MeshRenderer>().enabled = false;
-            
-        } 
-        
+        }
+
         public void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent<Ingredient>(out Ingredient ingredient))
+            if (other.gameObject.TryGetComponent<Ingredient>(out Ingredient ingredient))
             {
-                if (ingredient.ingredientData == ingredientData)
+                if (ingredient.ingredientData == ingredientData && ingredient.currentIngredientState == IngredientState.Point )
                 {
                     state = PointState.Taken;
-                    other.transform.position = transform.position;
+                    ingredient.transform.position = transform.position;
                 }
             }
-            Debug.Log($"{name}: Enter {other.name}");
-            
         }
 
         public void OnTriggerExit(Collider other)
@@ -46,7 +42,6 @@ namespace _Scripts.Ingredient
                     state = PointState.Free;
                 }
             }
-            Debug.Log($"{name}: Exit {other.name}");
         }
 
     }

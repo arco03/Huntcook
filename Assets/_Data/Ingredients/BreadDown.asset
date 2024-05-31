@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b666a014bbf14b62a839372cc0c6b389, type: 3}
   m_Name: BreadDown
   m_EditorClassIdentifier: 
-  ingredientName: Bread B
+  ingredientName: BreadDown
   sprite: {fileID: 0}

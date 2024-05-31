@@ -1,6 +1,9 @@
 using System;
+using System.Collections;
+using _Scripts.Ghost;
 using _Scripts.Installer;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Player
 {
@@ -16,16 +19,17 @@ namespace _Scripts.Player
         [SerializeField] private LayerMask ingredientMask;
         [SerializeField] private LayerMask ghostMask;
         [SerializeField] private float attackRadius;
-
+        [SerializeField] private Transform collectPoint;
+        [SerializeField] private Animator animator;
         
         private int _attackDamage = 1;
         public bool isAttacking;
-        
         private Rigidbody _rb;
 
         
         private void Awake()
         {
+           
             _rb = GetComponent<Rigidbody>();
         }
         
@@ -56,13 +60,17 @@ namespace _Scripts.Player
                 if(!colliderDetected) continue;
            
                 colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
-                component?.Interaction(this.transform);
+                component?.Interaction(collectPoint);
                 Debug.Log("Entra aca");
                 break;
             }
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
+        public void Animator()
+        {
+            animator.SetTrigger("Hand");
+        }
+        
         public void Attack()
         {
             Vector3 rotatedOffsetUpperAttack = transform.rotation * offsetUpper;
@@ -78,12 +86,11 @@ namespace _Scripts.Player
             {
                 ghost.gameObject.TryGetComponent<Ghost.Ghost>(out Ghost.Ghost phantom);
                 phantom?.TakeDamage(_attackDamage);
-                Debug.Log($"Damage to the ghost: {_attackDamage}");
             }
 
             isAttacking = false;
         }
-        
+
         void OnDrawGizmos()
         {
             //Ingredient Gizmos

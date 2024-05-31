@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: IngredientConfiguration
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: 2886729072184278678, guid: 0759ddb7321034f408f6a7748f09b6da, type: 3}
-  - {fileID: -7719127496702147853, guid: c85e5ee7e55d7804aa792513b98a5b73, type: 3}
-  - {fileID: 6916756084287853809, guid: 792db3ee64e70674e949237b7be67bfc, type: 3}
+  - {fileID: 8946381274984064846, guid: 899afc9056972774ead56f4ff3589f64, type: 3}
+  - {fileID: 5043118872450282924, guid: 2522b0cf1334e82468174c2126bf2ec6, type: 3}
+  - {fileID: 6755868275090979728, guid: 98e4a53b2ded7c44e82138ec7d5aa523, type: 3}
+  - {fileID: 5061720384332563466, guid: fb95089c567f62e4ab6bdd7b0a72be25, type: 3}
+  - {fileID: 558713486649601247, guid: 535312b958ef31042978c5000a3de1df, type: 3}
+  - {fileID: 2427821985176884414, guid: 7d24b98cd59ef3d43a9aeb2b25d70068, type: 3}

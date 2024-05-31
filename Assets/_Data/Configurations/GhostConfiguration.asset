@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GhostConfiguration
   m_EditorClassIdentifier: 
   ghosts:
-  - {fileID: 4405650380731400405, guid: 82f76a813c58fb047ae46b94128773bc, type: 3}
-  - {fileID: 4405650380731400405, guid: e3057145b1ee14749ab806c3bb77edd1, type: 3}
-  - {fileID: 4405650380731400405, guid: f06465af20537d24abdf7b56140e6781, type: 3}
+  - {fileID: 9097181786185369655, guid: 82f76a813c58fb047ae46b94128773bc, type: 3}
+  - {fileID: 4959742184419207535, guid: e3057145b1ee14749ab806c3bb77edd1, type: 3}
+  - {fileID: 7602082560545100602, guid: f06465af20537d24abdf7b56140e6781, type: 3}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Ingredient
 {
@@ -7,5 +8,8 @@ namespace _Scripts.Ingredient
     {
         public string ingredientName;
         public Sprite sprite;
+        
+        
+        
     }
 }

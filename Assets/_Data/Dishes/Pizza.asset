@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4650721d27084426a7e6dd6cab6ed029, type: 3}
-  m_Name: Hamburguer
+  m_Name: Pizza
   m_EditorClassIdentifier: 
-  recipeName: Hamburguer
+  recipeName: Pizza
   sprite: {fileID: 0}
-  amount: 3
-  ingredientsList:
-  - {fileID: 11400000, guid: 8e3dae139f42856478d519835257bc9a, type: 2}
-  - {fileID: 11400000, guid: 5fd8c5555ec015243ab081f84e8cd11d, type: 2}
-  - {fileID: 11400000, guid: 8072095211412a44182933dde1b01649, type: 2}
+  amount: 8
+  ingredientsList: []

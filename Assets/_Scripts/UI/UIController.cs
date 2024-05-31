@@ -1,6 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
-
 
 namespace _Scripts.UI
 {
@@ -10,27 +10,25 @@ namespace _Scripts.UI
         
         [Header("Timer Configurations")]
         [SerializeField] private TextMeshProUGUI textMesh;
-        [SerializeField] private GameObject uiTimer;
         [SerializeField] private float timeElapse;
 
-        [SerializeField] private GameObject uiRecipe;
+        private void Start()
+        {
+            uiView.DishAmount();
+        }
 
         private void Update()
         {
             timeElapse -= Time.deltaTime;
             
-            if(timeElapse > 0)
-            {
+            if (timeElapse > 0)
                 textMesh.text = uiView.GetStringTime(timeElapse);
-            }
             else TimeOut();
         }
 
         private void TimeOut()
         {
                 Time.timeScale = 0f;
-                uiTimer.SetActive(false);
-                uiRecipe.SetActive(false);
                 uiView.ShowGameOver();
         }
     }

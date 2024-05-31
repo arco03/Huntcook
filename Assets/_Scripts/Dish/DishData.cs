@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Scripts.Ingredient;
+using TMPro;
 using UnityEngine;
 
 namespace _Scripts.Dish
@@ -9,6 +10,7 @@ namespace _Scripts.Dish
     {
         public string recipeName;
         public Sprite sprite;
+        public int amount;
         public List <IngredientData> ingredientsList;
     }
 }

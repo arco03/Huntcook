@@ -1,21 +1,16 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace _Scripts.UI
 {
     public class UIController : MonoBehaviour
     {
+        //View
         [SerializeField] private UIView uiView;
         
         [Header("Timer Configurations")]
         [SerializeField] private TextMeshProUGUI textMesh;
         [SerializeField] private float timeElapse;
-
-        private void Start()
-        {
-            uiView.DishAmount();
-        }
 
         private void Update()
         {
@@ -31,5 +26,6 @@ namespace _Scripts.UI
                 Time.timeScale = 0f;
                 uiView.ShowGameOver();
         }
+
     }
 }

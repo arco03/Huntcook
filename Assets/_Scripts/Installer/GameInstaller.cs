@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using _Scripts.Dish;
 using _Scripts.Ghost;
 using _Scripts.Ingredient;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using Vector3 = System.Numerics.Vector3;
 
 namespace _Scripts.Installer
@@ -18,6 +20,7 @@ namespace _Scripts.Installer
         [SerializeField] private DishData dishData;
         [SerializeField] private GhostData[] ghostData;
         [SerializeField] private Transform ghost;
+        
         [Header("Spawner Configurations")]
         [SerializeField] private float repeatingTime;
         
@@ -28,6 +31,7 @@ namespace _Scripts.Installer
         private readonly Dictionary<StateIa, UnityEngine.Vector3> _positions = new ();
         public StateIa[] enums;
         private static GameInstaller _instance;
+        
         public static GameInstaller Instance => _instance;
         [HideInInspector] public GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
@@ -49,14 +53,9 @@ namespace _Scripts.Installer
             _instance = this;
             _ingredientSpawner.Initialize();
             StartCoroutine(GhostTime());
-  
-
-            InvokeRepeating("Spawn", repeatingTime, repeatingTime);
-        }
-
-        public void Update()
-        {
             
+            InvokeRepeating("Spawn", repeatingTime, repeatingTime);
+
         }
 
         private void Spawn()
@@ -74,5 +73,6 @@ namespace _Scripts.Installer
             }
             
         }
+
     }
 }

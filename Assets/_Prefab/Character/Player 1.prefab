@@ -106,8 +106,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   attackRadius: 1
-  collectPoint: {fileID: 270518637580614058}
-  _animator: {fileID: 1493376516653775695}
+  collectPoint: {fileID: 7007543666657729413}
+  animator: {fileID: 1493376516653775695}
   isAttacking: 0
 --- !u!95 &1493376516653775695
 Animator:
@@ -448,6 +448,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3806546699485721396, guid: dcf48e3bca1a02449a7e10b934f917ac, type: 3}
+--- !u!1 &4889139665699178426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7007543666657729413}
+  m_Layer: 0
+  m_Name: CollectPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7007543666657729413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889139665699178426}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0.001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 270518637580614058}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5337800772376418557
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +615,8 @@ Transform:
   m_LocalPosition: {x: -0.88899946, y: 0.672, z: 0.3189119}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7007543666657729413}
   m_Father: {fileID: 3016093854964696028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8434079336367769429

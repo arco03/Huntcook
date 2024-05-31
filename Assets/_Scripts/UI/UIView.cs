@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using _Scripts.Dish;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.Rendering;
+﻿using UnityEngine;
 
 namespace _Scripts.UI
 {
@@ -14,10 +9,6 @@ namespace _Scripts.UI
         [SerializeField] private GameObject gameOver;
         [SerializeField] private GameObject uiTimer;
         [SerializeField] private GameObject uiRecipe;
-        [SerializeField] private DishData amountTextList;
-        [SerializeField] private string text;
-        private int _randomAmount;
-        public int index;
         
         public string GetStringTime(float timeElapsed)
         {
@@ -34,20 +25,6 @@ namespace _Scripts.UI
             uiRecipe.SetActive(false);
         }
         
-        public void DishAmount()
-        {
-            
-                _randomAmount = Random.Range(1, 10);
-                amountTextList.amount = _randomAmount;
-                text = amountTextList.amount.ToString();
-                // Debug.Log(text.amount);
-                
-
-                // index = _randomAmount;
-           
-            
-            
-        }
-
+        
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b666a014bbf14b62a839372cc0c6b389, type: 3}
-  m_Name: BreadB
+  m_Name: Tomato
   m_EditorClassIdentifier: 
-  ingredientName: Bread B
+  ingredientName: Tomato
   sprite: {fileID: 0}

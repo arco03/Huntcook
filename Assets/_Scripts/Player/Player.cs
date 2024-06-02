@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using _Scripts.Ingredient;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Scripts.Player
@@ -11,9 +12,11 @@ namespace _Scripts.Player
         [SerializeField] private string horizontal;
         [SerializeField] private string vertical;
         [SerializeField] private Character character;
+        [SerializeField] private Animator animator;
         private Ingredient.Ingredient status;
       
         private float _x, _z;
+
 
         private void Start()
         {
@@ -37,8 +40,18 @@ namespace _Scripts.Player
                 character.isAttacking = true;
                 character.Attack();
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                animator.SetBool("Open",true);
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                animator.SetBool("Close",true);
+            }
             
         }
+        
 
         private void FixedUpdate()
         {

@@ -1,7 +1,6 @@
 ﻿using _Scripts.Dish;
 using TMPro;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace _Scripts.UI
 {

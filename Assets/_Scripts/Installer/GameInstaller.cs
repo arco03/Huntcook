@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Dish;
 using _Scripts.Ghost;
 using _Scripts.Ingredient;
-using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
-using Vector3 = System.Numerics.Vector3;
+
 
 namespace _Scripts.Installer
 {
@@ -36,6 +33,7 @@ namespace _Scripts.Installer
         [HideInInspector] public GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
 
+
         public void Awake()
         {
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
@@ -55,7 +53,6 @@ namespace _Scripts.Installer
             StartCoroutine(GhostTime());
             
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
-
         }
 
         private void Spawn()

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace _Scripts.Dish
 {
@@ -6,10 +7,18 @@ namespace _Scripts.Dish
     {
         [SerializeField] private Dish spawner;
         [SerializeField] private float repeatingTime;
+
+        private void Awake()
+        {
+            spawner = FindObjectOfType<Dish>();
+
+        }
+
         private void Start()
         {
             Instantiate(spawner, this.transform.position, Quaternion.identity);
-            InvokeRepeating("Respawn", repeatingTime, repeatingTime);
+            // Respawn();
+            // InvokeRepeating("Respawn", repeatingTime, repeatingTime);
         }
         
         

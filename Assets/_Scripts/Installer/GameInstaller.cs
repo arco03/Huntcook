@@ -15,12 +15,12 @@ namespace _Scripts.Installer
         [SerializeField] private GhostConfiguration ghostConfiguration;
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
         [SerializeField] private DishData dishData;
-        [SerializeField] private GhostData[] ghostData;
+        [SerializeField] public GhostData[] ghostData;
         [SerializeField] private Transform ghost;
         
         [Header("Spawner Configurations")]
         [SerializeField] private float repeatingTime;
-        
+
         [Header("Spawner Positions")]
         [SerializeField] private Transform ghostVector1;
         [SerializeField] private Transform ghostVector2;
@@ -32,8 +32,8 @@ namespace _Scripts.Installer
         public static GameInstaller Instance => _instance;
         [HideInInspector] public GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
-
-
+        public bool dead;
+        public int totalGhost;
         public void Awake()
         {
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
@@ -58,18 +58,32 @@ namespace _Scripts.Installer
         private void Spawn()
         {
             _ingredientSpawner.Spawn();
+            
+    
+           
         }
 
-        IEnumerator GhostTime()
+        public IEnumerator GhostTime()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < totalGhost; i++)
             {
-               
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(7f);
                 _ghostSpawner.Spawn(ghostData[i],ghost);
             }
             
         }
+        public void RespawnGhost(int index)
+        {
+            dead = false;
+            StartCoroutine(RespawnGhostTime(index));
+        }
+
+        private IEnumerator RespawnGhostTime(int index)
+        {
+            yield return new WaitForSeconds(2f);
+            _ghostSpawner.Spawn(ghostData[index], ghost);
+        }
+
 
     }
 }

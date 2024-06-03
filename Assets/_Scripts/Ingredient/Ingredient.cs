@@ -1,4 +1,6 @@
-﻿using _Scripts.Installer;
+﻿using System;
+using System.Collections;
+using _Scripts.Installer;
 using UnityEngine;
 
 namespace _Scripts.Ingredient
@@ -13,7 +15,7 @@ namespace _Scripts.Ingredient
     public class Ingredient : MonoBehaviour, IDetector
     {
         public IngredientData ingredientData;
-        
+        private bool capture;
         private bool _isPicked;
         private Rigidbody _rb;
         public IngredientState currentIngredientState;
@@ -24,7 +26,7 @@ namespace _Scripts.Ingredient
             currentIngredientState = IngredientState.Point;
         }
         
-        public void Interaction(Transform point)
+        public void Interaction(Transform point, bool captureby)
         {
             _isPicked = !_isPicked;
             if (_isPicked)
@@ -33,6 +35,8 @@ namespace _Scripts.Ingredient
                 transform.localPosition = Vector3.zero;
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
                 currentIngredientState = IngredientState.Captured;
+                capture = captureby;
+                
             }
             else
             {
@@ -42,10 +46,26 @@ namespace _Scripts.Ingredient
             }
         }
 
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.CompareTag("Floor"))
+            {
+                StartCoroutine(timeDestroy());
+            }
+            
+        }
+
         public void Destroy()
         {
             Destroy(gameObject);
         }
-        
+
+        IEnumerator timeDestroy()
+        {
+            yield return new WaitForSeconds(5f);
+            Destroy();
+        }
+
+
     }
 }

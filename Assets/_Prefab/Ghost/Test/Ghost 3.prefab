@@ -321,7 +321,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -376,3 +376,5 @@ MonoBehaviour:
     m_Bits: 64
   collectPoint: {fileID: 7826976325626142795}
   hasIngredient: 0
+  isDead: 0
+  _currentHealth: 0

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using _Scripts.Ingredient;
 using _Scripts.Installer;
 using UnityEngine;
@@ -30,12 +32,12 @@ namespace _Scripts.Ghost
         private NavMeshAgent _agent;
         private IngredientData _ingredientData;
         public bool hasIngredient;
-
+        public bool isDead;
         private IngredientPoint _assignPoint;
         private Ingredient.Ingredient _currentIngredient;
         
         private int _maxHealth;
-        private int _currentHealth;
+        [HideInInspector] public int _currentHealth;
 
         private void Awake()
         {
@@ -75,10 +77,18 @@ namespace _Scripts.Ghost
         public void TakeDamage(int damage)
         {
             _currentHealth -= damage;
-            if (_currentHealth <= 0)
+            if (_currentHealth <= 0 && hasIngredient)
             {
-                _currentIngredient.Interaction(transform);
-                Destroy(gameObject);
+                if (gameObject != null)
+                { 
+                    int ghostIndex = Array.IndexOf(GameInstaller.Instance.ghostData, this.ghostData); 
+                    GameInstaller.Instance.RespawnGhost(ghostIndex);
+                    Destroy(gameObject);
+                   _currentIngredient.Interaction(transform,false);
+                   
+                }
+               
+
             }
             
         }
@@ -140,7 +150,7 @@ namespace _Scripts.Ghost
                 colliderDetected.gameObject.TryGetComponent(out Ingredient.Ingredient ingredient);
                 if (ingredient.ingredientData != data) continue;
 
-                ingredient.Interaction(collectPoint);
+                ingredient.Interaction(collectPoint,hasIngredient);
                 _currentIngredient = ingredient;
                 hasIngredient = true;
                 currentState = StateIa.Idle;

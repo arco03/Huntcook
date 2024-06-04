@@ -16,7 +16,7 @@ namespace _Scripts.Dish
         public DishState currentState;
         private Animator _anim;
         private int _currentIngredient;
-        
+
         
         private void Awake()
         {
@@ -51,7 +51,9 @@ namespace _Scripts.Dish
             {
                 _anim.enabled = true;
                 currentState = DishState.Done;
-                StartCoroutine(Timer());
+                StartCoroutine(DishTimer());
+                recipeData.amount -= 1;
+                Debug.Log($"Current amount {recipeData.amount}");
             }
         }
 
@@ -63,10 +65,12 @@ namespace _Scripts.Dish
         }
 
 
-        IEnumerator Timer()
+        IEnumerator DishTimer()
         {
             yield return new WaitForSeconds(5f);
             _anim.SetTrigger("Activate");
+            yield return new WaitForSeconds(8f);
+            Destroy(gameObject);
         }
     }
 }

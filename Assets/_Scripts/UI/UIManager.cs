@@ -1,7 +1,7 @@
 ﻿using _Scripts.Dish;
+using _Scripts.UI.Recipe;
 using _Scripts.UI.Status;
 using _Scripts.UI.Timer;
-using TMPro;
 using UnityEngine;
 
 namespace _Scripts.UI
@@ -9,24 +9,28 @@ namespace _Scripts.UI
     public class UIManager : MonoBehaviour
     {
         [Header("Timer Configurations")] 
-        [SerializeField] private TimerView timerView;
-        [SerializeField] private TextMeshProUGUI timerText;
-        [SerializeField] private float timeElapse;
+        [SerializeField] private TimerController timerController;
         
         [Header("Status Configurations")] 
         [SerializeField] private StatusController statusController;
         
         [Header("Recipe Configurations")]
         [SerializeField] private DishData dishData;
-        
-        private void Update()
-        {
-            timeElapse -= Time.deltaTime;
+        [SerializeField] private RecipeController recipeController;
 
-            if (timeElapse > 0)
-                timerText.text = timerView.TimeFormat(timeElapse);
-            else statusController.TimeOut();
-            
+        private void OnEnable()
+        {
+            timerController.Initialize();
+        }
+
+        private void UpdateTime(float timeElapse)
+        {
+            timerController.UpdateTime(timeElapse);
+        }
+
+        private void OnDisable()
+        {
+            timerController.Close();
         }
     }
 }

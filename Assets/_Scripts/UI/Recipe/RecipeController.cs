@@ -14,10 +14,14 @@ namespace _Scripts.UI.Recipe
 
         private void Update()
         {
+            RecipeReady();
+        }
+
+        public void RecipeReady()
+        {
             if(dishData.amount == 0) 
                 statusController.Win();
         }
-
         
     }
     

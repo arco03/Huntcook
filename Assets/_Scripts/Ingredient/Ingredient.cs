@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using _Scripts.Installer;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Scripts.Ingredient
@@ -15,7 +17,7 @@ namespace _Scripts.Ingredient
     public class Ingredient : MonoBehaviour, IDetector
     {
         public IngredientData ingredientData;
-        private bool capture;
+        private bool _capture;
         private bool _isPicked;
         private Rigidbody _rb;
         public IngredientState currentIngredientState;
@@ -35,7 +37,7 @@ namespace _Scripts.Ingredient
                 transform.localPosition = Vector3.zero;
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
                 currentIngredientState = IngredientState.Captured;
-                capture = captureby;
+                _capture = captureby;
                 
             }
             else
@@ -50,7 +52,11 @@ namespace _Scripts.Ingredient
         {
             if (other.gameObject.CompareTag("Floor"))
             {
+    
                 StartCoroutine(timeDestroy());
+                    
+                
+               
             }
             
         }
@@ -62,8 +68,9 @@ namespace _Scripts.Ingredient
 
         IEnumerator timeDestroy()
         {
-            yield return new WaitForSeconds(5f);
-            Destroy();
+
+                yield return new WaitForSeconds(5f);
+                Destroy();
         }
 
 

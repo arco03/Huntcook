@@ -22,7 +22,7 @@ namespace _Scripts.Player
         [SerializeField] private Transform collectPoint;
         [SerializeField] private Animator animator;
         
-        private int _attackDamage = 1;
+        public int _attackDamage = 1;
         public bool isAttacking;
         private Rigidbody _rb;
         public bool capture = true;

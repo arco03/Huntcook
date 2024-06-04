@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Dish;
 using _Scripts.Ghost;
 using _Scripts.Ingredient;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 namespace _Scripts.Installer
@@ -21,6 +23,12 @@ namespace _Scripts.Installer
         [Header("Spawner Configurations")]
         [SerializeField] private float repeatingTime;
 
+        [Header("Configuración del plato")]
+        [SerializeField] private SpawnDish _spawnDish;
+
+        [SerializeField] private Transform positionPlate;
+        [SerializeField] private Dish.Dish dish;
+        
         [Header("Spawner Positions")]
         [SerializeField] private Transform ghostVector1;
         [SerializeField] private Transform ghostVector2;
@@ -40,6 +48,7 @@ namespace _Scripts.Installer
             _ghostSpawner = new GhostSpawner(ghostVector1, ghostVector2, ghostFactory);
             IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
             _ingredientSpawner = new IngredientSpawner(dishData.ingredientsList, ingredientPoints, ingredientFactory);
+            _spawnDish = new SpawnDish(dish, positionPlate);
         }
 
         private void Start()
@@ -50,19 +59,22 @@ namespace _Scripts.Installer
             }
             _instance = this;
             _ingredientSpawner.Initialize();
+
+            
             StartCoroutine(GhostTime());
             
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
+            
+            // InvokeRepeating("SpawnDish", repeatingTime, repeatingTime);
+            
         }
 
+     
         private void Spawn()
         {
             _ingredientSpawner.Spawn();
-            
-    
-           
-        }
 
+        }
         public IEnumerator GhostTime()
         {
             for (int i = 0; i < totalGhost; i++)

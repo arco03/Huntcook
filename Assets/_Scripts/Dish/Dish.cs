@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Dish
 {
@@ -33,6 +34,14 @@ namespace _Scripts.Dish
             }
         }
 
+        // private void Update()
+        // {
+        //     if (currentState == DishState.Done)
+        //     {
+        //         Debug.Log("Plato Listo");
+        //     }
+        // }
+
         public void AddIngredient(Ingredient.Ingredient ingredient)
         {
             // Check the same Ingredient ID from the list of ingredients
@@ -51,8 +60,11 @@ namespace _Scripts.Dish
             {
                 _anim.enabled = true;
                 currentState = DishState.Done;
-                StartCoroutine(Timer());
+                StartCoroutine(DishTimer());
+                recipeData.amount -= 1;
+                Debug.Log($"Current amount {recipeData.amount}");
             }
+
         }
 
         private void OnTriggerEnter(Collider other)
@@ -63,10 +75,17 @@ namespace _Scripts.Dish
         }
 
 
-        IEnumerator Timer()
+        // IEnumerator Timer()
+        // {
+        //     yield return new WaitForSeconds(5f);
+        //     _anim.SetTrigger("Activate");
+        // }
+        IEnumerator DishTimer()
         {
             yield return new WaitForSeconds(5f);
             _anim.SetTrigger("Activate");
+            yield return new WaitForSeconds(8f);
+            Destroy(gameObject);
         }
     }
 }

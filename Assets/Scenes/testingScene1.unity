@@ -1214,6 +1214,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24269714a6aa94f448eeb732fa66b902, type: 2}
   ghost: {fileID: 2032270953}
   repeatingTime: 20
+  _spawnDish: {fileID: 985564788}
   positionPlate: {fileID: 985564789}
   dish: {fileID: 3170403668167907811, guid: eed40fd7e688d0c4c8ca0a7ff9fd20b0, type: 3}
   ghostVector1: {fileID: 1209047681}

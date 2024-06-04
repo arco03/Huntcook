@@ -24,7 +24,7 @@ namespace _Scripts.Installer
         [SerializeField] private float repeatingTime;
 
         [Header("Configuración del plato")]
-        [SerializeField] private SpawnDish _spawnDish;
+        [SerializeField] SpawnDish _spawnDish;
 
         [SerializeField] private Transform positionPlate;
         [SerializeField] private Dish.Dish dish;
@@ -48,11 +48,12 @@ namespace _Scripts.Installer
             _ghostSpawner = new GhostSpawner(ghostVector1, ghostVector2, ghostFactory);
             IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
             _ingredientSpawner = new IngredientSpawner(dishData.ingredientsList, ingredientPoints, ingredientFactory);
-            _spawnDish = new SpawnDish(dish, positionPlate);
+            
         }
 
         private void Start()
         {
+            _spawnDish.Configure(dish, positionPlate);
             for (int i = 0; i < enums.Length; i++)
             {
                 _positions.Add( enums[i],ingredientPoints[i].transform.position );

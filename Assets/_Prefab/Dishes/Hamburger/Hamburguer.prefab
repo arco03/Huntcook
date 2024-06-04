@@ -126,8 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientData: {fileID: 11400000, guid: 8072095211412a44182933dde1b01649, type: 2}
-  currentState: 0
-  material: {fileID: 3670015769379527451}
+  currentIngredientState: 0
 --- !u!1 &2488750239555553029
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,8 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientData: {fileID: 11400000, guid: 8e3dae139f42856478d519835257bc9a, type: 2}
-  currentState: 0
-  material: {fileID: 2100000, guid: 418fe787c7a6e4b48bbc7784fdf2708f, type: 2}
+  currentIngredientState: 0
 --- !u!1 &4076261825491253099
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,8 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientData: {fileID: 11400000, guid: 5fd8c5555ec015243ab081f84e8cd11d, type: 2}
-  currentState: 0
-  material: {fileID: 2100000, guid: 418fe787c7a6e4b48bbc7784fdf2708f, type: 2}
+  currentIngredientState: 0
 --- !u!1 &5620945688013706829
 GameObject:
   m_ObjectHideFlags: 0

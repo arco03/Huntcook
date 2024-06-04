@@ -9,12 +9,12 @@ TagManager:
   - Ingredients
   - Door
   - Hand
-  - Floor
+  - DishPoint
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Chef
+  - 
   - Water
   - UI
   - ingredient

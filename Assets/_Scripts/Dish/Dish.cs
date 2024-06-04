@@ -17,7 +17,7 @@ namespace _Scripts.Dish
         public DishState currentState;
         private Animator _anim;
         private int _currentIngredient;
-        
+
         
         private void Awake()
         {
@@ -75,11 +75,6 @@ namespace _Scripts.Dish
         }
 
 
-        // IEnumerator Timer()
-        // {
-        //     yield return new WaitForSeconds(5f);
-        //     _anim.SetTrigger("Activate");
-        // }
         IEnumerator DishTimer()
         {
             yield return new WaitForSeconds(5f);

@@ -11,5 +11,10 @@ namespace _Scripts.UI.Status
                 Time.timeScale = 0f;
                 statusView.ShowGameOver();
         }
+        public void Win()
+        {
+            Time.timeScale = 0f;
+            statusView.ShowWin();
+        }
     }
 }

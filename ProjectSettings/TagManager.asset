@@ -9,6 +9,7 @@ TagManager:
   - Ingredients
   - Door
   - Hand
+  - DishPoint
   layers:
   - Default
   - TransparentFX

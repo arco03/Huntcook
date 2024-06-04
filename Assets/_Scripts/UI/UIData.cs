@@ -1,6 +1,8 @@
-﻿using _Scripts.Dish;
+﻿using System;
+using _Scripts.Dish;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Scripts.UI
 {
@@ -12,9 +14,12 @@ namespace _Scripts.UI
 
         private void Awake()
         {
-            dishData.amount = Random.Range(5, 10);
+            dishData.amount = Random.Range(1, 1);
+        }
+
+        private void Update()
+        {
             textAmount.text = $"X {dishData.amount.ToString()}";
         }
-        
     }
 }

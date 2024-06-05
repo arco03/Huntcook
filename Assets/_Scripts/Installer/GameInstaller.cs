@@ -22,8 +22,10 @@ namespace _Scripts.Installer
         [SerializeField] private float repeatingTime;
 
         [Header("Dish Configuration")]
-        [SerializeField] private Transform positionPlate;
-        [SerializeField] private DishConfiguration dishConfiguration;
+
+        [SerializeField] private DishManager dishManager;
+
+        [SerializeField] private Transform dishPosition;
         
         [Header("Spawner Positions")]
         [SerializeField] private Transform ghostVector1;
@@ -38,7 +40,6 @@ namespace _Scripts.Installer
         private IngredientSpawner _ingredientSpawner;
         private IngredientSpawner _ingredientSpawner2;
         private IngredientSpawner _ingredientSpawner3;
-        private DishSpawner _dishSpawner;
 
 
         public bool dead;
@@ -51,8 +52,7 @@ namespace _Scripts.Installer
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
             _ghostSpawner = new GhostSpawner(ghostVector1, ghostVector2, ghostFactory);
             
-            DishFactory dishFactory = new DishFactory(dishConfiguration);
-            _dishSpawner = new DishSpawner(dishFactory);
+
             
             IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
             _ingredientSpawner = new IngredientSpawner(dish.ingredientsList, ingredientPoints, ingredientFactory);
@@ -60,7 +60,9 @@ namespace _Scripts.Installer
 
         private void Start()
         {
-            _dishSpawner.Spawn(dish, positionPlate);
+
+            dishManager.Initialize(dish,dishPosition);
+            
             for (int i = 0; i < enums.Length; i++)
             {
                 _positions.Add( enums[i],ingredientPoints[i].transform.position );
@@ -74,7 +76,7 @@ namespace _Scripts.Installer
             
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
             
-            InvokeRepeating("SpawnDish", repeatingTime, repeatingTime);
+            // InvokeRepeating("SpawnDish", repeatingTime, repeatingTime);
             
         }
 
@@ -99,6 +101,7 @@ namespace _Scripts.Installer
             dead = false;
             StartCoroutine(RespawnGhostTime(index));
         }
+        
 
         private IEnumerator RespawnGhostTime(int index)
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Installer;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,11 +15,28 @@ namespace _Scripts.Dish
     {
         public DishData dishData;
         [SerializeField] private List<GameObject> ingredientsPrefabs;
-        public DishState currentState;
+       
         private Animator _anim;
         private int _currentIngredient;
-
         
+        private DishState currentState;
+
+        public DishState CurrentState
+        {
+            set
+            {
+                if (currentState == value) return;
+                
+                currentState = value;
+
+                if (currentState == DishState.Done)
+                {
+                    DishManager.DishReady(dishData);
+                }
+            }
+        }
+        
+
         private void Awake()
         {
             _anim = GetComponent<Animator>();
@@ -27,20 +45,12 @@ namespace _Scripts.Dish
 
         private void Start()
         {
-            currentState = DishState.Clean;
+            CurrentState = DishState.Clean;
             foreach (GameObject prefab in ingredientsPrefabs)
             {
                 prefab.SetActive(false);
             }
         }
-
-        // private void Update()
-        // {
-        //     if (currentState == DishState.Done)
-        //     {
-        //         Debug.Log("Plato Listo");
-        //     }
-        // }
 
         public void AddIngredient(Ingredient.Ingredient ingredient)
         {
@@ -59,7 +69,7 @@ namespace _Scripts.Dish
             if (_currentIngredient >= dishData.ingredientsList.Count)
             {
                 _anim.enabled = true;
-                currentState = DishState.Done;
+                CurrentState = DishState.Done;
                 StartCoroutine(DishTimer());
                 dishData.amount -= 1;
                 Debug.Log($"Current amount {dishData.amount}");
@@ -79,7 +89,7 @@ namespace _Scripts.Dish
         {
             yield return new WaitForSeconds(5f);
             _anim.SetTrigger("Activate");
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(3f);
             Destroy(gameObject);
         }
     }

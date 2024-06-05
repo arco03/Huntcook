@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 8546875746624767283}
   - component: {fileID: 5287986198921984675}
   - component: {fileID: -5306307342354255108}
-  - component: {fileID: 9097181786185369655}
+  - component: {fileID: 1172661077500663033}
   m_Layer: 11
   m_Name: Ghost 1
   m_TagString: Ghost
@@ -354,7 +354,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &9097181786185369655
+--- !u!114 &1172661077500663033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,9 +369,9 @@ MonoBehaviour:
   currentState: 0
   ghostData: {fileID: 11400000, guid: 6142d58192887144e9121be47767a86b, type: 2}
   data: {fileID: 11400000, guid: 8e3dae139f42856478d519835257bc9a, type: 2}
-  offsetUpper: {x: 0, y: 1, z: 1}
-  offsetLower: {x: 0, y: -1, z: 1}
-  radius: 1
+  offsetUpper: {x: 0, y: 0.99, z: 1.59}
+  offsetLower: {x: 0, y: 0, z: 0}
+  radius: 1.2
   ingredientMask:
     serializedVersion: 2
     m_Bits: 64
@@ -379,7 +379,7 @@ MonoBehaviour:
   particleDead: {fileID: 9176172003811880940}
   hasIngredient: 0
   isDead: 0
-  _currentHealth: 0
+  currentHealth: 0
 --- !u!1001 &2266971820285189048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -392,6 +392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Humo
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930381278700909652, guid: 78a60934f41a4cc4583fa33d0d54b8c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8381957743411526909, guid: 78a60934f41a4cc4583fa33d0d54b8c7,
         type: 3}

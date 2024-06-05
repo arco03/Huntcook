@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 8546875746624767283}
   - component: {fileID: 5287986198921984675}
   - component: {fileID: -896934218435837982}
-  - component: {fileID: 7602082560545100602}
+  - component: {fileID: 3432547276052014584}
   m_Layer: 11
   m_Name: Ghost 3
   m_TagString: Ghost
@@ -354,7 +354,7 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7602082560545100602
+--- !u!114 &3432547276052014584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,10 +368,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: 0
   ghostData: {fileID: 11400000, guid: d4df81cffc431a744935ec2e5278a0d2, type: 2}
-  data: {fileID: 11400000, guid: 5fd8c5555ec015243ab081f84e8cd11d, type: 2}
-  offsetUpper: {x: 0, y: 1, z: 1}
-  offsetLower: {x: 0, y: -1, z: 1}
-  radius: 1
+  data: {fileID: 11400000, guid: f9ed8e1f0c0838f4099c1f0c9c0d58c5, type: 2}
+  offsetUpper: {x: 0, y: 0, z: 0}
+  offsetLower: {x: 0, y: 0, z: 0}
+  radius: 0
   ingredientMask:
     serializedVersion: 2
     m_Bits: 64
@@ -379,7 +379,7 @@ MonoBehaviour:
   particleDead: {fileID: 1938904605586518101}
   hasIngredient: 0
   isDead: 0
-  _currentHealth: 0
+  currentHealth: 0
 --- !u!1001 &8846748049832559617
 PrefabInstance:
   m_ObjectHideFlags: 0

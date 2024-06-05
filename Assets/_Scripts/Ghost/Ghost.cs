@@ -159,6 +159,7 @@ namespace _Scripts.Ghost
                 if (ingredient.ingredientData != data) continue;
 
                 ingredient.Interaction(collectPoint,hasIngredient);
+                Debug.Log(("lo tengo"));
                 _currentIngredient = ingredient;
                 hasIngredient = true;
                 currentState = StateIa.Idle;
@@ -170,12 +171,15 @@ namespace _Scripts.Ghost
         {
             // Ingredient Gizmos
             Gizmos.color = Color.red;
-    
+           
             // Rotamos los offsets junto con el personaje
             Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
             Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
-
+            Vector3 direction = transform.TransformDirection(Vector3.forward) * 3;
             // Dibujamos la cápsula con los offsets rotados
+           
+            
+            Gizmos.DrawRay(transform.position, direction);
             Gizmos.DrawWireSphere(rotatedOffsetUpper + transform.position, radius);
             Gizmos.DrawWireSphere(rotatedOffsetLower + transform.position, radius);
             Gizmos.DrawLine(rotatedOffsetUpper + radius * transform.right + transform.position, rotatedOffsetLower + radius * transform.right + transform.position);

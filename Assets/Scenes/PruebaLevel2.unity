@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17278303, g: 0.21591173, b: 0.29784954, a: 1}
+  m_IndirectSpecularColor: {r: 0.17278337, g: 0.21591267, b: 0.2978504, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1080,10 +1080,6 @@ MonoBehaviour:
   ghostConfiguration: {fileID: 11400000, guid: 18e689b8943d70d4a83391cfac8fbcaa, type: 2}
   ingredientConfiguration: {fileID: 11400000, guid: 67e69be5efbf89342953362fea59e42e,
     type: 2}
-  dishData:
-  - {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
-  - {fileID: 11400000, guid: 1c2f2e4ac7e39ad4cb2eaf39ae9958f9, type: 2}
-  - {fileID: 11400000, guid: 84c49906e3a7e3d43a94bcacd745169b, type: 2}
   ghostData:
   - {fileID: 11400000, guid: 6142d58192887144e9121be47767a86b, type: 2}
   - {fileID: 11400000, guid: 12fb110576bcb5945848ff301cc00da8, type: 2}
@@ -1091,10 +1087,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0debc1948cd78614ba83b64561078b25, type: 2}
   - {fileID: 11400000, guid: 24269714a6aa94f448eeb732fa66b902, type: 2}
   ghost: {fileID: 2032270953}
+  dish: {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
   repeatingTime: 20
-  _spawnDish: {fileID: 985564788}
   positionPlate: {fileID: 985564789}
-  dish: {fileID: 3170403668167907811, guid: eed40fd7e688d0c4c8ca0a7ff9fd20b0, type: 3}
+  dishConfiguration: {fileID: 11400000, guid: 57396eaac5d788a48bf9739e56902b45, type: 2}
   ghostVector1: {fileID: 1209047681}
   ghostVector2: {fileID: 316760510}
   ingredientPoints:
@@ -1739,6 +1735,7 @@ MonoBehaviour:
   timerText: {fileID: 1332973788}
   timeElapse: 180
   statusController: {fileID: 789523049}
+  dishData: {fileID: 0}
 --- !u!1 &704669968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,7 +2458,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985564789}
-  - component: {fileID: 985564788}
   m_Layer: 0
   m_Name: DishSpawner
   m_TagString: Untagged
@@ -2469,18 +2465,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &985564788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985564787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5d7e58ed642472090ec63165f6719db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &985564789
 Transform:
   m_ObjectHideFlags: 0
@@ -2490,7 +2474,7 @@ Transform:
   m_GameObject: {fileID: 985564787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.963, y: 1.654, z: 10.01}
+  m_LocalPosition: {x: -5.026, y: 2.287, z: 10.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3683,7 +3667,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: fc5105042b7c37441b79f96ef1aa17f8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: cc204630259885e4b8d70253f72569ff, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1551072990
 Transform:

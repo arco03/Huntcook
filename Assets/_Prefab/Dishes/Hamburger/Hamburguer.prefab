@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b723d86aa5d0495fa0d170c9bd2a622b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipeData: {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
+  dishData: {fileID: 11400000, guid: 1c2f2e4ac7e39ad4cb2eaf39ae9958f9, type: 2}
   ingredientsPrefabs:
   - {fileID: 2488750239555553029}
   - {fileID: 4076261825491253099}

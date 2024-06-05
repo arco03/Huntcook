@@ -12,7 +12,7 @@ namespace _Scripts.Dish
     }
     public class Dish : MonoBehaviour
     {
-        [SerializeField] private DishData recipeData;
+        public DishData dishData;
         [SerializeField] private List<GameObject> ingredientsPrefabs;
         public DishState currentState;
         private Animator _anim;
@@ -45,7 +45,7 @@ namespace _Scripts.Dish
         public void AddIngredient(Ingredient.Ingredient ingredient)
         {
             // Check the same Ingredient ID from the list of ingredients
-            if ( ingredient.ingredientData == recipeData.ingredientsList[_currentIngredient] )
+            if ( ingredient.ingredientData == dishData.ingredientsList[_currentIngredient] )
             {
                 ingredientsPrefabs[_currentIngredient].SetActive(true);
                 _currentIngredient++;
@@ -56,13 +56,13 @@ namespace _Scripts.Dish
         public void CheckRecipeReady()
         {
             // If Recipe is ready then start the animation
-            if (_currentIngredient >= recipeData.ingredientsList.Count)
+            if (_currentIngredient >= dishData.ingredientsList.Count)
             {
                 _anim.enabled = true;
                 currentState = DishState.Done;
                 StartCoroutine(DishTimer());
-                recipeData.amount -= 1;
-                Debug.Log($"Current amount {recipeData.amount}");
+                dishData.amount -= 1;
+                Debug.Log($"Current amount {dishData.amount}");
             }
 
         }

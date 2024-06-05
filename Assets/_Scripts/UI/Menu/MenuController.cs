@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace _Scripts.UI.Menu
 {
-    public class MenuView : MonoBehaviour
+    public class MenuController : MonoBehaviour
     {
         [SerializeField] private GameObject menuPanel;
         [SerializeField] private GameObject optionPanel;

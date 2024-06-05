@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5091704999740393131}
   - component: {fileID: -4175062890180573296}
   m_Layer: 6
-  m_Name: Letuce (1)
+  m_Name: Letuce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

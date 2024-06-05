@@ -16,7 +16,7 @@ namespace _Scripts.Installer
         [Header("Factories configurations")]
         [SerializeField] private GhostConfiguration ghostConfiguration;
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
-        [SerializeField] private DishData dishData;
+        [SerializeField] private DishData[] dishData;
         [SerializeField] public GhostData[] ghostData;
         [SerializeField] private Transform ghost;
         
@@ -40,15 +40,44 @@ namespace _Scripts.Installer
         public static GameInstaller Instance => _instance;
         [HideInInspector] public GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
+        private IngredientSpawner _ingredientSpawner2;
+        private IngredientSpawner _ingredientSpawner3;
+
+
         public bool dead;
         public int totalGhost;
+        public int Level;
+
+        [SerializeField] private float timeGhost;
         public void Awake()
         {
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
             _ghostSpawner = new GhostSpawner(ghostVector1, ghostVector2, ghostFactory);
             IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
-            _ingredientSpawner = new IngredientSpawner(dishData.ingredientsList, ingredientPoints, ingredientFactory);
+
+            if (Level == 1)
+            {
+               _ingredientSpawner = new IngredientSpawner(dishData[0].ingredientsList, ingredientPoints, ingredientFactory);
+   
+            }
+
+            if (Level == 2)
+            {
+                _ingredientSpawner = new IngredientSpawner(dishData[0].ingredientsList, ingredientPoints, ingredientFactory);
+                _ingredientSpawner2 = new IngredientSpawner(dishData[1].ingredientsList, ingredientPoints, ingredientFactory);
+
+            }
+
+            if (Level == 3)
+            {
+                _ingredientSpawner = new IngredientSpawner(dishData[0].ingredientsList, ingredientPoints, ingredientFactory);
+                _ingredientSpawner2 = new IngredientSpawner(dishData[1].ingredientsList, ingredientPoints, ingredientFactory);
+                _ingredientSpawner3 = new IngredientSpawner(dishData[2].ingredientsList, ingredientPoints, ingredientFactory);
+
+            }
             
+
+
         }
 
         private void Start()
@@ -59,7 +88,28 @@ namespace _Scripts.Installer
                 _positions.Add( enums[i],ingredientPoints[i].transform.position );
             }
             _instance = this;
-            _ingredientSpawner.Initialize();
+
+            if (Level == 1)
+            {
+               _ingredientSpawner.Initialize();
+                
+            }
+
+            if (Level == 2)
+            {
+                _ingredientSpawner.Initialize();
+                _ingredientSpawner2.Initialize();
+
+            }
+
+            if (Level==3)
+            {
+                _ingredientSpawner.Initialize();
+                _ingredientSpawner2.Initialize();
+                _ingredientSpawner3.Initialize();
+
+
+            }
 
             
             StartCoroutine(GhostTime());
@@ -73,14 +123,34 @@ namespace _Scripts.Installer
      
         private void Spawn()
         {
-            _ingredientSpawner.Spawn();
+            if (Level == 1)
+            {
+              _ingredientSpawner.Spawn();
+                
+            }
+
+            if (Level == 1)
+            { 
+              _ingredientSpawner.Spawn();
+              _ingredientSpawner2.Spawn();
+                
+            }
+
+            if (Level == 1)
+            { 
+                _ingredientSpawner.Spawn();
+                _ingredientSpawner2.Spawn();
+                _ingredientSpawner3.Spawn();
+
+            }
+            
 
         }
         public IEnumerator GhostTime()
         {
             for (int i = 0; i < totalGhost; i++)
             {
-                yield return new WaitForSeconds(7f);
+                yield return new WaitForSeconds(timeGhost);
                 _ghostSpawner.Spawn(ghostData[i],ghost);
             }
             

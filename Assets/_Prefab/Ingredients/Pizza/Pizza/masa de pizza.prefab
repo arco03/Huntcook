@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: masa de pizza
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 052569e53cfee2f458f2b4a176d5ac59,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -95,6 +100,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -3897076015533571078}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 052569e53cfee2f458f2b4a176d5ac59,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7252135934989045607}
   m_SourcePrefab: {fileID: 100100000, guid: 052569e53cfee2f458f2b4a176d5ac59, type: 3}
 --- !u!1 &1107424494907403922 stripped
 GameObject:
@@ -151,3 +160,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7301738766801530882, guid: 052569e53cfee2f458f2b4a176d5ac59, type: 3}
+--- !u!114 &-7252135934989045607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107424494907403922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67b28a0aafa4204b8573249b74f4572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ingredientData: {fileID: 11400000, guid: 7e2d2976d2340b740b409e820567e447, type: 2}
+  currentIngredientState: 0

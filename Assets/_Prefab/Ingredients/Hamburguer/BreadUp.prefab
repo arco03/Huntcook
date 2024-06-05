@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 189946204211139953}
   - component: {fileID: -7966220754858237412}
   m_Layer: 6
-  m_Name: BreadUp (1)
+  m_Name: BreadUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using _Scripts.Ingredient;
 using _Scripts.Installer;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Ghost
 {
@@ -24,18 +27,18 @@ namespace _Scripts.Ghost
         [SerializeField] private float radius;
         [SerializeField] private LayerMask ingredientMask;
         [SerializeField] private Transform collectPoint;
-        
+        [SerializeField] private GameObject particleDead;
         private readonly Dictionary<StateIa, Vector3> _positions = new Dictionary<StateIa, Vector3>();
         
         private NavMeshAgent _agent;
         private IngredientData _ingredientData;
         public bool hasIngredient;
-
+        public bool isDead;
         private IngredientPoint _assignPoint;
         private Ingredient.Ingredient _currentIngredient;
         
         private int _maxHealth;
-        private int _currentHealth;
+        [HideInInspector] public int currentHealth;
 
         private void Awake()
         {
@@ -44,8 +47,9 @@ namespace _Scripts.Ghost
 
         public void Start()
         {
-            _maxHealth = 3;
-            _currentHealth = _maxHealth;
+            particleDead.SetActive(false);
+            _maxHealth = 1;
+            currentHealth = _maxHealth;
             
             _agent = GetComponent<NavMeshAgent>();
             StoreInitialPosition();
@@ -74,11 +78,24 @@ namespace _Scripts.Ghost
         
         public void TakeDamage(int damage)
         {
-            _currentHealth -= damage;
-            if (_currentHealth <= 0)
+            currentHealth -= damage;
+            if (currentHealth <= 0 && hasIngredient)
             {
-                _currentIngredient.Interaction(transform);
-                Destroy(gameObject);
+                particleDead.SetActive(true);
+                Quaternion particleRotation = particleDead.transform.rotation;
+                Instantiate(particleDead, transform.position, particleRotation);
+                
+                if (gameObject != null)
+                { 
+                    
+                    int ghostIndex = Array.IndexOf(GameInstaller.Instance.ghostData, this.ghostData); 
+                    GameInstaller.Instance.RespawnGhost(ghostIndex);
+                    Destroy(gameObject);
+                   _currentIngredient.Interaction(transform,false);
+                   
+                }
+               
+
             }
             
         }
@@ -86,6 +103,7 @@ namespace _Scripts.Ghost
         public void Update()
         {
             UpdateStates();
+            
         }
 
         private void Move(StateIa state)
@@ -140,7 +158,8 @@ namespace _Scripts.Ghost
                 colliderDetected.gameObject.TryGetComponent(out Ingredient.Ingredient ingredient);
                 if (ingredient.ingredientData != data) continue;
 
-                ingredient.Interaction(collectPoint);
+                ingredient.Interaction(collectPoint,hasIngredient);
+                Debug.Log(("lo tengo"));
                 _currentIngredient = ingredient;
                 hasIngredient = true;
                 currentState = StateIa.Idle;
@@ -152,12 +171,15 @@ namespace _Scripts.Ghost
         {
             // Ingredient Gizmos
             Gizmos.color = Color.red;
-    
+           
             // Rotamos los offsets junto con el personaje
             Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
             Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
-
+            Vector3 direction = transform.TransformDirection(Vector3.forward) * 3;
             // Dibujamos la cápsula con los offsets rotados
+           
+            
+            Gizmos.DrawRay(transform.position, direction);
             Gizmos.DrawWireSphere(rotatedOffsetUpper + transform.position, radius);
             Gizmos.DrawWireSphere(rotatedOffsetLower + transform.position, radius);
             Gizmos.DrawLine(rotatedOffsetUpper + radius * transform.right + transform.position, rotatedOffsetLower + radius * transform.right + transform.position);

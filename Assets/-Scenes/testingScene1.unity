@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17278337, g: 0.21591267, b: 0.2978504, a: 1}
+  m_IndirectSpecularColor: {r: 0.17278303, g: 0.21591173, b: 0.29784954, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -176,8 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185ea7a5151e49ecb578c45b85140768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishData: {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
-  textAmount: {fileID: 1135141111}
+  dishData: {fileID: 0}
+  textAmount: {fileID: 0}
 --- !u!114 &42807137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,13 +1205,15 @@ MonoBehaviour:
   ghostConfiguration: {fileID: 11400000, guid: 18e689b8943d70d4a83391cfac8fbcaa, type: 2}
   ingredientConfiguration: {fileID: 11400000, guid: 67e69be5efbf89342953362fea59e42e,
     type: 2}
-  dishData: {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
   ghostData:
   - {fileID: 11400000, guid: 6142d58192887144e9121be47767a86b, type: 2}
   - {fileID: 11400000, guid: 12fb110576bcb5945848ff301cc00da8, type: 2}
   - {fileID: 11400000, guid: d4df81cffc431a744935ec2e5278a0d2, type: 2}
   ghost: {fileID: 2032270953}
+  dish: {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
   repeatingTime: 30
+  dishManager: {fileID: 1175160311}
+  dishPosition: {fileID: 985564789}
   ghostVector1: {fileID: 1209047681}
   ghostVector2: {fileID: 316760510}
   ingredientPoints:
@@ -1224,6 +1226,10 @@ MonoBehaviour:
   - {fileID: 1123157410}
   - {fileID: 1073685612}
   enums: 0000000001000000
+  dead: 0
+  totalGhost: 3
+  Level: 1
+  timeGhost: 7
 --- !u!4 &455655584
 Transform:
   m_ObjectHideFlags: 0
@@ -1855,7 +1861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &690069975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1954,10 +1960,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a568f0df0272448590b82ae68d19c07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerView: {fileID: 1436576147}
-  timerText: {fileID: 1332973788}
-  timeElapse: 180
+  timerView: {fileID: 0}
+  timerText: {fileID: 0}
+  timeElapse: 0
   statusController: {fileID: 789523049}
+  dishData: {fileID: 0}
 --- !u!1001 &700491384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2476,8 +2483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185ea7a5151e49ecb578c45b85140768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishData: {fileID: 11400000, guid: 84c49906e3a7e3d43a94bcacd745169b, type: 2}
-  textAmount: {fileID: 1069538159}
+  dishData: {fileID: 0}
+  textAmount: {fileID: 0}
 --- !u!114 &715111605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2912,7 +2919,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985564789}
-  - component: {fileID: 985564788}
   m_Layer: 0
   m_Name: DishSpawner
   m_TagString: Untagged
@@ -2920,20 +2926,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &985564788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985564787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5d7e58ed642472090ec63165f6719db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 3170403668167907811, guid: eed40fd7e688d0c4c8ca0a7ff9fd20b0, type: 3}
-  repeatingTime: 0
 --- !u!4 &985564789
 Transform:
   m_ObjectHideFlags: 0
@@ -3223,8 +3215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185ea7a5151e49ecb578c45b85140768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishData: {fileID: 11400000, guid: 1c2f2e4ac7e39ad4cb2eaf39ae9958f9, type: 2}
-  textAmount: {fileID: 1683893615}
+  dishData: {fileID: 0}
+  textAmount: {fileID: 0}
 --- !u!114 &1087708982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3558,6 +3550,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 829531001}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1175160310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1175160312}
+  - component: {fileID: 1175160311}
+  m_Layer: 0
+  m_Name: ManagerDish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1175160311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175160310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df485181261647f9b7d65ef4c09ff18a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dishConfiguration: {fileID: 11400000, guid: 57396eaac5d788a48bf9739e56902b45, type: 2}
+--- !u!4 &1175160312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175160310}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.180998, y: -22.015787, z: 25.965633}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209047680
 GameObject:
   m_ObjectHideFlags: 0
@@ -4136,7 +4173,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 3587b81ba229caf40b3c16f01b161480, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c7b2b73111f662c4f8c61bbdc3807ca5, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1551072990
 Transform:
@@ -5524,7 +5561,7 @@ PrefabInstance:
     - target: {fileID: 5447334095726482391, guid: ecbadba248e1d6c4abd39957ae02304d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5542791958826297747, guid: ecbadba248e1d6c4abd39957ae02304d,
         type: 3}
@@ -5711,3 +5748,4 @@ SceneRoots:
   - {fileID: 1217739649}
   - {fileID: 690069978}
   - {fileID: 5887972763137851761}
+  - {fileID: 1175160312}

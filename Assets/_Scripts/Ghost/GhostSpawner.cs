@@ -29,6 +29,7 @@ namespace _Scripts.Ghost
             enemy.transform.position = new Vector3(posEnemyX, 1f, posEnemyZ);
             enemy.transform.SetParent(parent);
             
+            
         }
     }
 }

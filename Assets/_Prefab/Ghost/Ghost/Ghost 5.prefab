@@ -371,7 +371,7 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 7e2d2976d2340b740b409e820567e447, type: 2}
   offsetUpper: {x: 0, y: 0, z: 0}
   offsetLower: {x: 0, y: 0, z: 0}
-  radius: 0
+  radius: 1.2
   ingredientMask:
     serializedVersion: 2
     m_Bits: 64

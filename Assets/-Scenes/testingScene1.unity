@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17278303, g: 0.21591173, b: 0.29784954, a: 1}
+  m_IndirectSpecularColor: {r: 0.17278379, g: 0.21591336, b: 0.2978515, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -176,8 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185ea7a5151e49ecb578c45b85140768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishData: {fileID: 0}
-  textAmount: {fileID: 0}
 --- !u!114 &42807137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,11 +1958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a568f0df0272448590b82ae68d19c07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerView: {fileID: 0}
-  timerText: {fileID: 0}
-  timeElapse: 0
-  statusController: {fileID: 789523049}
-  dishData: {fileID: 0}
+  timerController: {fileID: 0}
+  recipeController: {fileID: 0}
 --- !u!1001 &700491384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2483,8 +2478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185ea7a5151e49ecb578c45b85140768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishData: {fileID: 0}
-  textAmount: {fileID: 0}
 --- !u!114 &715111605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2589,7 +2582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1264090761}
   winPanel: {fileID: 1987986971}
-  uiTimer: {fileID: 1436576145}
+  uIManager: {fileID: 0}
   uiRecipe: {fileID: 238615200}
 --- !u!224 &789523051
 RectTransform:
@@ -3215,8 +3208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185ea7a5151e49ecb578c45b85140768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishData: {fileID: 0}
-  textAmount: {fileID: 0}
 --- !u!114 &1087708982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4052,6 +4043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c31084fa7484b7a8376c13af66e0965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeText: {fileID: 0}
 --- !u!1 &1475097234
 GameObject:
   m_ObjectHideFlags: 0

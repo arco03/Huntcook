@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Installer;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Dish
 {
@@ -11,13 +13,30 @@ namespace _Scripts.Dish
     }
     public class Dish : MonoBehaviour
     {
-        [SerializeField] private DishData recipeData;
+        public DishData dishData;
         [SerializeField] private List<GameObject> ingredientsPrefabs;
-        public DishState currentState;
+       
         private Animator _anim;
         private int _currentIngredient;
-
         
+        private DishState currentState;
+
+        public DishState CurrentState
+        {
+            set
+            {
+                if (currentState == value) return;
+                
+                currentState = value;
+
+                if (currentState == DishState.Done)
+                {
+                    DishManager.DishReady(dishData);
+                }
+            }
+        }
+        
+
         private void Awake()
         {
             _anim = GetComponent<Animator>();
@@ -26,7 +45,7 @@ namespace _Scripts.Dish
 
         private void Start()
         {
-            currentState = DishState.Clean;
+            CurrentState = DishState.Clean;
             foreach (GameObject prefab in ingredientsPrefabs)
             {
                 prefab.SetActive(false);
@@ -36,7 +55,7 @@ namespace _Scripts.Dish
         public void AddIngredient(Ingredient.Ingredient ingredient)
         {
             // Check the same Ingredient ID from the list of ingredients
-            if ( ingredient.ingredientData == recipeData.ingredientsList[_currentIngredient] )
+            if ( ingredient.ingredientData == dishData.ingredientsList[_currentIngredient] )
             {
                 ingredientsPrefabs[_currentIngredient].SetActive(true);
                 _currentIngredient++;
@@ -47,14 +66,15 @@ namespace _Scripts.Dish
         public void CheckRecipeReady()
         {
             // If Recipe is ready then start the animation
-            if (_currentIngredient >= recipeData.ingredientsList.Count)
+            if (_currentIngredient >= dishData.ingredientsList.Count)
             {
                 _anim.enabled = true;
-                currentState = DishState.Done;
+                CurrentState = DishState.Done;
                 StartCoroutine(DishTimer());
-                recipeData.amount -= 1;
-                Debug.Log($"Current amount {recipeData.amount}");
+                dishData.amount -= 1;
+                Debug.Log($"Current amount {dishData.amount}");
             }
+
         }
 
         private void OnTriggerEnter(Collider other)
@@ -69,7 +89,7 @@ namespace _Scripts.Dish
         {
             yield return new WaitForSeconds(5f);
             _anim.SetTrigger("Activate");
-            yield return new WaitForSeconds(8f);
+            yield return new WaitForSeconds(3f);
             Destroy(gameObject);
         }
     }

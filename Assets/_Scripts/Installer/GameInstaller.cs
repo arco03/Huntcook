@@ -14,62 +14,101 @@ namespace _Scripts.Installer
         [Header("Factories configurations")]
         [SerializeField] private GhostConfiguration ghostConfiguration;
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
-        [SerializeField] private DishData dishData;
-        [SerializeField] private GhostData[] ghostData;
+        [SerializeField] public GhostData[] ghostData;
         [SerializeField] private Transform ghost;
+        [SerializeField] private DishData dish;
         
         [Header("Spawner Configurations")]
         [SerializeField] private float repeatingTime;
+
+        [Header("Dish Configuration")]
+
+        [SerializeField] private DishManager dishManager;
+
+        [SerializeField] private Transform dishPosition;
         
         [Header("Spawner Positions")]
         [SerializeField] private Transform ghostVector1;
         [SerializeField] private Transform ghostVector2;
         public List<IngredientPoint> ingredientPoints;
-        private readonly Dictionary<StateIa, UnityEngine.Vector3> _positions = new ();
+        private readonly Dictionary<StateIa, Vector3> _positions = new ();
         public StateIa[] enums;
         private static GameInstaller _instance;
         
         public static GameInstaller Instance => _instance;
-        [HideInInspector] public GhostSpawner _ghostSpawner;
+        private GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
+        private IngredientSpawner _ingredientSpawner2;
+        private IngredientSpawner _ingredientSpawner3;
 
 
+        public bool dead;
+        public int totalGhost;
+        public int Level;
+
+        [SerializeField] private float timeGhost;
         public void Awake()
         {
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
             _ghostSpawner = new GhostSpawner(ghostVector1, ghostVector2, ghostFactory);
+            
+
+            
             IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
-            _ingredientSpawner = new IngredientSpawner(dishData.ingredientsList, ingredientPoints, ingredientFactory);
+            _ingredientSpawner = new IngredientSpawner(dish.ingredientsList, ingredientPoints, ingredientFactory);
         }
 
         private void Start()
         {
+
+            dishManager.Initialize(dish,dishPosition);
+            
             for (int i = 0; i < enums.Length; i++)
             {
                 _positions.Add( enums[i],ingredientPoints[i].transform.position );
             }
             _instance = this;
-            _ingredientSpawner.Initialize();
+           _ingredientSpawner.Initialize();
+            
+            
+            
             StartCoroutine(GhostTime());
             
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
+            
+            // InvokeRepeating("SpawnDish", repeatingTime, repeatingTime);
+            
         }
 
+     
         private void Spawn()
         {
             _ingredientSpawner.Spawn();
-        }
 
-        IEnumerator GhostTime()
+
+        }
+        public IEnumerator GhostTime()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < totalGhost; i++)
             {
-               
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(timeGhost);
                 _ghostSpawner.Spawn(ghostData[i],ghost);
             }
             
         }
+        public void RespawnGhost(int index)
+        {
+            dead = false;
+            StartCoroutine(RespawnGhostTime(index));
+        }
+        
+
+        private IEnumerator RespawnGhostTime(int index)
+        {
+            yield return new WaitForSeconds(2f);
+            _ghostSpawner.Spawn(ghostData[index], ghost);
+        }
+
 
     }
 }

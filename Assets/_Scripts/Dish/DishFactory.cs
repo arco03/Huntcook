@@ -2,10 +2,17 @@
 {
     public class DishFactory
     {
-        // public Ingredient Create(DishData data)
-        // { 
-            // Ingredient prefabToCreate = _config.GetPrefab(id);
-            // return UnityEngine.Object.Instantiate(prefabToCreate);
-        // }
+        private readonly DishConfiguration _config;
+
+        public DishFactory(DishConfiguration config)
+        {
+            _config = config;
+        }
+
+        public Dish Create(DishData data)
+        { 
+            Dish prefabToCreate = _config.GetPrefab(data);
+            return UnityEngine.Object.Instantiate(prefabToCreate);
+        }
     }
 }

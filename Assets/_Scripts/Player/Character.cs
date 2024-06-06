@@ -22,10 +22,10 @@ namespace _Scripts.Player
         [SerializeField] private Transform collectPoint;
         [SerializeField] private Animator animator;
         
-        private int _attackDamage = 1;
+        public int _attackDamage = 1;
         public bool isAttacking;
         private Rigidbody _rb;
-
+        public bool capture = true;
         
         private void Awake()
         {
@@ -60,7 +60,7 @@ namespace _Scripts.Player
                 if(!colliderDetected) continue;
            
                 colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
-                component?.Interaction(collectPoint);
+                component?.Interaction(collectPoint,capture=false);
                 Debug.Log("Entra aca");
                 break;
             }

@@ -1,6 +1,6 @@
 ﻿using _Scripts.Dish;
 using _Scripts.UI.Recipe;
-using _Scripts.UI.Status;
+using _Scripts.UI.State;
 using _Scripts.UI.Timer;
 using UnityEngine;
 
@@ -11,26 +11,29 @@ namespace _Scripts.UI
         [Header("Timer Configurations")] 
         [SerializeField] private TimerController timerController;
         
-        [Header("Status Configurations")] 
-        [SerializeField] private StatusController statusController;
-        
         [Header("Recipe Configurations")]
-        [SerializeField] private DishData dishData;
         [SerializeField] private RecipeController recipeController;
 
-        private void OnEnable()
+        public void OnEnable()
         {
             timerController.Initialize();
+            recipeController.Initialize();
         }
 
-        private void UpdateTime(float timeElapse)
+        public void UpdateTime(float timeElapse)
         {
             timerController.UpdateTime(timeElapse);
         }
 
-        private void OnDisable()
+        public void UpdateDish(Sprite sprite, int amount)
+        {
+            recipeController.UpdateDish(sprite, amount);
+        }
+        
+        public void OnDisable()
         {
             timerController.Close();
+            recipeController.Close();
         }
     }
 }

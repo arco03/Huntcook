@@ -16,7 +16,7 @@ namespace _Scripts.UI.Recipe
             recipeContainer.SetActive(true);
         }
         
-        public void UpdateDish(Sprite sprite, int amount)
+        public void SetDish(Sprite sprite, int amount)
         {
             image.sprite = sprite;
             amountText.text = amount.ToString();

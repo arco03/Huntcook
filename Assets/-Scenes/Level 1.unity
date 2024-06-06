@@ -1112,6 +1112,8 @@ MonoBehaviour:
   - {fileID: 1123157410}
   - {fileID: 1073685612}
   enums: 0000000001000000
+  timeElapse: 5
+  uiManager: {fileID: 690069979}
 --- !u!4 &455655584
 Transform:
   m_ObjectHideFlags: 0
@@ -1920,9 +1922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a568f0df0272448590b82ae68d19c07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerController: {fileID: 0}
-  statusController: {fileID: 789523049}
-  dishData: {fileID: 0}
+  timerController: {fileID: 1436576148}
+  stateController: {fileID: 789523049}
+  dishData: {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
   recipeController: {fileID: 0}
 --- !u!1001 &700491384
 PrefabInstance:
@@ -2302,7 +2304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1264090761}
   winPanel: {fileID: 1987986971}
-  uiTimer: {fileID: 1436576145}
+  uIManager: {fileID: 0}
   uiRecipe: {fileID: 238615200}
 --- !u!224 &789523051
 RectTransform:
@@ -2886,8 +2888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185ea7a5151e49ecb578c45b85140768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dishData: {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
-  textAmount: {fileID: 1683893615}
 --- !u!114 &1087708982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2938,7 +2938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a6b42ee7fc4fa79b5c2841d880a924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusController: {fileID: 789523049}
+  stateController: {fileID: 789523049}
   dishData: {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
 --- !u!114 &1087708985
 MonoBehaviour:
@@ -3629,6 +3629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1436576146}
   - component: {fileID: 1436576147}
+  - component: {fileID: 1436576148}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -3668,7 +3669,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c31084fa7484b7a8376c13af66e0965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeText: {fileID: 0}
+  timeText: {fileID: 1332973788}
+--- !u!114 &1436576148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436576145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffe9576b054488eb52a085047ef25db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerView: {fileID: 1436576147}
 --- !u!1 &1475097234
 GameObject:
   m_ObjectHideFlags: 0

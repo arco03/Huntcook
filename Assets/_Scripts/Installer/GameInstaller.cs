@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Scripts.Dish;
 using _Scripts.Ghost;
 using _Scripts.Ingredient;
+using _Scripts.UI;
 using UnityEngine;
 
 
@@ -32,8 +33,7 @@ namespace _Scripts.Installer
         public static GameInstaller Instance => _instance;
         [HideInInspector] public GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
-
-
+        
         public void Awake()
         {
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);

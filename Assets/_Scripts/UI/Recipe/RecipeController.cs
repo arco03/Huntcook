@@ -1,27 +1,39 @@
 ﻿using _Scripts.Dish;
-using _Scripts.UI.Status;
 using UnityEngine;
 
 namespace _Scripts.UI.Recipe
 {
     public class RecipeController : MonoBehaviour
     {
-        [Header("Status Configurations")] 
-        [SerializeField] private StatusController statusController;
-        
-        [Header("Recipe Configurations")]
+        [SerializeField] private RecipeView recipeView;
         [SerializeField] private DishData dishData;
 
-        private void Update()
+        public void Initialize()
         {
-            RecipeReady();
+            recipeView.Initialize();
         }
 
-        public void RecipeReady()
+        public void Close()
         {
-            if(dishData.amount == 0) 
-                statusController.Win();
+            recipeView.Close();
         }
+
+        public void UpdateDish(Sprite sprite, int amount)
+        {
+            recipeView.SetDish(sprite, amount);
+        }
+        
+        
+        // private void Update()
+        // {
+        //      RecipeReady();
+        // }
+
+        // private void RecipeReady()
+        // {
+        //     if(dishData.amount == 0) 
+        //         stateController.Win();
+        // }
         
     }
     

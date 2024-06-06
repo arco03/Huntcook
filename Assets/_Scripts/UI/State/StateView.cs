@@ -1,25 +1,27 @@
 ﻿using UnityEngine;
 
-namespace _Scripts.UI.Status
+namespace _Scripts.UI.State
 {
-    public class StatusView : MonoBehaviour
+    public class StateView : MonoBehaviour
     { 
         [SerializeField] private GameObject gameOverPanel;
         [SerializeField] private GameObject winPanel;
-        [SerializeField] private GameObject uiTimer;
+        [SerializeField] private UIManager uIManager;
         [SerializeField] private GameObject uiRecipe;
         
         public void ShowGameOver() 
         { 
+            Time.timeScale = 0f; 
             gameOverPanel.SetActive(true);
-            uiTimer.SetActive(false);
+            uIManager.OnDisable();
             uiRecipe.SetActive(false);
         }
 
         public void ShowWin()
         {
+            Time.timeScale = 0f;
             winPanel.SetActive(true);
-            uiTimer.SetActive(false);
+            uIManager.OnDisable();
             uiRecipe.SetActive(false);
         }
 

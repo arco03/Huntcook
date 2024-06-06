@@ -35,9 +35,13 @@ namespace _Scripts.Installer
         public StateIa[] enums;
         private static GameInstaller _instance;
         
+        // [Header("UI Configurations")] 
+        // [SerializeField] private float timeElapse;
+        // public UIManager uiManager;
         public static GameInstaller Instance => _instance;
         private GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
+
         private IngredientSpawner _ingredientSpawner2;
         private IngredientSpawner _ingredientSpawner3;
 
@@ -47,6 +51,7 @@ namespace _Scripts.Installer
         public int Level;
 
         [SerializeField] private float timeGhost;
+
         public void Awake()
         {
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
@@ -80,7 +85,11 @@ namespace _Scripts.Installer
             
         }
 
-     
+        // private void Update()
+        // {
+        //     timeElapse -= Time.deltaTime;
+        //     uiManager.UpdateTime(timeElapse);
+        // }
         private void Spawn()
         {
             _ingredientSpawner.Spawn();

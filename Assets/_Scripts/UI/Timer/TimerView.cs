@@ -1,17 +1,32 @@
-﻿using UnityEngine;
+﻿ using TMPro;
+ using UnityEngine;
 
 namespace _Scripts.UI.Timer
 {
     public class TimerView : MonoBehaviour
     {
-        private int _minutes, _seconds;
+        [SerializeField] private TMP_Text timeText;
         
-        public string TimeFormat(float timeElapsed)
+        private int _minutes, _seconds;
+
+        public void Initialize()
+        {
+            timeText.gameObject.SetActive(true);
+        }
+        
+        public void SetTime(float timeElapsed)
         {
             _minutes = (int)(timeElapsed / 60f);
             _seconds = (int)(timeElapsed - _minutes * 60f);
             
-            return $"{_minutes:00}:{_seconds:00}";
+            var timeFormat = $"{_minutes:00}:{_seconds:00}";
+            timeText.text = timeFormat;
         }
+
+        public void Close()
+        {
+            timeText.gameObject.SetActive(false);
+        }
+        
     }
 }

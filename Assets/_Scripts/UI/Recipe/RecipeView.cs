@@ -1,17 +1,31 @@
 ﻿using _Scripts.Dish;
+using TMPro;
 using UnityEngine;
-using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 
 namespace _Scripts.UI.Recipe
 {
     public class RecipeView : MonoBehaviour
     {
-        [SerializeField] private Sprite image;
-        [SerializeField] private DishData dishData;
-
-        public void Awake()
+        [SerializeField] private Image image;
+        [SerializeField] private TMP_Text amountText;
+        [SerializeField] private GameObject recipeContainer;
+        
+        public void Initialize()
         {
-            image = dishData.image;
+            recipeContainer.SetActive(true);
         }
+        
+        public void SetDish(Sprite sprite, int amount)
+        {
+            image.sprite = sprite;
+            amountText.text = amount.ToString();
+        }
+
+        public void Close()
+        {
+            recipeContainer.SetActive(false);
+        }
+
     }
 }

@@ -11,7 +11,7 @@ namespace _Scripts.Dish
         private DishSpawner _dishSpawner;
         
         [SerializeField] private DishConfiguration dishConfiguration;
-        private void Start()
+        private void Awake()
         {
             OnDishReady += HandleDishReady;
             DishFactory dishFactory = new DishFactory(dishConfiguration);
@@ -21,7 +21,6 @@ namespace _Scripts.Dish
         public void Initialize(DishData dish, Transform positionPlate)
         {
             _dishSpawner.Spawn(dish, positionPlate);
-
         }
 
         private void HandleDishReady(DishData dishData)

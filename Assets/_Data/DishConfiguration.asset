@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishes:
   - {fileID: 3170403668167907811, guid: eed40fd7e688d0c4c8ca0a7ff9fd20b0, type: 3}
-  - {fileID: 8876237874891525924, guid: 90ba0c6a04c85654ba760a1e005c6561, type: 3}
+  - {fileID: 5099816025780030469, guid: fcf2fbc0e0abff04583d9cc7291aab92, type: 3}
   - {fileID: 3170403668167907811, guid: eed40fd7e688d0c4c8ca0a7ff9fd20b0, type: 3}

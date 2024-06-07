@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Dish
 {
@@ -11,9 +13,13 @@ namespace _Scripts.Dish
         private DishSpawner _dishSpawner;
         
         [SerializeField] private DishConfiguration dishConfiguration;
+        [SerializeField] private DishData dishData;
+        public int count;
         private void Awake()
         {
-            OnDishReady += HandleDishReady;
+
+              OnDishReady += HandleDishReady;
+    
             DishFactory dishFactory = new DishFactory(dishConfiguration);
             _dishSpawner = new DishSpawner(dishFactory);
         }
@@ -23,9 +29,23 @@ namespace _Scripts.Dish
             _dishSpawner.Spawn(dish, positionPlate);
         }
 
-        private void HandleDishReady(DishData dishData)
+        private void HandleDishReady(DishData dataDish)
         {
-            Debug.Log($"¡El plato {dishData.recipeName} está listo!");
+            this.dishData = dataDish;
+            if (count <= 3)
+            {
+               Debug.Log("Plato List");
+               StartCoroutine(TimeReset(dishData));
+              
+            }
+            count++;
+        }
+
+        IEnumerator TimeReset(DishData _dishData)
+        {
+            yield return new WaitForSeconds(3f);
+            _dishSpawner.Respawn(_dishData);
+
         }
     }
 }

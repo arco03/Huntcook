@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pizza
   m_EditorClassIdentifier: 
   recipeName: Pizza
-  sprite: {fileID: -6396098458971428934, guid: 72f7a32ac9c7676409eb438757bc6b4a, type: 3}
-  amount: 8
+  image: {fileID: 0}
+  amount: 2
   ingredientsList:
   - {fileID: 11400000, guid: 7e2d2976d2340b740b409e820567e447, type: 2}
   - {fileID: 11400000, guid: 314820389a4c99e40841624e61a0310f, type: 2}

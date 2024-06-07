@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -15,10 +16,10 @@ namespace _Scripts.Dish
         [SerializeField] private DishConfiguration dishConfiguration;
         [SerializeField] private DishData dishData;
         public int count;
+        public bool changePlate;
         private void Awake()
         {
-
-              OnDishReady += HandleDishReady;
+            OnDishReady += HandleDishReady;
     
             DishFactory dishFactory = new DishFactory(dishConfiguration);
             _dishSpawner = new DishSpawner(dishFactory);
@@ -32,19 +33,26 @@ namespace _Scripts.Dish
         private void HandleDishReady(DishData dataDish)
         {
             this.dishData = dataDish;
-            if (count <= 3)
+            if (count >= 1)
             {
                Debug.Log("Plato List");
-               StartCoroutine(TimeReset(dishData));
-              
+               StartCoroutine(TimeReset());
+               
+               
             }
-            count++;
+
+            if(count < 1 )
+            {
+                changePlate = true;
+                Debug.Log("no mas");
+            }
+            count--;
         }
 
-        IEnumerator TimeReset(DishData _dishData)
+        IEnumerator TimeReset()
         {
             yield return new WaitForSeconds(3f);
-            _dishSpawner.Respawn(_dishData);
+            _dishSpawner.Respawn();
 
         }
     }

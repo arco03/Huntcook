@@ -16,7 +16,7 @@ namespace _Scripts.Installer
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
         [SerializeField] public GhostData[] ghostData;
         [SerializeField] private Transform ghost;
-        [SerializeField] private DishData dish;
+        [SerializeField] private DishData[] dish;
         
         [Header("Spawner Configurations")]
         [SerializeField] private float repeatingTime;
@@ -57,25 +57,21 @@ namespace _Scripts.Installer
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
             _ghostSpawner = new GhostSpawner(ghostVector1, ghostVector2, ghostFactory);
             
-
-            
             IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
-            _ingredientSpawner = new IngredientSpawner(dish.ingredientsList, ingredientPoints, ingredientFactory);
+            _ingredientSpawner = new IngredientSpawner(ingredientPoints, ingredientFactory);
         }
 
         private void Start()
         {
+            dishManager.Initialize(dish[0],dishPosition);
 
-            dishManager.Initialize(dish,dishPosition);
-            
+
+            TypeLevel(Level);
             for (int i = 0; i < enums.Length; i++)
             {
                 _positions.Add( enums[i],ingredientPoints[i].transform.position );
             }
             _instance = this;
-           _ingredientSpawner.Initialize();
-            
-            
             
             StartCoroutine(GhostTime());
             
@@ -85,11 +81,14 @@ namespace _Scripts.Installer
             
         }
 
-        // private void Update()
-        // {
-        //     timeElapse -= Time.deltaTime;
-        //     uiManager.UpdateTime(timeElapse);
-        // }
+        private void TypeLevel(int level)
+        {
+            for (int i = 0; i<level;i++)
+            {
+                _ingredientSpawner.Initialize(dish[i].ingredientsList);
+                
+            }
+        }
         private void Spawn()
         {
             _ingredientSpawner.Spawn();

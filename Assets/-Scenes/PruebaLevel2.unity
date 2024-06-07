@@ -617,7 +617,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishConfiguration: {fileID: 11400000, guid: 57396eaac5d788a48bf9739e56902b45, type: 2}
   dishData: {fileID: 11400000, guid: 1c2f2e4ac7e39ad4cb2eaf39ae9958f9, type: 2}
-  count: 0
+  count: 1
+  changePlate: 0
 --- !u!4 &208041883
 Transform:
   m_ObjectHideFlags: 0
@@ -1132,7 +1133,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0debc1948cd78614ba83b64561078b25, type: 2}
   - {fileID: 11400000, guid: 24269714a6aa94f448eeb732fa66b902, type: 2}
   ghost: {fileID: 2032270953}
-  dish: {fileID: 11400000, guid: 1c2f2e4ac7e39ad4cb2eaf39ae9958f9, type: 2}
+  dish:
+  - {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
+  - {fileID: 11400000, guid: 1c2f2e4ac7e39ad4cb2eaf39ae9958f9, type: 2}
   repeatingTime: 20
   dishManager: {fileID: 208041882}
   dishPosition: {fileID: 985564789}
@@ -1151,7 +1154,7 @@ MonoBehaviour:
   dead: 0
   totalGhost: 0
   Level: 2
-  timeGhost: 0
+  timeGhost: 3
 --- !u!4 &455655584
 Transform:
   m_ObjectHideFlags: 0
@@ -1677,7 +1680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &690069975
 MonoBehaviour:
   m_ObjectHideFlags: 0

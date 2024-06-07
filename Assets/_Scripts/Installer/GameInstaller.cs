@@ -35,9 +35,6 @@ namespace _Scripts.Installer
         public StateIa[] enums;
         private static GameInstaller _instance;
         
-        // [Header("UI Configurations")] 
-        // [SerializeField] private float timeElapse;
-        // public UIManager uiManager;
         public static GameInstaller Instance => _instance;
         private GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
@@ -84,12 +81,7 @@ namespace _Scripts.Installer
             // InvokeRepeating("SpawnDish", repeatingTime, repeatingTime);
             
         }
-
-        // private void Update()
-        // {
-        //     timeElapse -= Time.deltaTime;
-        //     uiManager.UpdateTime(timeElapse);
-        // }
+        
         private void Spawn()
         {
             _ingredientSpawner.Spawn();

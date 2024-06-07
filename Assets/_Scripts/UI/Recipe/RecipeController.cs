@@ -6,7 +6,6 @@ namespace _Scripts.UI.Recipe
     public class RecipeController : MonoBehaviour
     {
         [SerializeField] private RecipeView recipeView;
-        [SerializeField] private DishData dishData;
 
         public void Initialize()
         {

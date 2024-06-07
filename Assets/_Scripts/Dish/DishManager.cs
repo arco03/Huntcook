@@ -1,6 +1,6 @@
 ﻿using System.Collections;
+using _Scripts.Manager;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Scripts.Dish
 {
@@ -8,6 +8,8 @@ namespace _Scripts.Dish
     {
         public delegate void DishCompletedHandler(DishData dishData);
         public static event DishCompletedHandler OnDishReady;
+        public UIManager uiManager;
+        
         
         public static void DishReady(DishData dishData) => OnDishReady?.Invoke(dishData);
         private DishSpawner _dishSpawner;
@@ -24,6 +26,11 @@ namespace _Scripts.Dish
             _dishSpawner = new DishSpawner(dishFactory);
         }
 
+        private void Start()
+        {
+            uiManager.UpdateDish(dishData.image, dishData.amount);
+        }
+
         public void Initialize(DishData dish, Transform positionPlate)
         {
             _dishSpawner.Spawn(dish, positionPlate);
@@ -31,7 +38,7 @@ namespace _Scripts.Dish
 
         private void HandleDishReady(DishData dataDish)
         {
-            this.dishData = dataDish;
+            dishData = dataDish;
             if (count <= 3)
             {
                Debug.Log("Plato List");

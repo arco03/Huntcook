@@ -127,7 +127,7 @@ namespace _Scripts.Ghost
             {
                 currentState = StateIa.Idle;
                 Vector3 point = _positions[currentState];
-                if (Vector3.Distance(transform.position, point) <= 1f)
+                if (Vector3.Distance(transform.position, point) <= 2f)
                 {
                     if (_currentIngredient)
                     {

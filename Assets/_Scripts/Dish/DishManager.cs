@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using _Scripts.Installer;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,46 +16,56 @@ namespace _Scripts.Dish
         private DishSpawner _dishSpawner;
         
         [SerializeField] private DishConfiguration dishConfiguration;
-        [SerializeField] private DishData dishData;
-        public int count;
+        [HideInInspector]public DishData[] data;
+        private Transform _transform;
+        public int count = 0;
+        public int variable = 1;
         public bool changePlate;
+        public int index = 0;
+        
+
         private void Awake()
-        {
+        { 
             OnDishReady += HandleDishReady;
     
             DishFactory dishFactory = new DishFactory(dishConfiguration);
             _dishSpawner = new DishSpawner(dishFactory);
         }
 
-        public void Initialize(DishData dish, Transform positionPlate)
+        public void Initialize(DishData[] dish, Transform positionPlate)
         {
-            _dishSpawner.Spawn(dish, positionPlate);
+            data = dish;
+            _transform = positionPlate;
+            
+            _dishSpawner.Spawn(data[index], _transform);
         }
 
         private void HandleDishReady(DishData dataDish)
         {
-            this.dishData = dataDish;
-            if (count >= 1)
-            {
+            if (count <= variable)
+            { 
+               count++;
                Debug.Log("Plato List");
                StartCoroutine(TimeReset());
-               
-               
             }
 
-            if(count < 1 )
+            if(count > variable )
             {
-                changePlate = true;
-                Debug.Log("no mas");
+                index++;
+                count = 0 ;
+                StartCoroutine(TimeReset());
+                
             }
-            count--;
+            
+            Debug.Log($"Conteo {count}");
         }
 
         IEnumerator TimeReset()
         {
             yield return new WaitForSeconds(3f);
-            _dishSpawner.Respawn();
+            _dishSpawner.Respawn(data[index]);
 
         }
+
     }
 }

@@ -20,9 +20,9 @@ namespace _Scripts.Dish
             dish.transform.position = _transform.position;
         }
 
-        public void Respawn()
+        public void Respawn(DishData dishData)
         {
-            Spawn(_data,_transform);
+            Spawn(dishData,_transform);
         }
        
     }

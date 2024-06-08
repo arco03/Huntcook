@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Installer;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -52,15 +53,17 @@ namespace _Scripts.Dish
             }
         }
 
-        public void AddIngredient(Ingredient.Ingredient ingredient)
+        public void AddIngredient([NotNull] Ingredient.Ingredient ingredient)
         {
-            // Check the same Ingredient ID from the list of ingredients
+            if (ingredient == null) return;
             if ( ingredient.ingredientData == dishData.ingredientsList[_currentIngredient] )
             {
                 ingredientsPrefabs[_currentIngredient].SetActive(true);
                 _currentIngredient++;
                 if (ingredient) Destroy(ingredient.gameObject);
             }
+
+
         }
 
         public void CheckRecipeReady()
@@ -71,8 +74,7 @@ namespace _Scripts.Dish
                 _anim.enabled = true;
                 CurrentState = DishState.Done;
                 StartCoroutine(DishTimer());
-                dishData.amount -= 1;
-                Debug.Log($"Current amount {dishData.amount}");
+
             }
 
         }

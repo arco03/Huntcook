@@ -16,7 +16,7 @@ namespace _Scripts.Installer
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
         [SerializeField] public GhostData[] ghostData;
         [SerializeField] private Transform ghost;
-        [SerializeField] private DishData[] dish;
+        public DishData[] dish;
         
         [Header("Spawner Configurations")]
         [SerializeField] private float repeatingTime;
@@ -44,8 +44,7 @@ namespace _Scripts.Installer
 
         private IngredientSpawner _ingredientSpawner2;
         private IngredientSpawner _ingredientSpawner3;
-
-
+       
         public bool dead;
         public int totalGhost;
         public int Level;
@@ -63,8 +62,10 @@ namespace _Scripts.Installer
 
         private void Start()
         {
-            dishManager.Initialize(dish[0],dishPosition);
-
+            
+          dishManager.Initialize(dish,dishPosition);
+            
+  
 
             TypeLevel(Level);
             for (int i = 0; i < enums.Length; i++)
@@ -76,9 +77,8 @@ namespace _Scripts.Installer
             StartCoroutine(GhostTime());
             
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
-            
-            // InvokeRepeating("SpawnDish", repeatingTime, repeatingTime);
-            
+          
+         
         }
 
         private void TypeLevel(int level)

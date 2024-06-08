@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Ingredient;
-using _Scripts.Installer;
+using _Scripts.Manager;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;

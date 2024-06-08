@@ -1,5 +1,4 @@
-﻿using _Scripts.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Scripts.Manager
 {
@@ -12,7 +11,11 @@ namespace _Scripts.Manager
         {
             timeElapse -= Time.deltaTime;
             uiManager.UpdateTime(timeElapse);
-            Debug.Log(timeElapse);
+
+            if (timeElapse <= 0)
+            {
+                
+            }
         }
     }
 }

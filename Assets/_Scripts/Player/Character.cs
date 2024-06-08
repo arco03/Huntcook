@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using _Scripts.Ghost;
-using _Scripts.Installer;
 using UnityEngine;
 using UnityEngine.Serialization;
 

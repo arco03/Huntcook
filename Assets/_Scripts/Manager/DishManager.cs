@@ -1,15 +1,14 @@
 ﻿using System.Collections;
-using _Scripts.Manager;
+using _Scripts.Dish;
 using UnityEngine;
 
-namespace _Scripts.Dish
+namespace _Scripts.Manager
 {
     public class DishManager : MonoBehaviour
     {
         public delegate void DishCompletedHandler(DishData dishData);
         public static event DishCompletedHandler OnDishReady;
         public UIManager uiManager;
-        
         
         public static void DishReady(DishData dishData) => OnDishReady?.Invoke(dishData);
         private DishSpawner _dishSpawner;

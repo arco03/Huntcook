@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using _Scripts.Ingredient;
 using UnityEngine;
-using Image = UnityEngine.UI.Image;
 
 namespace _Scripts.Dish
 {

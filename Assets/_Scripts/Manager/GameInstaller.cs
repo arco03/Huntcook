@@ -5,8 +5,7 @@ using _Scripts.Ghost;
 using _Scripts.Ingredient;
 using UnityEngine;
 
-
-namespace _Scripts.Installer
+namespace _Scripts.Manager
 {
     [RequireComponent(typeof(Transform))]
     public class GameInstaller : MonoBehaviour

@@ -1,5 +1,12 @@
+
 ﻿using System.Collections;
 using _Scripts.Dish;
+
+﻿using System;
+using System.Collections;
+using _Scripts.Installer;
+using Unity.VisualScripting;
+
 using UnityEngine;
 
 namespace _Scripts.Manager
@@ -14,16 +21,22 @@ namespace _Scripts.Manager
         private DishSpawner _dishSpawner;
         
         [SerializeField] private DishConfiguration dishConfiguration;
-        [SerializeField] private DishData dishData;
-        public int count;
-        private void Awake()
-        {
+        [HideInInspector]public DishData[] data;
+        private Transform _transform;
+        public int count = 0;
+        public int variable = 1;
+        public bool changePlate;
+        public int index = 0;
+        
 
-              OnDishReady += HandleDishReady;
+        private void Awake()
+        { 
+            OnDishReady += HandleDishReady;
     
             DishFactory dishFactory = new DishFactory(dishConfiguration);
             _dishSpawner = new DishSpawner(dishFactory);
         }
+
 
         private void Start()
         {
@@ -31,27 +44,48 @@ namespace _Scripts.Manager
         }
 
         public void Initialize(DishData dish, Transform positionPlate)
+
+        public void Initialize(DishData[] dish, Transform positionPlate)
+
         {
-            _dishSpawner.Spawn(dish, positionPlate);
+            data = dish;
+            _transform = positionPlate;
+            
+            _dishSpawner.Spawn(data[index], _transform);
         }
 
         private void HandleDishReady(DishData dataDish)
         {
+
             dishData = dataDish;
             if (count <= 3)
             {
+
+            if (count <= variable)
+            { 
+               count++;
+
                Debug.Log("Plato List");
-               StartCoroutine(TimeReset(dishData));
-              
+               StartCoroutine(TimeReset());
             }
-            count++;
+
+            if(count > variable )
+            {
+                index++;
+                count = 0 ;
+                StartCoroutine(TimeReset());
+                
+            }
+            
+            Debug.Log($"Conteo {count}");
         }
 
-        IEnumerator TimeReset(DishData _dishData)
+        IEnumerator TimeReset()
         {
             yield return new WaitForSeconds(3f);
-            _dishSpawner.Respawn(_dishData);
+            _dishSpawner.Respawn(data[index]);
 
         }
+
     }
 }

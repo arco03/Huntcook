@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3170403668167907811}
   - component: {fileID: 5801093469582117766}
   m_Layer: 0
-  m_Name: Plate
+  m_Name: Hamburger
   m_TagString: DishPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

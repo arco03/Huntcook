@@ -22,14 +22,14 @@ namespace _Scripts.Manager
 
         [Header("Dish Configuration")]
 
-        [SerializeField] private DishManager dishManager;
+        public DishManager dishManager;
 
         [SerializeField] private Transform dishPosition;
         
         [Header("Spawner Positions")]
         [SerializeField] private Transform ghostVector1;
         [SerializeField] private Transform ghostVector2;
-        public List<IngredientPoint> ingredientPoints;
+        // private DishManager ingredientPoints;
         private readonly Dictionary<StateIa, Vector3> _positions = new ();
         public StateIa[] enums;
         private static GameInstaller _instance;
@@ -64,7 +64,7 @@ namespace _Scripts.Manager
             // TypeLevel(Level);
             for (int i = 0; i < enums.Length; i++)
             {
-                _positions.Add( enums[i],ingredientPoints[i].transform.position );
+                _positions.Add( enums[i],dishManager.ingredientPoints[i].transform.position );
             }
             _instance = this;
             

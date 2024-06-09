@@ -17,6 +17,9 @@ namespace _Scripts.Manager
         public static void DishReady(DishData dishData) => OnDishReady?.Invoke(dishData);
         private DishSpawner _dishSpawner;
         
+        [Header("Spawner Configurations")]
+        [SerializeField] private float repeatingTime;
+        
         [SerializeField] private DishConfiguration dishConfiguration;
         [HideInInspector]public DishData[] data;
         
@@ -45,6 +48,7 @@ namespace _Scripts.Manager
         private void Start()
         {
             TypeLevel(level);
+            InvokeRepeating("Spawn", repeatingTime, repeatingTime);
             uiManager.UpdateDish(data[index].image, data[index].amount);
         }
 
@@ -54,6 +58,13 @@ namespace _Scripts.Manager
             {
                 _ingredientSpawner.Initialize(data[i].ingredientsList);
             }
+        }
+        
+        
+        private void Spawn()
+        {
+            _ingredientSpawner.Spawn();
+            
         }
         
         public void Initialize(DishData[] dish, Transform positionPlate)

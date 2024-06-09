@@ -17,8 +17,8 @@ namespace _Scripts.Manager
         [SerializeField] private Transform ghost;
         public DishData[] dish;
         
-        [Header("Spawner Configurations")]
-        [SerializeField] private float repeatingTime;
+        // [Header("Spawner Configurations")]
+        // [SerializeField] private float repeatingTime;
 
         [Header("Dish Configuration")]
 
@@ -70,7 +70,7 @@ namespace _Scripts.Manager
             
             StartCoroutine(GhostTime());
             
-            InvokeRepeating("Spawn", repeatingTime, repeatingTime);
+            // InvokeRepeating("Spawn", repeatingTime, repeatingTime);
         }
 
 
@@ -82,12 +82,12 @@ namespace _Scripts.Manager
         //         
         //     }
         // }
-
-        private void Spawn()
-        {
-            _ingredientSpawner.Spawn();
-            
-        }
+        //
+        // private void Spawn()
+        // {
+        //     _ingredientSpawner.Spawn();
+        //     
+        // }
         public IEnumerator GhostTime()
         {
             for (int i = 0; i < totalGhost; i++)

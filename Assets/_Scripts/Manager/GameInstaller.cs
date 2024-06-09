@@ -23,6 +23,7 @@ namespace _Scripts.Manager
         [Header("Dish Configuration")]
 
         [SerializeField]
+
         public DishManager dishManager;
 
         [SerializeField] private Transform dishPosition;
@@ -30,7 +31,7 @@ namespace _Scripts.Manager
         [Header("Spawner Positions")]
         [SerializeField] private Transform ghostVector1;
         [SerializeField] private Transform ghostVector2;
-        public List<IngredientPoint> ingredientPoints;
+        // private DishManager ingredientPoints;
         private readonly Dictionary<StateIa, Vector3> _positions = new ();
         public StateIa[] enums;
         private static GameInstaller _instance;

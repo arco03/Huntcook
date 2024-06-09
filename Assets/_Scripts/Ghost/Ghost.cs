@@ -63,7 +63,11 @@ namespace _Scripts.Ghost
 
         private void StoreIngredient()
         {
+
             List<IngredientPoint> pointIngredient= GameInstaller.Instance.dishManager.ingredientPoints;
+
+            List<IngredientPoint> pointIngredient = GameInstaller.Instance.dishManager.ingredientPoints;
+
              
             foreach (IngredientPoint currentPoint in pointIngredient)
             {

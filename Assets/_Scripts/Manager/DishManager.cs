@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Dish;
 using _Scripts.Ingredient;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Scripts.Manager
@@ -83,20 +84,28 @@ namespace _Scripts.Manager
                 Debug.Log("Plato List");
                 StartCoroutine(TimeReset());
             }
-            if(count == data[index].amount )
+            if(count == data[index].amount)
             {
                 index++;
                 count = 0 ;
                 StartCoroutine(TimeReset());
                 
+                if( index >= data.Length )
+                {
+                    Debug.Log("win");
+                    OnDishComplete?.Invoke();
+                    return;
+
+                }
+               
+               
             }
             
             Debug.Log($"Conteo {count}");
+            Debug.Log($"Conteo {index}");
+            Debug.Log($"Conteo {data[index]}");
             
-            if (count == data[index].amount)
-            {
-                OnDishComplete?.Invoke();
-            }
+
         }
             IEnumerator TimeReset()
             {

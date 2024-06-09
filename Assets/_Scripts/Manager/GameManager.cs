@@ -31,6 +31,7 @@ namespace _Scripts.Manager
         private void HandleWin()
         {
             ChangeState(GameState.Win);
+            Debug.Log($"ganaste{CurrentState}");
         }
         
         public void ChangeState(GameState newState)

@@ -22,7 +22,8 @@ namespace _Scripts.Manager
 
         [Header("Dish Configuration")]
 
-        [SerializeField] private DishManager dishManager;
+        [SerializeField]
+        public DishManager dishManager;
 
         [SerializeField] private Transform dishPosition;
         
@@ -64,7 +65,7 @@ namespace _Scripts.Manager
             // TypeLevel(Level);
             for (int i = 0; i < enums.Length; i++)
             {
-                _positions.Add( enums[i],ingredientPoints[i].transform.position );
+                _positions.Add( enums[i],dishManager.ingredientPoints[i].transform.position );
             }
             _instance = this;
             

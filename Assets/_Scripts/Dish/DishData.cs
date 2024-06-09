@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Scripts.Ingredient;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Scripts.Dish
 {
@@ -11,5 +13,11 @@ namespace _Scripts.Dish
         public Sprite image;
         public int amount;
         public List <IngredientData> ingredientsList;
+        public int n1, n2;
+
+        private void OnEnable()
+        {
+            amount = Random.Range(n1, n2);
+        }
     }
 }

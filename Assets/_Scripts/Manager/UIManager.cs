@@ -23,9 +23,9 @@ namespace _Scripts.Manager
             timerController.UpdateTime(timeElapse);
         }
 
-        public void UpdateDish(Sprite sprite, int amount)
+        public void UpdateDish(Sprite sprite, int amount, string nameRecipe)
         {
-            recipeController.UpdateDish(sprite, amount);
+            recipeController.UpdateDish(sprite, amount, nameRecipe);
         }
         
         public void OnDisable()

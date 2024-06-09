@@ -1,27 +1,34 @@
-﻿using System;
+using System;
 using System.Collections;
-using _Scripts.Installer;
-using Unity.VisualScripting;
+using System.Collections.Generic;
+using _Scripts.Dish;
+using _Scripts.Ingredient;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace _Scripts.Dish
+namespace _Scripts.Manager
 {
     public class DishManager : MonoBehaviour
     {
         public delegate void DishCompletedHandler(DishData dishData);
         public static event DishCompletedHandler OnDishReady;
+        public static event Action OnDishComplete;
+        public UIManager uiManager;
         
         public static void DishReady(DishData dishData) => OnDishReady?.Invoke(dishData);
         private DishSpawner _dishSpawner;
         
         [SerializeField] private DishConfiguration dishConfiguration;
         [HideInInspector]public DishData[] data;
+        
+        [SerializeField] private IngredientConfiguration ingredientConfiguration;
+        private IngredientSpawner _ingredientSpawner;
+        public List<IngredientPoint> ingredientPoints;
+        
         private Transform _transform;
         public int count = 0;
         public int variable = 1;
-        public bool changePlate;
         public int index = 0;
+        public int level;
         
 
         private void Awake()
@@ -30,8 +37,25 @@ namespace _Scripts.Dish
     
             DishFactory dishFactory = new DishFactory(dishConfiguration);
             _dishSpawner = new DishSpawner(dishFactory);
+            
+            IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
+            _ingredientSpawner = new IngredientSpawner(ingredientPoints, ingredientFactory);
         }
 
+        private void Start()
+        {
+            TypeLevel(level);
+            uiManager.UpdateDish(data[index].image, data[index].amount);
+        }
+
+        private void TypeLevel(int level)
+        {
+            for (int i = 0; i<level;i++)
+            {
+                _ingredientSpawner.Initialize(data[i].ingredientsList);
+            }
+        }
+        
         public void Initialize(DishData[] dish, Transform positionPlate)
         {
             data = dish;
@@ -44,11 +68,10 @@ namespace _Scripts.Dish
         {
             if (count <= variable)
             { 
-               count++;
-               Debug.Log("Plato List");
-               StartCoroutine(TimeReset());
+                count++;
+                Debug.Log("Plato List");
+                StartCoroutine(TimeReset());
             }
-
             if(count > variable )
             {
                 index++;
@@ -58,14 +81,17 @@ namespace _Scripts.Dish
             }
             
             Debug.Log($"Conteo {count}");
+            
+            if (count == data[index].amount)
+            {
+                OnDishComplete?.Invoke();
+            }
         }
+            IEnumerator TimeReset()
+            {
+                yield return new WaitForSeconds(3f);
+                _dishSpawner.Respawn(data[index]);
 
-        IEnumerator TimeReset()
-        {
-            yield return new WaitForSeconds(3f);
-            _dishSpawner.Respawn(data[index]);
-
-        }
-
+            }
     }
 }

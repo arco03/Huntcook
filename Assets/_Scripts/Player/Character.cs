@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using _Scripts.Ghost;
-using _Scripts.Installer;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -59,8 +58,8 @@ namespace _Scripts.Player
             { 
                 if(!colliderDetected) continue;
            
-                colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
-                component?.Interaction(collectPoint,capture=false);
+                colliderDetected.gameObject.TryGetComponent<Ingredient.Ingredient>(out Ingredient.Ingredient component);
+                component?.Interaction(collectPoint);
                 Debug.Log("Entra aca");
                 break;
             }

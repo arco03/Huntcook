@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Ingredient;
-using _Scripts.Installer;
+using _Scripts.Manager;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Serialization;
@@ -91,7 +91,7 @@ namespace _Scripts.Ghost
                     int ghostIndex = Array.IndexOf(GameInstaller.Instance.ghostData, this.ghostData); 
                     GameInstaller.Instance.RespawnGhost(ghostIndex);
                     Destroy(gameObject);
-                   _currentIngredient.Interaction(transform,false);
+                   _currentIngredient.Interaction(transform);
                    
                 }
                
@@ -158,7 +158,7 @@ namespace _Scripts.Ghost
                 colliderDetected.gameObject.TryGetComponent(out Ingredient.Ingredient ingredient);
                 if (ingredient.ingredientData != data) continue;
 
-                ingredient.Interaction(collectPoint,hasIngredient);
+                ingredient.Interaction(collectPoint);
                 Debug.Log(("lo tengo"));
                 _currentIngredient = ingredient;
                 hasIngredient = true;

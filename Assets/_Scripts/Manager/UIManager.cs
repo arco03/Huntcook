@@ -2,7 +2,7 @@
 using _Scripts.UI.Timer;
 using UnityEngine;
 
-namespace _Scripts.UI
+namespace _Scripts.Manager
 {
     public class UIManager : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace _Scripts.UI
         public void OnEnable()
         {
             timerController.Initialize();
-            recipeController.Initialize();
+            // recipeController.Initialize();
         }
 
         public void UpdateTime(float timeElapse)
@@ -31,7 +31,7 @@ namespace _Scripts.UI
         public void OnDisable()
         {
             timerController.Close();
-            recipeController.Close();
+            // recipeController.Close();
         }
     }
 }

@@ -49,7 +49,7 @@ namespace _Scripts.Manager
         {
             TypeLevel(level);
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
-            uiManager.UpdateDish(data[index].image, data[index].amount);
+            uiManager.UpdateDish(data[index].image,data[index].amount, data[index].recipeName);
         }
 
         private void TypeLevel(int level)
@@ -77,13 +77,13 @@ namespace _Scripts.Manager
 
         private void HandleDishReady(DishData dataDish)
         {
-            if (count <= variable)
+            if (count <= data[index].amount)
             { 
                 count++;
                 Debug.Log("Plato List");
                 StartCoroutine(TimeReset());
             }
-            if(count > variable )
+            if(count == data[index].amount )
             {
                 index++;
                 count = 0 ;

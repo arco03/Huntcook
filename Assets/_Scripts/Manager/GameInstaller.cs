@@ -22,6 +22,8 @@ namespace _Scripts.Manager
 
         [Header("Dish Configuration")]
 
+        [SerializeField]
+
         public DishManager dishManager;
 
         [SerializeField] private Transform dishPosition;

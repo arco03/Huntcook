@@ -1,5 +1,4 @@
-﻿using _Scripts.Dish;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Scripts.UI.Recipe
 {
@@ -17,22 +16,10 @@ namespace _Scripts.UI.Recipe
             recipeView.Close();
         }
 
-        public void UpdateDish(Sprite sprite, int amount)
+        public void UpdateDish(Sprite sprite, int amount, string nameRecipe)
         {
-            recipeView.SetDish(sprite, amount);
+            recipeView.SetDish(sprite, amount, nameRecipe);
         }
-        
-        
-        // private void Update()
-        // {
-        //      RecipeReady();
-        // }
-
-        // private void RecipeReady()
-        // {
-        //     if(dishData.amount == 0) 
-        //         stateController.Win();
-        // }
         
     }
     

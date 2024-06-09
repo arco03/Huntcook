@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: Hamburguer
   image: {fileID: 21300000, guid: b322ee00d22967e42ad1703b5616d76f, type: 3}
-  amount: 3
+  amount: 0
   ingredientsList:
   - {fileID: 11400000, guid: 8072095211412a44182933dde1b01649, type: 2}
   - {fileID: 11400000, guid: 7826e3d624e574341abdc0b979586c72, type: 2}
   - {fileID: 11400000, guid: 5fd8c5555ec015243ab081f84e8cd11d, type: 2}
   - {fileID: 11400000, guid: 207495272e17313459644a73280a5a79, type: 2}
   - {fileID: 11400000, guid: 8e3dae139f42856478d519835257bc9a, type: 2}
+  n1: 1
+  n2: 3

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using _Scripts.UI.State;
+using UnityEngine;
 
 namespace _Scripts.Manager
 {
@@ -6,6 +8,7 @@ namespace _Scripts.Manager
     {
         [SerializeField] private float timeElapse;
         public UIManager uiManager;
+        public static event Action OnTimeOver;
         
         private void Update()
         {
@@ -14,7 +17,7 @@ namespace _Scripts.Manager
 
             if (timeElapse <= 0)
             {
-                
+                OnTimeOver?.Invoke();
             }
         }
     }

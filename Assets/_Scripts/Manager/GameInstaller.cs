@@ -37,13 +37,13 @@ namespace _Scripts.Manager
         public static GameInstaller Instance => _instance;
         private GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
-
-        private IngredientSpawner _ingredientSpawner2;
-        private IngredientSpawner _ingredientSpawner3;
+        //
+        // private IngredientSpawner _ingredientSpawner2;
+        // private IngredientSpawner _ingredientSpawner3;
        
         public bool dead;
         public int totalGhost;
-        public int Level;
+        // public int Level;
 
         [SerializeField] private float timeGhost;
 
@@ -52,18 +52,16 @@ namespace _Scripts.Manager
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
             _ghostSpawner = new GhostSpawner(ghostVector1, ghostVector2, ghostFactory);
             
-            IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
-            _ingredientSpawner = new IngredientSpawner(ingredientPoints, ingredientFactory);
+            // IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
+            // _ingredientSpawner = new IngredientSpawner(ingredientPoints, ingredientFactory);
         }
 
         private void Start()
         {
             
           dishManager.Initialize(dish,dishPosition);
-            
-  
-
-            TypeLevel(Level);
+          
+            // TypeLevel(Level);
             for (int i = 0; i < enums.Length; i++)
             {
                 _positions.Add( enums[i],ingredientPoints[i].transform.position );
@@ -73,25 +71,22 @@ namespace _Scripts.Manager
             StartCoroutine(GhostTime());
             
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
-          
-         
         }
 
 
-        private void TypeLevel(int level)
-        {
-            for (int i = 0; i<level;i++)
-            {
-                _ingredientSpawner.Initialize(dish[i].ingredientsList);
-                
-            }
-        }
+        // private void TypeLevel(int level)
+        // {
+        //     for (int i = 0; i<level;i++)
+        //     {
+        //         _ingredientSpawner.Initialize(dish[i].ingredientsList);
+        //         
+        //     }
+        // }
 
         private void Spawn()
         {
             _ingredientSpawner.Spawn();
-
-
+            
         }
         public IEnumerator GhostTime()
         {

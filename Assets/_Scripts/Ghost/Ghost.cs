@@ -36,7 +36,7 @@ namespace _Scripts.Ghost
         public bool isDead;
         private IngredientPoint _assignPoint;
         private Ingredient.Ingredient _currentIngredient;
-        
+        public bool detector;
         private int _maxHealth;
         [HideInInspector] public int currentHealth;
 
@@ -81,6 +81,7 @@ namespace _Scripts.Ghost
             currentHealth -= damage;
             if (currentHealth <= 0 && hasIngredient)
             {
+                detector = true;
                 particleDead.SetActive(true);
                 Quaternion particleRotation = particleDead.transform.rotation;
                 Instantiate(particleDead, transform.position, particleRotation);
@@ -159,7 +160,6 @@ namespace _Scripts.Ghost
                 if (ingredient.ingredientData != data) continue;
 
                 ingredient.Interaction(collectPoint);
-                Debug.Log(("lo tengo"));
                 _currentIngredient = ingredient;
                 hasIngredient = true;
                 currentState = StateIa.Idle;

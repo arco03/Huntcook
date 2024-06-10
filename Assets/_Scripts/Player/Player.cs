@@ -14,7 +14,9 @@ namespace _Scripts.Player
         [SerializeField] private Character character;
         [SerializeField] private Animator animator;
         private Ingredient.Ingredient status;
-      
+        public bool tutorial;
+        
+
         private float _x, _z;
 
 
@@ -31,7 +33,9 @@ namespace _Scripts.Player
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                tutorial = true;
                 character.Animator();
+                
  
             }
 

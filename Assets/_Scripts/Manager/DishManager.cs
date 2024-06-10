@@ -98,6 +98,7 @@ namespace _Scripts.Manager
 
                 if (index >= data.Length)
                 {
+
                     OnDishComplete?.Invoke();
                     return;
                 }

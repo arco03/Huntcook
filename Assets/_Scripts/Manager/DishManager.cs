@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Dish;
 using _Scripts.Ingredient;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Scripts.Manager
@@ -33,9 +32,8 @@ namespace _Scripts.Manager
         [SerializeField] private Color readyColor;
 
         private Transform _transform;
-        public int count = 0;
-        public int variable = 1;
-        public int index = 0;
+        public int count;
+        public int index;
         public int level;
 
 
@@ -53,7 +51,7 @@ namespace _Scripts.Manager
         private void Start()
         {
             TypeLevel(level);
-            InvokeRepeating("Spawn", repeatingTime, repeatingTime);
+            InvokeRepeating(nameof(Spawn), repeatingTime, repeatingTime);
             uiManager.UpdateDish(data[index].image, data[index].amount, data[index].recipeName);
         }
 
@@ -64,12 +62,10 @@ namespace _Scripts.Manager
                 _ingredientSpawner.Initialize(data[i].ingredientsList);
             }
         }
-
-
+        
         private void Spawn()
         {
             _ingredientSpawner.Spawn();
-
         }
 
         public void Initialize(DishData[] dish, Transform positionPlate)
@@ -85,6 +81,7 @@ namespace _Scripts.Manager
             if (count <= data[index].amount)
             {
                 count++;
+                uiManager.UpdateDish(data[index].image, data[index].amount - 1, data[index].recipeName);
                 Debug.Log("Plato List");
                 StartCoroutine(ChangeLightColorTemporarily());
                 StartCoroutine(TimeReset());
@@ -98,18 +95,14 @@ namespace _Scripts.Manager
 
                 if (index >= data.Length)
                 {
-
                     OnDishComplete?.Invoke();
                     return;
                 }
                 uiManager.UpdateDish(data[index].image, data[index].amount, data[index].recipeName);
             }
-
             Debug.Log($"Count {count}");
             Debug.Log($"Index {index}");
             Debug.Log($"Data Index {data[index]}");
-
-
         }
 
         private IEnumerator TimeReset()

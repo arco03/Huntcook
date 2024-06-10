@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Runtime.CompilerServices;
-using _Scripts.Player;
-using MoreMountains.Tools;
-using Unity.VisualScripting;
+﻿using _Scripts.Player;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace _Scripts.Tutorial
 {

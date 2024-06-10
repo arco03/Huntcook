@@ -20,7 +20,7 @@ namespace _Scripts.Dish
         private int _currentIngredient;
         
         private DishState currentState;
-
+        public bool tutorialDetector;
         public DishState CurrentState
         {
             set
@@ -83,6 +83,7 @@ namespace _Scripts.Dish
             Ingredient.Ingredient ingredient = other.GetComponent<Ingredient.Ingredient>();
             AddIngredient(ingredient);
             CheckRecipeReady();
+            
         }
 
 

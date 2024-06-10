@@ -92,7 +92,7 @@ namespace _Scripts.Manager
                 
                 if( index >= data.Length )
                 {
-                    Debug.Log("win");
+                    
                     OnDishComplete?.Invoke();
                     return;
 

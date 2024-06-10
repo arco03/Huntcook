@@ -11,37 +11,41 @@ namespace _Scripts.Manager
     public class DishManager : MonoBehaviour
     {
         public delegate void DishCompletedHandler(DishData dishData);
+
         public static event DishCompletedHandler OnDishReady;
         public static event Action OnDishComplete;
         public UIManager uiManager;
-        
+
         public static void DishReady(DishData dishData) => OnDishReady?.Invoke(dishData);
         private DishSpawner _dishSpawner;
-        
-        [Header("Spawner Configurations")]
-        [SerializeField] private float repeatingTime;
-        
+
+        [Header("Spawner Configurations")] [SerializeField]
+        private float repeatingTime;
+
         [SerializeField] private DishConfiguration dishConfiguration;
-        [HideInInspector]public DishData[] data;
-        
+        [HideInInspector] public DishData[] data;
+
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
         private IngredientSpawner _ingredientSpawner;
         public List<IngredientPoint> ingredientPoints;
-        
+
+        [SerializeField] private Light lightPoint;
+        [SerializeField] private Color readyColor;
+
         private Transform _transform;
         public int count = 0;
         public int variable = 1;
         public int index = 0;
         public int level;
-        
+
 
         private void Awake()
-        { 
+        {
             OnDishReady += HandleDishReady;
-    
+
             DishFactory dishFactory = new DishFactory(dishConfiguration);
             _dishSpawner = new DishSpawner(dishFactory);
-            
+
             IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
             _ingredientSpawner = new IngredientSpawner(ingredientPoints, ingredientFactory);
         }
@@ -50,68 +54,78 @@ namespace _Scripts.Manager
         {
             TypeLevel(level);
             InvokeRepeating("Spawn", repeatingTime, repeatingTime);
-            uiManager.UpdateDish(data[index].image,data[index].amount, data[index].recipeName);
+            uiManager.UpdateDish(data[index].image, data[index].amount, data[index].recipeName);
         }
 
         private void TypeLevel(int level)
         {
-            for (int i = 0; i<level;i++)
+            for (int i = 0; i < level; i++)
             {
                 _ingredientSpawner.Initialize(data[i].ingredientsList);
             }
         }
-        
-        
+
+
         private void Spawn()
         {
             _ingredientSpawner.Spawn();
-            
+
         }
-        
+
         public void Initialize(DishData[] dish, Transform positionPlate)
         {
             data = dish;
             _transform = positionPlate;
-            
+
             _dishSpawner.Spawn(data[index], _transform);
         }
 
         private void HandleDishReady(DishData dataDish)
         {
             if (count <= data[index].amount)
-            { 
+            {
                 count++;
                 Debug.Log("Plato List");
+                StartCoroutine(ChangeLightColorTemporarily());
                 StartCoroutine(TimeReset());
             }
-            if(count == data[index].amount)
+
+            if (count == data[index].amount)
             {
                 index++;
-                count = 0 ;
+                count = 0;
                 StartCoroutine(TimeReset());
-                
-                if( index >= data.Length )
+
+                if (index >= data.Length)
                 {
-                    Debug.Log("win");
                     OnDishComplete?.Invoke();
                     return;
-
                 }
-               
-               
+                uiManager.UpdateDish(data[index].image, data[index].amount, data[index].recipeName);
             }
-            
-            Debug.Log($"Conteo {count}");
-            Debug.Log($"Conteo {index}");
-            Debug.Log($"Conteo {data[index]}");
-            
+
+            Debug.Log($"Count {count}");
+            Debug.Log($"Index {index}");
+            Debug.Log($"Data Index {data[index]}");
+
 
         }
-            IEnumerator TimeReset()
-            {
-                yield return new WaitForSeconds(3f);
-                _dishSpawner.Respawn(data[index]);
 
+        private IEnumerator TimeReset()
+        {
+            yield return new WaitForSeconds(3f);
+            _dishSpawner.Respawn(data[index]);
+        }
+
+        private IEnumerator ChangeLightColorTemporarily()
+        {
+            if (lightPoint)
+            {
+                Color originalColor = lightPoint.color;
+                lightPoint.color = readyColor;
+                yield return new WaitForSeconds(3f);
+                lightPoint.color = originalColor;
             }
+        }
     }
 }

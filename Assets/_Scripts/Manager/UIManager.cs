@@ -15,7 +15,7 @@ namespace _Scripts.Manager
         public void OnEnable()
         {
             timerController.Initialize();
-            // recipeController.Initialize();
+            recipeController.Initialize();
         }
 
         public void UpdateTime(float timeElapse)
@@ -31,7 +31,7 @@ namespace _Scripts.Manager
         public void OnDisable()
         {
             timerController.Close();
-            // recipeController.Close();
+            recipeController.Close();
         }
     }
 }

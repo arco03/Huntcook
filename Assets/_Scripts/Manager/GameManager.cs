@@ -36,8 +36,8 @@ namespace _Scripts.Manager
             ChangeState(GameState.Win);
             stateController.Win();
         }
-        
-        public void ChangeState(GameState newState)
+
+        private void ChangeState(GameState newState)
         {
             CurrentState = newState;
             Debug.Log($"Game State change to: {newState}");

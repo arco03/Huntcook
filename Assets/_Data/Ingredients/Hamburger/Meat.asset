@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Meat
   m_EditorClassIdentifier: 
   ingredientName: Meat
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4cd8a576bbceba6408c34aaed491c515, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Letuce
   m_EditorClassIdentifier: 
   ingredientName: Letuce
-  sprite: {fileID: 21300000, guid: 659f4bb5d6f681b44860aff6d86d0963, type: 3}
+  sprite: {fileID: 21300000, guid: af042dae4c4101948bcb867f2c12f1c0, type: 3}

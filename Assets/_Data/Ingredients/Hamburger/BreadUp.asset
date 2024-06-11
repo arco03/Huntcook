@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BreadUp
   m_EditorClassIdentifier: 
   ingredientName: BreadUp
-  sprite: {fileID: 21300000, guid: 9db6256cd507a92408db0e85662e02d5, type: 3}
+  sprite: {fileID: 21300000, guid: e8c07a7b4e9032b4aaf49e34f94faed3, type: 3}

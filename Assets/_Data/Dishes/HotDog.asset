@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: HotDog
   image: {fileID: 21300000, guid: c510333858f0c0542aab0c00a95327a2, type: 3}
-  amount: 3
+  amount: 0
   ingredientsList: []
+  n1: 2
+  n2: 5

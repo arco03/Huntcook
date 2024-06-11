@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BreadDown
   m_EditorClassIdentifier: 
   ingredientName: BreadDown
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 854220bd9e11a2744b6336ecdafe8ba2, type: 3}

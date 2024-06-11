@@ -44,16 +44,6 @@ namespace _Scripts.Player
                 character.isAttacking = true;
                 character.Attack();
             }
-
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                animator.SetBool("Open",true);
-            }
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                animator.SetBool("Close",true);
-            }
-            
         }
         
 

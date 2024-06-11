@@ -17,7 +17,7 @@ namespace _Scripts.UI.Menu
 
         public void Play(string nameScene)
         {
-            SceneManager.LoadScene(name);
+            SceneManager.LoadScene(nameScene);
         }
 
         public void Options()

@@ -1,5 +1,6 @@
-﻿using System;
+﻿using _Scripts.UI.State;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace _Scripts.Manager
 {
@@ -12,6 +13,7 @@ namespace _Scripts.Manager
             GameOver
         }
         public GameState CurrentState { get; private set; }
+        [SerializeField] private StateController stateController;
 
         private void OnEnable()
         {
@@ -26,18 +28,30 @@ namespace _Scripts.Manager
         private void HandleGameOver()
         {
             ChangeState(GameState.GameOver);
+            stateController.TimeOut();
         }
 
         private void HandleWin()
         {
             ChangeState(GameState.Win);
-            Debug.Log($"ganaste{CurrentState}");
+            stateController.Win();
         }
         
         public void ChangeState(GameState newState)
         {
             CurrentState = newState;
             Debug.Log($"Game State change to: {newState}");
+        }
+        
+        public void ChangeScene(string nameScene)
+        {
+            SceneManager.LoadScene(nameScene);
+        }
+        
+        public void Quit()
+        {
+            Application.Quit();
+            Debug.Log("Quit Game");
         }
         
         private void OnDisable()

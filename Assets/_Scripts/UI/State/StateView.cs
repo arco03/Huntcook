@@ -15,7 +15,6 @@ namespace _Scripts.UI.State
             Time.timeScale = 0f; 
             gameOverPanel.SetActive(true);
             uIManager.OnDisable();
-            uiRecipe.SetActive(false);
         }
 
         public void ShowWin()
@@ -23,7 +22,6 @@ namespace _Scripts.UI.State
             Time.timeScale = 0f;
             winPanel.SetActive(true);
             uIManager.OnDisable();
-            uiRecipe.SetActive(false);
         }
 
     }

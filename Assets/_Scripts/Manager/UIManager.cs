@@ -1,4 +1,6 @@
-﻿using _Scripts.UI.Recipe;
+﻿using _Scripts.Dish;
+using _Scripts.UI.Ingredient;
+using _Scripts.UI.Recipe;
 using _Scripts.UI.Timer;
 using UnityEngine;
 
@@ -12,10 +14,15 @@ namespace _Scripts.Manager
         [Header("Recipe Configurations")]
         [SerializeField] private RecipeController recipeController;
 
+        [Header("Ingredient List Configurations")]
+        [SerializeField] private IngredientController ingredientListController;
+
+
         public void OnEnable()
         {
             timerController.Initialize();
             recipeController.Initialize();
+            ingredientListController.Initialize();
         }
 
         public void UpdateTime(float timeElapse)
@@ -23,9 +30,16 @@ namespace _Scripts.Manager
             timerController.UpdateTime(timeElapse);
         }
 
-        public void UpdateDish(Sprite sprite, int amount, string nameRecipe)
+        public void UpdateDish(DishData data)
         {
-            recipeController.UpdateDish(sprite, amount, nameRecipe);
+            recipeController.UpdateDish(data);
+            ingredientListController.UpdateIngredients(data);
+        }
+
+        public void UpdateDish(DishData data, int amount)
+        {
+            recipeController.UpdateDish(data, amount);
+            ingredientListController.UpdateIngredients(data);
         }
         
         public void OnDisable()

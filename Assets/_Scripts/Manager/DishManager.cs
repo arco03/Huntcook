@@ -5,7 +5,6 @@ using _Scripts.Dish;
 using _Scripts.Ingredient;
 using _Scripts.UI.Ingredient;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Scripts.Manager
 {
@@ -94,7 +93,7 @@ namespace _Scripts.Manager
             {
                 index++;
                 count = 0;
-                ingredientController.Close();
+                // ingredientController.Close();
                 StartCoroutine(TimeReset());
 
                 if (index >= data.Length)

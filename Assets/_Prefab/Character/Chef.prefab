@@ -78,7 +78,7 @@ MonoBehaviour:
   horizontal: Horizontal
   vertical: Vertical
   character: {fileID: 2764571310537577344}
-  animator: {fileID: 0}
+  animator: {fileID: 5070790423038408096}
   tutorial: 0
 --- !u!114 &2764571310537577344
 MonoBehaviour:
@@ -118,7 +118,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5447334095726482391}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 4a10fa7e656a32348991ecb6ae669143, type: 3}
   m_Controller: {fileID: 9100000, guid: e91623dde7bff7341a2dbe23a027a7ff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

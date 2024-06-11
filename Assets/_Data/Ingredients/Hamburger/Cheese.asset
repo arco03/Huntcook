@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Cheese
   m_EditorClassIdentifier: 
   ingredientName: Cheese
-  sprite: {fileID: 21300000, guid: 9db6256cd507a92408db0e85662e02d5, type: 3}
+  sprite: {fileID: 21300000, guid: d2ea1fc5e37cf664386daac3ccc04a40, type: 3}

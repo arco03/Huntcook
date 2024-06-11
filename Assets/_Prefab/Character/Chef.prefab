@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &927902918791101233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7840693555970213892}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7840693555970213892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927902918791101233}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00021, y: 0.00269, z: -0.0012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1088219164439293872}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5447334095726482391
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +135,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   attackRadius: 1
-  collectPoint: {fileID: 0}
+  collectPoint: {fileID: 7840693555970213892}
   animator: {fileID: 5070790423038408096}
   _attackDamage: 1
   isAttacking: 0
@@ -213,15 +244,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.00068
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 4a10fa7e656a32348991ecb6ae669143, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1458070026421031387, guid: 4a10fa7e656a32348991ecb6ae669143,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7840693555970213892}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -2478680988424832589, guid: 4a10fa7e656a32348991ecb6ae669143,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6592552878427598992}
   m_SourcePrefab: {fileID: 100100000, guid: 4a10fa7e656a32348991ecb6ae669143, type: 3}
+--- !u!4 &1088219164439293872 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1458070026421031387, guid: 4a10fa7e656a32348991ecb6ae669143,
+    type: 3}
+  m_PrefabInstance: {fileID: 1956316400638590571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2066169384734824832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4a10fa7e656a32348991ecb6ae669143,

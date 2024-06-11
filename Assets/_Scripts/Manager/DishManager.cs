@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Dish;
 using _Scripts.Ingredient;
+using _Scripts.UI.Ingredient;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Manager
 {
@@ -27,6 +29,7 @@ namespace _Scripts.Manager
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
         private IngredientSpawner _ingredientSpawner;
         public List<IngredientPoint> ingredientPoints;
+        [SerializeField] private IngredientController ingredientController;
 
         [SerializeField] private Light lightPoint;
         [SerializeField] private Color readyColor;
@@ -91,6 +94,7 @@ namespace _Scripts.Manager
             {
                 index++;
                 count = 0;
+                ingredientController.Close();
                 StartCoroutine(TimeReset());
 
                 if (index >= data.Length)

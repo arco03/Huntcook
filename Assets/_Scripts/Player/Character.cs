@@ -90,34 +90,34 @@ namespace _Scripts.Player
             isAttacking = false;
         }
 
-        void OnDrawGizmos()
-        {
-            //Ingredient Gizmos
-            Gizmos.color = Color.red;
-    
-            // Rotamos los offsets junto con el personaje
-            Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
-            Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
-
-            // Dibujamos la cápsula con los offsets rotados
-            Gizmos.DrawWireSphere(rotatedOffsetUpper + transform.position, radius);
-            Gizmos.DrawWireSphere(rotatedOffsetLower + transform.position, radius);
-            Gizmos.DrawLine(rotatedOffsetUpper + radius * transform.right + transform.position, rotatedOffsetLower + radius * transform.right + transform.position);
-            Gizmos.DrawLine(rotatedOffsetUpper - radius * transform.right + transform.position, rotatedOffsetLower - radius * transform.right + transform.position);
-            
-            //Ghost Gizmos
-            Gizmos.color = Color.green;
-    
-            // Rotamos los offsets junto con el personaje
-            Vector3 rotatedOffsetUpperAttack = transform.rotation * offsetUpper;
-            Vector3 rotatedOffsetLowerAttack = transform.rotation * offsetLower;
-
-            // Dibujamos la cápsula con los offsets rotados
-            Gizmos.DrawWireSphere(rotatedOffsetUpperAttack + transform.position, attackRadius);
-            Gizmos.DrawWireSphere(rotatedOffsetLowerAttack + transform.position, attackRadius);
-            Gizmos.DrawLine(rotatedOffsetUpperAttack + attackRadius * transform.right + transform.position, rotatedOffsetLowerAttack + attackRadius * transform.right + transform.position);
-            Gizmos.DrawLine(rotatedOffsetUpperAttack - attackRadius * transform.right + transform.position, rotatedOffsetLowerAttack - attackRadius * transform.right + transform.position);
-        }
+        // void OnDrawGizmos()
+        // {
+        //     //Ingredient Gizmos
+        //     Gizmos.color = Color.red;
+        //
+        //     // Rotamos los offsets junto con el personaje
+        //     Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
+        //     Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
+        //
+        //     // Dibujamos la cápsula con los offsets rotados
+        //     Gizmos.DrawWireSphere(rotatedOffsetUpper + transform.position, radius);
+        //     Gizmos.DrawWireSphere(rotatedOffsetLower + transform.position, radius);
+        //     Gizmos.DrawLine(rotatedOffsetUpper + radius * transform.right + transform.position, rotatedOffsetLower + radius * transform.right + transform.position);
+        //     Gizmos.DrawLine(rotatedOffsetUpper - radius * transform.right + transform.position, rotatedOffsetLower - radius * transform.right + transform.position);
+        //     
+        //     //Ghost Gizmos
+        //     Gizmos.color = Color.green;
+        //
+        //     // Rotamos los offsets junto con el personaje
+        //     Vector3 rotatedOffsetUpperAttack = transform.rotation * offsetUpper;
+        //     Vector3 rotatedOffsetLowerAttack = transform.rotation * offsetLower;
+        //
+        //     // Dibujamos la cápsula con los offsets rotados
+        //     Gizmos.DrawWireSphere(rotatedOffsetUpperAttack + transform.position, attackRadius);
+        //     Gizmos.DrawWireSphere(rotatedOffsetLowerAttack + transform.position, attackRadius);
+        //     Gizmos.DrawLine(rotatedOffsetUpperAttack + attackRadius * transform.right + transform.position, rotatedOffsetLowerAttack + attackRadius * transform.right + transform.position);
+        //     Gizmos.DrawLine(rotatedOffsetUpperAttack - attackRadius * transform.right + transform.position, rotatedOffsetLowerAttack - attackRadius * transform.right + transform.position);
+        // }
 
 
     }

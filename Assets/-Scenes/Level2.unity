@@ -966,7 +966,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24269714a6aa94f448eeb732fa66b902, type: 2}
   ghost: {fileID: 2032270953}
   dish:
-  - {fileID: 11400000, guid: 84c49906e3a7e3d43a94bcacd745169b, type: 2}
   - {fileID: 11400000, guid: 960c405471729084b8bb26197d3473db, type: 2}
   - {fileID: 11400000, guid: 1c2f2e4ac7e39ad4cb2eaf39ae9958f9, type: 2}
   dishManager: {fileID: 1175160311}
@@ -975,8 +974,8 @@ MonoBehaviour:
   ghostVector2: {fileID: 316760510}
   enums: 0000000001000000
   dead: 0
-  totalGhost: 3
-  timeGhost: 10
+  totalGhost: 5
+  timeGhost: 15
 --- !u!4 &455655584
 Transform:
   m_ObjectHideFlags: 0
@@ -1894,7 +1893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 2013396273}
-  repeatingTime: 20
+  repeatingTime: 30
   dishConfiguration: {fileID: 11400000, guid: 57396eaac5d788a48bf9739e56902b45, type: 2}
   data: []
   ingredientConfiguration: {fileID: 11400000, guid: 67e69be5efbf89342953362fea59e42e,
@@ -1958,7 +1957,7 @@ Transform:
   m_GameObject: {fileID: 1209047680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.56, y: 0.1, z: -11.12}
+  m_LocalPosition: {x: 0.01, y: 0.1, z: -11.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

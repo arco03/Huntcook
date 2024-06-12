@@ -65,9 +65,9 @@ namespace _Scripts.Player
             }
         }
 
-        public void Animator()
+        public void Animator(String typeAnim)
         {
-            animator.SetTrigger("Hand");
+            animator.SetTrigger(typeAnim);
         }
         
         public void Attack()

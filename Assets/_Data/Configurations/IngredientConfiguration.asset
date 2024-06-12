@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: IngredientConfiguration
   m_EditorClassIdentifier: 
   ingredients:
-  - {fileID: -1748331636031868260, guid: 2188fcd8d06c9e54590e34da2ab94abb, type: 3}
-  - {fileID: -4175062890180573296, guid: 68aba129d5ffe29488630f9444732d26, type: 3}
-  - {fileID: -7774828349978167417, guid: e9c82458112b9f64386ed17ad5206743, type: 3}
-  - {fileID: -1755730493698638461, guid: 8bfa5adfddfa5e243b327636a1a38fa7, type: 3}
-  - {fileID: -7966220754858237412, guid: 8c2fdb3c6c5d8a548a8ed2e785eebdd7, type: 3}
-  - {fileID: 3965053778299334972, guid: bbcc1411614e8bb428d5d878c5acd4da, type: 3}
-  - {fileID: 1225318381946795419, guid: ab4e9d92dfdeacf428c35645acda1d60, type: 3}
-  - {fileID: 2090719586959520753, guid: bb5b2218b4b5cf340a849d2e5da3085a, type: 3}
+  - {fileID: 1520547944553960947, guid: 2188fcd8d06c9e54590e34da2ab94abb, type: 3}
+  - {fileID: 8500919534783127483, guid: 6d3e453044a71f14c90024cea2168b18, type: 3}
+  - {fileID: 4308313826637450679, guid: 8bfa5adfddfa5e243b327636a1a38fa7, type: 3}
+  - {fileID: 4829556732984565540, guid: e9c82458112b9f64386ed17ad5206743, type: 3}
+  - {fileID: 7713863000578749101, guid: 80d120fdbe82eeb4e92875b57594fd3d, type: 3}
+  - {fileID: 8251691040471348957, guid: bbcc1411614e8bb428d5d878c5acd4da, type: 3}
+  - {fileID: 6855458697015420759, guid: ea019a091e0990e49a9b8a7141087a00, type: 3}
+  - {fileID: 3662237046441730588, guid: ab4e9d92dfdeacf428c35645acda1d60, type: 3}
+  - {fileID: 171324740432088411, guid: 06bd84cf567a731469cd49d115c5df0f, type: 3}
+  - {fileID: 6473767532816627609, guid: fea02fb466c3c594499fe3ef4ce3c61c, type: 3}
+  - {fileID: 4307079096455029417, guid: 97d672480c3f52940a7d28dc45e93c22, type: 3}

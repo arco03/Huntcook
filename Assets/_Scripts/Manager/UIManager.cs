@@ -33,13 +33,13 @@ namespace _Scripts.Manager
         public void UpdateDish(DishData data)
         {
             recipeController.UpdateDish(data);
+            ingredientListController.ClearIngredients();
             ingredientListController.UpdateIngredients(data);
         }
 
         public void UpdateDish(DishData data, int amount)
         {
             recipeController.UpdateDish(data, amount);
-            // ingredientListController.UpdateIngredients(data);
         }
         
         public void OnDisable()

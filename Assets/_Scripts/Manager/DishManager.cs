@@ -34,15 +34,15 @@ namespace _Scripts.Manager
         [SerializeField] private Color readyColor;
 
         private Transform _transform;
-        public int count;
+        public int count = 0;
         public int index;
         public int level;
-
+        public bool entrar;
 
         private void Awake()
         {
+            
             OnDishReady += HandleDishReady;
-
             DishFactory dishFactory = new DishFactory(dishConfiguration);
             _dishSpawner = new DishSpawner(dishFactory);
 
@@ -56,6 +56,8 @@ namespace _Scripts.Manager
             InvokeRepeating(nameof(Spawn), repeatingTime, repeatingTime);
             uiManager.UpdateDish(data[index]);
         }
+
+
 
         private void TypeLevel(int level)
         {
@@ -80,32 +82,41 @@ namespace _Scripts.Manager
 
         private void HandleDishReady(DishData dataDish)
         {
-            if (count <= data[index].amount)
+            while (count <= data[index].amount)
             {
                 count++;
                 uiManager.UpdateDish(data[index], data[index].amount - 1);
                 Debug.Log("Plato List");
                 StartCoroutine(ChangeLightColorTemporarily());
                 StartCoroutine(TimeReset());
+                
+                Debug.Log($"Count {count}");
+
+                // Esperar un frame antes de continuar con el bucle
+                if (count < data[index].amount)
+                {
+                    return;
+                }
+                
+                Debug.Log($"Index {index}");
+                Debug.Log($"Data Index {data[index]}");
             }
 
-            if (count == data[index].amount)
+            if (count > data[index].amount)
             {
                 index++;
                 count = 0;
-                // ingredientController.Close();
-                StartCoroutine(TimeReset());
+                // StartCoroutine(TimeReset());
+               
 
                 if (index >= data.Length)
                 {
                     OnDishComplete?.Invoke();
-                    return;
+                    
                 }
-                uiManager.UpdateDish(data[index]);
             }
-            Debug.Log($"Count {count}");
-            Debug.Log($"Index {index}");
-            Debug.Log($"Data Index {data[index]}");
+            // uiManager.UpdateDish(data[index])
+
         }
 
         private IEnumerator TimeReset()

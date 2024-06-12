@@ -1,4 +1,5 @@
-﻿using _Scripts.Player;
+﻿using _Scripts.Audio;
+using _Scripts.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,7 @@ namespace _Scripts.Tutorial
         public detectorChef detectorChef;
         [SerializeField] private string horizontal;
         [SerializeField] private string vertical;
+        private AudioManager _audioManager;
         private float _x, _z;
         
         public void Start()

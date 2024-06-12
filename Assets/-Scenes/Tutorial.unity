@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17278337, g: 0.21591267, b: 0.2978504, a: 1}
+  m_IndirectSpecularColor: {r: 0.17278379, g: 0.21591336, b: 0.2978515, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2504,7 +2504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &713518612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2519,6 +2519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerController: {fileID: 808701576}
   recipeController: {fileID: 1401958761}
+  ingredientListController: {fileID: 0}
 --- !u!114 &713518613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4172,8 +4173,9 @@ MonoBehaviour:
   - {fileID: 500887280}
   - {fileID: 1123157410}
   - {fileID: 1073685612}
-  lightPoint: {fileID: 0}
-  readyColor: {r: 0, g: 0, b: 0, a: 0}
+  ingredientController: {fileID: 0}
+  lightPoint: {fileID: 1715733676}
+  readyColor: {r: 0.035300493, g: 1, b: 0, a: 0}
   count: 0
   index: 0
   level: 1

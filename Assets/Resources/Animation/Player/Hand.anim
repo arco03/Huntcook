@@ -20,7 +20,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -1.502, y: 1.344, z: 0.232}
+        value: {x: -0.00905, y: 0.00417, z: 0.00068}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -29,16 +29,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.5
-        value: {x: -1.502, y: 1.384, z: 0.95}
-        inSlope: {x: 0, y: 0.11199999, z: 1.628}
-        outSlope: {x: 0, y: 0.11199999, z: 1.628}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 1
-        value: {x: -1.502, y: 1.456, z: 1.86}
+        value: {x: -0.00905, y: 0.00417, z: 0.01443}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -46,17 +37,8 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 1.5
-        value: {x: -1.502, y: 1.384, z: 0.95}
-        inSlope: {x: 0, y: -0.11199999, z: -1.628}
-        outSlope: {x: 0, y: -0.11199999, z: -1.628}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 2
-        value: {x: -1.502, y: 1.344, z: 0.232}
+        time: 1
+        value: {x: -0.00905, y: 0.00417, z: 0.00068}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -66,7 +48,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: L HAND PLATE (1)
+    path: Armature/Bone/Bone_pies/Bone_cadera/Bone_left
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -78,7 +60,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 4107578938
+      path: 1091005669
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -92,7 +74,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -114,7 +96,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -1.502
+        value: -0.00905
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -123,7 +105,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: -1.502
+        value: -0.00905
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -132,25 +114,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: -1.502
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1.5
-        value: -1.502
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2
-        value: -1.502
+        value: -0.00905
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -161,7 +125,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: L HAND PLATE (1)
+    path: Armature/Bone/Bone_pies/Bone_cadera/Bone_left
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -171,7 +135,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1.344
+        value: 0.00417
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -180,16 +144,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 1.384
-        inSlope: 0.11199999
-        outSlope: 0.11199999
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1.456
+        value: 0.00417
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -197,17 +152,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.5
-        value: 1.384
-        inSlope: -0.11199999
-        outSlope: -0.11199999
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2
-        value: 1.344
+        time: 1
+        value: 0.00417
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -218,7 +164,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: L HAND PLATE (1)
+    path: Armature/Bone/Bone_pies/Bone_cadera/Bone_left
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -228,7 +174,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.232
+        value: 0.00068
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -237,16 +183,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 0.95
-        inSlope: 1.628
-        outSlope: 1.628
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 1
-        value: 1.86
+        value: 0.01443
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -254,17 +191,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.5
-        value: 0.95
-        inSlope: -1.628
-        outSlope: -1.628
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 2
-        value: 0.232
+        time: 1
+        value: 0.00068
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -275,7 +203,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: L HAND PLATE (1)
+    path: Armature/Bone/Bone_pies/Bone_cadera/Bone_left
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -283,7 +211,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1
+  - time: 0.5
     functionName: Use
     data: 
     objectReferenceParameter: {fileID: 0}

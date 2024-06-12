@@ -380,6 +380,7 @@ MonoBehaviour:
   particleDead: {fileID: 9176172003811880940}
   hasIngredient: 0
   isDead: 0
+  detector: 0
   currentHealth: 0
 --- !u!1001 &2266971820285189048
 PrefabInstance:
@@ -553,7 +554,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 58bfcf9893e3b104688d13eb3cf9884d, type: 2}
+      objectReference: {fileID: 2100000, guid: bb9d5f6976fcaeb46a1d6c20603adc1f, type: 2}
     - target: {fileID: 5866666021909216657, guid: 4f95ac909c639284a8f7ab468c1fb12f,
         type: 3}
       propertyPath: m_Controller

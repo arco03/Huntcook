@@ -34,7 +34,7 @@ namespace _Scripts.Player
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 tutorial = true;
-                character.Animator();
+                character.Animator("Hand");
                 
  
             }
@@ -42,7 +42,7 @@ namespace _Scripts.Player
             if (Input.GetKeyDown(KeyCode.E) && !character.isAttacking)
             {
                 character.isAttacking = true;
-                character.Attack();
+                character.Animator("Attack");
             }
         }
         
@@ -50,6 +50,9 @@ namespace _Scripts.Player
         private void FixedUpdate()
         {
             character.Move(_x, _z);
+            animator.SetFloat("Velx",_x);
+            animator.SetFloat("Vely",_z);
+
         }
 
 

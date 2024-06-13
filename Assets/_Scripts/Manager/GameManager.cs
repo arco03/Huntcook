@@ -23,6 +23,7 @@ namespace _Scripts.Manager
         private void Start()
         {
             ChangeState(GameState.Game);
+            Time.timeScale = 1;
         }
         
         private void HandleGameOver()

@@ -2769,6 +2769,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 082a95f835ecd3241a3b044571d004bb, type: 3}
   - name: Level1
     clip: {fileID: 8300000, guid: 962e8eede4eeb9941a575a73243b3f2d, type: 3}
+  - name: Level2
+    clip: {fileID: 8300000, guid: 3e24c3abb7e837948801cf9d70e98317, type: 3}
+  - name: Level3
+    clip: {fileID: 8300000, guid: c82882092ebae6146827de29f02a4073, type: 3}
   musicSource: {fileID: 1315613410}
 --- !u!82 &1315613410
 AudioSource:

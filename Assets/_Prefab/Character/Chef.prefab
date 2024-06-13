@@ -104,7 +104,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   attackRadius: 1
-  collectPoint: {fileID: 2336952522432195675}
+  collectPoint: {fileID: 0}
   animator: {fileID: 5070790423038408096}
   _attackDamage: 1
   isAttacking: 0
@@ -259,11 +259,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 23494a0b46f41ce4699f56ba4e48d634, type: 2}
-    - target: {fileID: 5505462247003317592, guid: 43968a6d9ef9cb545a79c540d1710573,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 23494a0b46f41ce4699f56ba4e48d634, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 43968a6d9ef9cb545a79c540d1710573, type: 3}
     m_RemovedGameObjects: []
@@ -316,6 +311,6 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.0054039126
-  m_Height: 0.016568938
+  m_Height: 0.015997399
   m_Direction: 1
-  m_Center: {x: -0.00096732756, y: 0.0018257643, z: 0.0009330269}
+  m_Center: {x: -0.0009673279, y: 0.002111534, z: 0.0009330269}

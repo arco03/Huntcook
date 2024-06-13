@@ -5,6 +5,7 @@ using _Scripts.Dish;
 using _Scripts.Ingredient;
 using _Scripts.UI.Ingredient;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Scripts.Manager
 {
@@ -61,9 +62,15 @@ namespace _Scripts.Manager
 
         private void TypeLevel(int level)
         {
-            for (int i = 0; i < level; i++)
+            int minAmount = 1; // Mínimo valor posible para el amount
+            int maxAmount = 6; // Máximo valor posible para el amount
+            int initialAmount = Random.Range(minAmount, maxAmount + 1); 
+            
+            for (int i = 0; i < level && i < data.Length; i++)
             {
+                data[i].amount = initialAmount;
                 _ingredientSpawner.Initialize(data[i].ingredientsList);
+                
             }
         }
         
@@ -82,11 +89,15 @@ namespace _Scripts.Manager
 
         private void HandleDishReady(DishData dataDish)
         {
+            if (index >= data.Length)
+                return;
             while (count <= data[index].amount)
             {
-                count++;
-                uiManager.UpdateDish(data[index], data[index].amount - 1);
-                Debug.Log("Plato List");
+                 data[index].amount--;
+                 uiManager.UpdateDish(data[index]);
+                 
+                
+                Debug.Log($"Plato List {data[index].amount}");
                 StartCoroutine(ChangeLightColorTemporarily());
                 StartCoroutine(TimeReset());
                 
@@ -98,6 +109,7 @@ namespace _Scripts.Manager
                     return;
                 }
                 
+                count++;
                 Debug.Log($"Index {index}");
                 Debug.Log($"Data Index {data[index]}");
             }
@@ -106,14 +118,12 @@ namespace _Scripts.Manager
             {
                 index++;
                 count = 0;
-                // StartCoroutine(TimeReset());
                
-
+                if (index < data.Length)
+                    uiManager.UpdateDish(data[index]);
                 if (index >= data.Length)
-                {
                     OnDishComplete?.Invoke();
-                    
-                }
+
             }
             // uiManager.UpdateDish(data[index])
 

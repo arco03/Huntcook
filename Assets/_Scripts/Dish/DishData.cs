@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Scripts.Ingredient;
 using UnityEngine;
 
@@ -11,5 +12,6 @@ namespace _Scripts.Dish
         public Sprite image;
         public int amount;
         public List <IngredientData> ingredientsList;
+
     }
 }

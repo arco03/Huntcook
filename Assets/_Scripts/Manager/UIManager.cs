@@ -37,11 +37,6 @@ namespace _Scripts.Manager
             ingredientListController.UpdateIngredients(data);
         }
 
-        public void UpdateDish(DishData data, int amount)
-        {
-            recipeController.UpdateDish(data, amount);
-        }
-        
         public void OnDisable()
         {
             timerController.Close();

@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: HotDog
   image: {fileID: 21300000, guid: c510333858f0c0542aab0c00a95327a2, type: 3}
-  amount: 4
+  amount: 3
   ingredientsList:
   - {fileID: 11400000, guid: efe1e65f4f437fd4999a5b2aaa6b6ac8, type: 2}
   - {fileID: 11400000, guid: 528161c985f7e964f8359114746d4ba0, type: 2}
   - {fileID: 11400000, guid: d20df08943ddf03498883bd69bacabaa, type: 2}
-  n1: 2
-  n2: 5

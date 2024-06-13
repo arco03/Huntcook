@@ -41,8 +41,8 @@ namespace _Scripts.Manager
         private IngredientSpawner _ingredientSpawner;
         //
         // private IngredientSpawner _ingredientSpawner2;
-        // private IngredientSpawner _ingredientSpawner3;
-       
+               // private IngredientSpawner _ingredientSpawner3;
+              
         public bool dead;
         public int totalGhost;
         // public int Level;
@@ -90,8 +90,7 @@ namespace _Scripts.Manager
         //     _ingredientSpawner.Spawn();
         //     
         // }
-        public IEnumerator GhostTime()
-        {
+        public IEnumerator GhostTime() {
             for (int i = 0; i < totalGhost; i++)
             {
                 yield return new WaitForSeconds(timeGhost);

@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: Pizza
   image: {fileID: 21300000, guid: 14e33c59bef11f843a2913bacfb74f0e, type: 3}
-  amount: 4
+  amount: 3
   ingredientsList:
   - {fileID: 11400000, guid: 7e2d2976d2340b740b409e820567e447, type: 2}
   - {fileID: 11400000, guid: f9ed8e1f0c0838f4099c1f0c9c0d58c5, type: 2}
   - {fileID: 11400000, guid: 2e850a5227e922c4fb6d01784a77e9bd, type: 2}
-  n1: 2
-  n2: 5

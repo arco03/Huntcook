@@ -2178,7 +2178,7 @@ PrefabInstance:
     - target: {fileID: 7138376615955098578, guid: 1fb274a6777b7f94c91cb390503067b7,
         type: 3}
       propertyPath: m_Name
-      value: Escenario_3
+      value: Level3
       objectReference: {fileID: 0}
     - target: {fileID: 7519686580957950312, guid: 1fb274a6777b7f94c91cb390503067b7,
         type: 3}

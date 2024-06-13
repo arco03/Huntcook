@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c7d0d8da254b70afc7f2e0d4688471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeElapse: 300
+  timeElapse: 360
   uiManager: {fileID: 2118881638}
 --- !u!4 &120916994
 Transform:
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 2118881638}
-  repeatingTime: 40
+  repeatingTime: 18
   dishConfiguration: {fileID: 11400000, guid: 57396eaac5d788a48bf9739e56902b45, type: 2}
   data: []
   ingredientConfiguration: {fileID: 11400000, guid: 67e69be5efbf89342953362fea59e42e,

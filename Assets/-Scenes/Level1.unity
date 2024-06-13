@@ -627,6 +627,7 @@ MonoBehaviour:
   dead: 0
   totalGhost: 3
   timeGhost: 10
+  musicLevel: Level1
 --- !u!4 &455655584
 Transform:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Audio;
 using _Scripts.Dish;
 using _Scripts.Ghost;
 using _Scripts.Ingredient;
@@ -49,6 +50,8 @@ namespace _Scripts.Manager
 
         [SerializeField] private float timeGhost;
 
+        [SerializeField] private string musicLevel;
+        
         public void Awake()
         {
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
@@ -71,6 +74,8 @@ namespace _Scripts.Manager
             _instance = this;
             
             StartCoroutine(GhostTime());
+            
+            AudioManager.instance.PlayMusic(musicLevel);
             
             // InvokeRepeating("Spawn", repeatingTime, repeatingTime);
         }

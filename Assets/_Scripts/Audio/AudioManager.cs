@@ -5,16 +5,16 @@ namespace _Scripts.Audio
 {
     public class AudioManager : MonoBehaviour
     {
-        private static AudioManager _instance;
+        public static AudioManager instance;
         
         public Sound[] MusicSounds;
         public AudioSource musicSource;
         
         private void Awake()
         {
-            if (_instance == null)
+            if (instance == null)
             {
-                _instance = this;
+                instance = this;
                 DontDestroyOnLoad(gameObject);
             }
             else

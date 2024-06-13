@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4650721d27084426a7e6dd6cab6ed029, type: 3}
   m_Name: Hamburguer
   m_EditorClassIdentifier: 
-  recipeName: Hamburguer
+  recipeName: Hamburger
   image: {fileID: 21300000, guid: b322ee00d22967e42ad1703b5616d76f, type: 3}
   amount: 2
   ingredientsList:

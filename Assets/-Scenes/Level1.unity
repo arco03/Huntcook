@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589169, b: 0.29782546, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1107,7 +1107,7 @@ PrefabInstance:
     - target: {fileID: 5900684439387356563, guid: 72818489589a28e418f60d32438af69c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.13700008
+      value: -0.52
       objectReference: {fileID: 0}
     - target: {fileID: 5900684439387356563, guid: 72818489589a28e418f60d32438af69c,
         type: 3}
@@ -1437,6 +1437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2861896290816000607, guid: cfcd25b651f79224f831bf285db525d9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 3828565043232809151, guid: cfcd25b651f79224f831bf285db525d9,
         type: 3}
@@ -3817,6 +3822,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c2ff49c5e7a8dfb4da63ed4920339124, type: 2}
+    - target: {fileID: 2336952522432195675, guid: ecbadba248e1d6c4abd39957ae02304d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00020999853
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336952522432195675, guid: ecbadba248e1d6c4abd39957ae02304d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0026899986
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336952522432195675, guid: ecbadba248e1d6c4abd39957ae02304d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.002
+      objectReference: {fileID: 0}
     - target: {fileID: 2764571310537577344, guid: ecbadba248e1d6c4abd39957ae02304d,
         type: 3}
       propertyPath: collectPoint

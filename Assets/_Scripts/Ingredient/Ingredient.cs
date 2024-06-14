@@ -57,7 +57,7 @@ namespace _Scripts.Ingredient
 
         IEnumerator TimeDestroy()
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(20f);
             Destroy();
         }
     }

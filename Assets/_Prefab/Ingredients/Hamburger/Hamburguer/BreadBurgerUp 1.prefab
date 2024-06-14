@@ -173,4 +173,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientData: {fileID: 11400000, guid: 8e3dae139f42856478d519835257bc9a, type: 2}
+  isPicked: 0
   currentIngredientState: 0

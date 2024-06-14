@@ -14,7 +14,7 @@ namespace _Scripts.Tutorial
         public GameObject play;
         public Character character;
         public Player.Player player;
-        public detectorChef detectorChef;
+        public DetectorChef detectorChef;
         [SerializeField] private string horizontal;
         [SerializeField] private string vertical;
         private AudioManager _audioManager;

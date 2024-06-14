@@ -17,22 +17,17 @@ namespace _Scripts.Manager
         [SerializeField] public GhostData[] ghostData;
         [SerializeField] private Transform ghost;
         public DishData[] dish;
-        
-        // [Header("Spawner Configurations")]
-        // [SerializeField] private float repeatingTime;
 
         [Header("Dish Configuration")]
 
-        [SerializeField]
-
-        public DishManager dishManager;
+        [SerializeField] public DishManager dishManager;
 
         [SerializeField] private Transform dishPosition;
         
         [Header("Spawner Positions")]
         [SerializeField] private Transform ghostVector1;
         [SerializeField] private Transform ghostVector2;
-        // private DishManager ingredientPoints;
+        
         private readonly Dictionary<StateIa, Vector3> _positions = new ();
         public StateIa[] enums;
         private static GameInstaller _instance;
@@ -40,61 +35,31 @@ namespace _Scripts.Manager
         public static GameInstaller Instance => _instance;
         private GhostSpawner _ghostSpawner;
         private IngredientSpawner _ingredientSpawner;
-        //
-        // private IngredientSpawner _ingredientSpawner2;
-               // private IngredientSpawner _ingredientSpawner3;
-              
+        
         public bool dead;
         public int totalGhost;
-        // public int Level;
 
         [SerializeField] private float timeGhost;
-
         [SerializeField] private string musicLevel;
-        
-        public void Awake()
+
+        private void Start()
         {
             GhostFactory ghostFactory = new GhostFactory(ghostConfiguration);
             _ghostSpawner = new GhostSpawner(ghostVector1, ghostVector2, ghostFactory);
             
-            // IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
-            // _ingredientSpawner = new IngredientSpawner(ingredientPoints, ingredientFactory);
-        }
+            dishManager.Initialize(dish,dishPosition);
 
-        private void Start()
-        {
-            
-          dishManager.Initialize(dish,dishPosition);
-          
-            // TypeLevel(Level);
             for (int i = 0; i < enums.Length; i++)
             {
                 _positions.Add( enums[i],dishManager.ingredientPoints[i].transform.position );
             }
             _instance = this;
-            
+
             StartCoroutine(GhostTime());
-            
+
             AudioManager.instance.PlayMusic(musicLevel);
-            
-            // InvokeRepeating("Spawn", repeatingTime, repeatingTime);
         }
 
-
-        // private void TypeLevel(int level)
-        // {
-        //     for (int i = 0; i<level;i++)
-        //     {
-        //         _ingredientSpawner.Initialize(dish[i].ingredientsList);
-        //         
-        //     }
-        // }
-        //
-        // private void Spawn()
-        // {
-        //     _ingredientSpawner.Spawn();
-        //     
-        // }
         public IEnumerator GhostTime() {
             for (int i = 0; i < totalGhost; i++)
             {
@@ -109,13 +74,11 @@ namespace _Scripts.Manager
             StartCoroutine(RespawnGhostTime(index));
         }
         
-
         private IEnumerator RespawnGhostTime(int index)
         {
             yield return new WaitForSeconds(2f);
             _ghostSpawner.Spawn(ghostData[index], ghost);
         }
-
-
+        
     }
 }

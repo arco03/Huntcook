@@ -7,19 +7,20 @@ namespace _Scripts.Ingredient
 {
     public class IngredientSpawner
     {
-        private readonly List<IngredientData> _dishIngredients;
+        private List<IngredientData> _dishIngredients;
         private readonly List<IngredientPoint> _ingredientsPoints;
         private readonly IngredientFactory _factory;
         
-        public IngredientSpawner(List<IngredientData> dishIngredients, List<IngredientPoint> ingredientsSpawnPoints, IngredientFactory factory)
+        public IngredientSpawner(List<IngredientPoint> ingredientsSpawnPoints, IngredientFactory factory)
         {
-            _dishIngredients = dishIngredients;
+            // _dishIngredients = dishIngredients;
             _ingredientsPoints = ingredientsSpawnPoints;
             _factory = factory;
         }
 
-        public void Initialize()
+        public void Initialize(List<IngredientData> dishData)
         {
+            _dishIngredients = dishData;
             if (_dishIngredients.Count >= _ingredientsPoints.Count)
                 throw new Exception("The amount of ingredients is greater than the ingredients points");
             
@@ -34,10 +35,11 @@ namespace _Scripts.Ingredient
                 
                 IngredientPoint ingredientPoint = _ingredientsPoints[randomIndex];
                 Ingredient food = _factory.Create(ingredientData);
-                ingredientPoint.ingredientData = ingredientData;
+                ingredientPoint.SetUp(ingredientData);
 
                 Vector3 ingredientPointTransform = ingredientPoint.transform.position;
                 food.transform.position = new Vector3(ingredientPointTransform.x, ingredientPointTransform.y, ingredientPointTransform.z);
+                
             }
         }
 

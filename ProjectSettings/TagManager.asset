@@ -6,20 +6,25 @@ TagManager:
   tags:
   - meat
   - Ghost
+  - Ingredients
+  - Door
+  - Hand
+  - DishPoint
+  - Floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Chef
   - Water
   - UI
   - ingredient
-  - 
-  - 
+  - World
+  - Hand
   - light
   - points
   - Ghost
-  - 
+  - PostProcessing
   - 
   - 
   - 

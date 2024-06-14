@@ -1,49 +1,64 @@
-﻿using _Scripts.Installer;
-using _Scripts.Player;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace _Scripts.Ingredient
 {
-    public enum State
+    public enum IngredientState
     {   
         Point,
         Captured,
-         
     }
+    
     [RequireComponent((typeof(Rigidbody)))]
-    public class Ingredient : MonoBehaviour, IDetector
+    public class Ingredient : MonoBehaviour
     {
         public IngredientData ingredientData;
-        
-        private bool _isPicked;
+        public bool isPicked;
         private Rigidbody _rb;
-        public State currentState;
-        public Renderer material ;
+        public IngredientState currentIngredientState;
         
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
-            currentState = State.Point;
+            currentIngredientState = IngredientState.Point;
         }
         
-        public void Interaction(Character character)
+        public void Interaction(Transform point)
         {
-            _isPicked = !_isPicked;
-            if (_isPicked)
+            isPicked = !isPicked;
+            if (isPicked)
             {
-                transform.SetParent(character.transform);
-                transform.localPosition = new Vector3(0f, 0.161f, 1f);
+                transform.SetParent(point);
+                transform.localPosition = Vector3.zero;
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
-                currentState = State.Captured;
+                currentIngredientState = IngredientState.Captured;
             }
             else
             {
                 transform.SetParent(null);
                 _rb.constraints = RigidbodyConstraints.None;
-                
+                currentIngredientState = IngredientState.Point;
             }
-        
         }
-        
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.CompareTag("Floor"))
+            {
+                StartCoroutine(TimeDestroy());
+            }
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
+
+        IEnumerator TimeDestroy()
+        {
+            yield return new WaitForSeconds(20f);
+            Destroy();
+        }
     }
 }

@@ -7,5 +7,8 @@ namespace _Scripts.Ingredient
     {
         public string ingredientName;
         public Sprite sprite;
+        
+        
+        
     }
 }

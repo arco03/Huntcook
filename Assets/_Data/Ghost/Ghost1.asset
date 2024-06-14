@@ -12,8 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f822781b2a4a63b2bfb19a7d283bab, type: 3}
   m_Name: Ghost1
   m_EditorClassIdentifier: 
-  id: 0
-  ghostName: Fantasmin1
+  ghostName: Ghost1
   sprite: {fileID: 0}
-  ghostPrefab: {fileID: 5677501985182603782, guid: c42a37fab30e96042af72887f4acc0a9,
-    type: 3}

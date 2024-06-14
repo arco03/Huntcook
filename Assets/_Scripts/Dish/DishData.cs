@@ -8,7 +8,9 @@ namespace _Scripts.Dish
     public class DishData : ScriptableObject
     {
         public string recipeName;
-        public Sprite sprite;
+        public Sprite image;
+        public int amount;
         public List <IngredientData> ingredientsList;
+
     }
 }

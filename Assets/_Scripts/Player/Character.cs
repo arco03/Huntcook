@@ -1,5 +1,4 @@
 using System;
-using _Scripts.Installer;
 using UnityEngine;
 
 namespace _Scripts.Player
@@ -15,17 +14,19 @@ namespace _Scripts.Player
         [SerializeField] private Vector3 offsetLower;
         [SerializeField] private LayerMask ingredientMask;
         [SerializeField] private LayerMask ghostMask;
+        [SerializeField] private Transform collectPoint;
+        [SerializeField] private Animator animator;
+        
+        [Header("Attack Config")]
         [SerializeField] private float attackRadius;
-
-        
-        private int _attackDamage = 1;
+        [SerializeField] private int attackDamage = 1;
         public bool isAttacking;
-        
         private Rigidbody _rb;
-
+        private Ingredient.Ingredient _currentIngredient;
         
         private void Awake()
         {
+              
             _rb = GetComponent<Rigidbody>();
         }
         
@@ -41,6 +42,13 @@ namespace _Scripts.Player
 
         public void Use()
         {
+            if (_currentIngredient)
+            {
+                _currentIngredient.Interaction(collectPoint);
+                _currentIngredient = null;
+                return;
+            }
+            
             // Physics.OverlapSphere(transform.position, _radius,_mask);
             Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
             Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
@@ -52,17 +60,24 @@ namespace _Scripts.Player
                 ingredientMask);
            
             foreach (Collider colliderDetected in colliders)
-            { 
+            {
                 if(!colliderDetected) continue;
-           
-                colliderDetected.gameObject.TryGetComponent<IDetector>(out IDetector component);
-                component?.Interaction(this);
-                Debug.Log("Entra aca");
-                break;
+                colliderDetected.gameObject.TryGetComponent<Ingredient.Ingredient>(out Ingredient.Ingredient component);
+                
+                if (!component.isPicked)
+                {
+                    component.Interaction(collectPoint);
+                    _currentIngredient = component;
+                    return;
+                }
             }
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
+        public void Animator(String typeAnim)
+        {
+            animator.SetTrigger(typeAnim);
+        }
+        
         public void Attack()
         {
             Vector3 rotatedOffsetUpperAttack = transform.rotation * offsetUpper;
@@ -77,41 +92,40 @@ namespace _Scripts.Player
             foreach (Collider ghost in colliders)
             {
                 ghost.gameObject.TryGetComponent<Ghost.Ghost>(out Ghost.Ghost phantom);
-                phantom?.TakeDamage(_attackDamage);
-                Debug.Log($"Damage to the ghost: {_attackDamage}");
+                phantom?.TakeDamage(attackDamage);
             }
 
             isAttacking = false;
         }
-        
-        void OnDrawGizmos()
-        {
-            //Ingredient Gizmos
-            Gizmos.color = Color.red;
-    
-            // Rotamos los offsets junto con el personaje
-            Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
-            Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
 
-            // Dibujamos la cápsula con los offsets rotados
-            Gizmos.DrawWireSphere(rotatedOffsetUpper + transform.position, radius);
-            Gizmos.DrawWireSphere(rotatedOffsetLower + transform.position, radius);
-            Gizmos.DrawLine(rotatedOffsetUpper + radius * transform.right + transform.position, rotatedOffsetLower + radius * transform.right + transform.position);
-            Gizmos.DrawLine(rotatedOffsetUpper - radius * transform.right + transform.position, rotatedOffsetLower - radius * transform.right + transform.position);
-            
-            //Ghost Gizmos
-            Gizmos.color = Color.green;
-    
-            // Rotamos los offsets junto con el personaje
-            Vector3 rotatedOffsetUpperAttack = transform.rotation * offsetUpper;
-            Vector3 rotatedOffsetLowerAttack = transform.rotation * offsetLower;
-
-            // Dibujamos la cápsula con los offsets rotados
-            Gizmos.DrawWireSphere(rotatedOffsetUpperAttack + transform.position, attackRadius);
-            Gizmos.DrawWireSphere(rotatedOffsetLowerAttack + transform.position, attackRadius);
-            Gizmos.DrawLine(rotatedOffsetUpperAttack + attackRadius * transform.right + transform.position, rotatedOffsetLowerAttack + attackRadius * transform.right + transform.position);
-            Gizmos.DrawLine(rotatedOffsetUpperAttack - attackRadius * transform.right + transform.position, rotatedOffsetLowerAttack - attackRadius * transform.right + transform.position);
-        }
+        // void OnDrawGizmos()
+        // {
+        //     //Ingredient Gizmos
+        //     Gizmos.color = Color.red;
+        //
+        //     // Rotamos los offsets junto con el personaje
+        //     Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
+        //     Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
+        //
+        //     // Dibujamos la cápsula con los offsets rotados
+        //     Gizmos.DrawWireSphere(rotatedOffsetUpper + transform.position, radius);
+        //     Gizmos.DrawWireSphere(rotatedOffsetLower + transform.position, radius);
+        //     Gizmos.DrawLine(rotatedOffsetUpper + radius * transform.right + transform.position, rotatedOffsetLower + radius * transform.right + transform.position);
+        //     Gizmos.DrawLine(rotatedOffsetUpper - radius * transform.right + transform.position, rotatedOffsetLower - radius * transform.right + transform.position);
+        //     
+        //     //Ghost Gizmos
+        //     Gizmos.color = Color.green;
+        //
+        //     // Rotamos los offsets junto con el personaje
+        //     Vector3 rotatedOffsetUpperAttack = transform.rotation * offsetUpper;
+        //     Vector3 rotatedOffsetLowerAttack = transform.rotation * offsetLower;
+        //
+        //     // Dibujamos la cápsula con los offsets rotados
+        //     Gizmos.DrawWireSphere(rotatedOffsetUpperAttack + transform.position, attackRadius);
+        //     Gizmos.DrawWireSphere(rotatedOffsetLowerAttack + transform.position, attackRadius);
+        //     Gizmos.DrawLine(rotatedOffsetUpperAttack + attackRadius * transform.right + transform.position, rotatedOffsetLowerAttack + attackRadius * transform.right + transform.position);
+        //     Gizmos.DrawLine(rotatedOffsetUpperAttack - attackRadius * transform.right + transform.position, rotatedOffsetLowerAttack - attackRadius * transform.right + transform.position);
+        // }
 
 
     }

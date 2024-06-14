@@ -14,32 +14,39 @@ namespace _Scripts.Ingredient
     {
         public PointState state;
         public IngredientData ingredientData;
-        
-        private void Start() => GetComponent<MeshRenderer>().enabled = false;
-        
-        private void OnTriggerEnter(Collider other)
+
+        private void Start()
         {
-            if (other.TryGetComponent<Ingredient>(out Ingredient ingredient))
-            {
-                if (ingredient.ingredientData == ingredientData)
-                {
-                    state = PointState.Taken;
-                    other.transform.position = transform.position;
-                }
-            }
-            Debug.Log($"{name}: Enter {other.name}");
+            GetComponent<MeshRenderer>().enabled = false;
         }
 
-        private void OnTriggerExit(Collider other)
+        public void SetUp(IngredientData data)
+        {
+            ingredientData = data;
+        }
+        
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.TryGetComponent<Ingredient>(out Ingredient ingredient))
+            {
+                if (ingredient.ingredientData == ingredientData && ingredient.currentIngredientState == IngredientState.Point && !ingredient.isPicked)
+                {
+                    state = PointState.Taken;
+                    ingredient.transform.position = transform.position;
+                }
+            }
+        }
+
+        public void OnTriggerExit(Collider other)
         {
             if (other.TryGetComponent<Ingredient>(out Ingredient ingredient))
             {
-                if (ingredient.ingredientData == ingredientData)
+                if (ingredient.ingredientData == ingredientData && ingredient.isPicked)
                 {
                     state = PointState.Free;
                 }
             }
-            Debug.Log($"{name}: Exit {other.name}");
         }
+
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Manager;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace _Scripts.Dish
@@ -11,13 +13,30 @@ namespace _Scripts.Dish
     }
     public class Dish : MonoBehaviour
     {
-        [SerializeField] private DishData recipeData;
+        public DishData dishData;
         [SerializeField] private List<GameObject> ingredientsPrefabs;
-        public DishState currentState;
+       
         private Animator _anim;
         private int _currentIngredient;
         
+        private DishState _currentState;
         
+        public DishState CurrentState
+        {
+            set
+            {
+                if (_currentState == value) return;
+                
+                _currentState = value;
+
+                if (_currentState == DishState.Done)
+                {
+                    DishManager.DishReady(dishData);
+                }
+            }
+        }
+        
+
         private void Awake()
         {
             _anim = GetComponent<Animator>();
@@ -26,17 +45,18 @@ namespace _Scripts.Dish
 
         private void Start()
         {
-            currentState = DishState.Clean;
+            CurrentState = DishState.Clean;
             foreach (GameObject prefab in ingredientsPrefabs)
             {
                 prefab.SetActive(false);
             }
         }
 
-        public void AddIngredient(Ingredient.Ingredient ingredient)
+        private void AddIngredient([NotNull] Ingredient.Ingredient ingredient)
         {
-            // Check the same Ingredient ID from the list of ingredients
-            if ( ingredient.ingredientData == recipeData.ingredientsList[_currentIngredient] )
+            if (!ingredient) return;
+            
+            if (ingredient.ingredientData == dishData.ingredientsList[_currentIngredient])
             {
                 ingredientsPrefabs[_currentIngredient].SetActive(true);
                 _currentIngredient++;
@@ -44,14 +64,14 @@ namespace _Scripts.Dish
             }
         }
 
-        public void CheckRecipeReady()
+        private void CheckRecipeReady()
         {
             // If Recipe is ready then start the animation
-            if (_currentIngredient >= recipeData.ingredientsList.Count)
+            if (_currentIngredient >= dishData.ingredientsList.Count)
             {
                 _anim.enabled = true;
-                currentState = DishState.Done;
-                StartCoroutine(Timer());
+                CurrentState = DishState.Done;
+                StartCoroutine(DishTimer());
             }
         }
 
@@ -60,12 +80,16 @@ namespace _Scripts.Dish
             Ingredient.Ingredient ingredient = other.GetComponent<Ingredient.Ingredient>();
             AddIngredient(ingredient);
             CheckRecipeReady();
+            
         }
 
-        IEnumerator Timer()
+
+        IEnumerator DishTimer()
         {
             yield return new WaitForSeconds(5f);
             _anim.SetTrigger("Activate");
+            yield return new WaitForSeconds(3f);
+            Destroy(gameObject);
         }
     }
 }

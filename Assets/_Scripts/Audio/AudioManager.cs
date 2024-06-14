@@ -7,8 +7,8 @@ namespace _Scripts.Audio
     {
         public static AudioManager instance;
         
-        public Sound[] MusicSounds;
-        public AudioSource musicSource;
+        public Sound[] MusicSounds, sfxSounds;
+        public AudioSource musicSource, sfxSource;
         
         private void Awake()
         {
@@ -40,6 +40,19 @@ namespace _Scripts.Audio
             {
                 musicSource.clip = sound.clip;
                 musicSource.Play();
+            }
+        }
+
+        public void PlaySfx(string name)
+        {
+            Sound sound = Array.Find(sfxSounds, x => x.name == name);
+            if (sound == null)
+            {
+                Debug.Log("SFX not Found");
+            }
+            else
+            {
+                sfxSource.PlayOneShot(sound.clip);
             }
         }
     }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Scripts.Ingredient
@@ -10,15 +8,17 @@ namespace _Scripts.Ingredient
     {   
         Point,
         Captured,
-         
     }
+    
     [RequireComponent((typeof(Rigidbody)))]
     public class Ingredient : MonoBehaviour
     {
         public IngredientData ingredientData;
-        private bool _isPicked;
+        public bool isPicked;
         private Rigidbody _rb;
         public IngredientState currentIngredientState;
+
+        private Transform _owner;
         
         private void Awake()
         {
@@ -28,20 +28,23 @@ namespace _Scripts.Ingredient
         
         public void Interaction(Transform point)
         {
-            _isPicked = !_isPicked;
-            if (_isPicked)
+            if (_owner && _owner != point) return;
+            
+            isPicked = !isPicked;
+            if (isPicked)
             {
                 transform.SetParent(point);
                 transform.localPosition = Vector3.zero;
                 _rb.constraints = RigidbodyConstraints.FreezeAll;
                 currentIngredientState = IngredientState.Captured;
-                
+                _owner = point;
             }
             else
             {
                 transform.SetParent(null);
                 _rb.constraints = RigidbodyConstraints.None;
                 currentIngredientState = IngredientState.Point;
+                _owner = null;
             }
         }
 
@@ -49,13 +52,8 @@ namespace _Scripts.Ingredient
         {
             if (other.gameObject.CompareTag("Floor"))
             {
-    
-                StartCoroutine(timeDestroy());
-                    
-                
-               
+                StartCoroutine(TimeDestroy());
             }
-            
         }
 
         public void Destroy()
@@ -63,13 +61,10 @@ namespace _Scripts.Ingredient
             Destroy(gameObject);
         }
 
-        IEnumerator timeDestroy()
+        IEnumerator TimeDestroy()
         {
-
                 yield return new WaitForSeconds(5f);
                 Destroy();
         }
-
-
     }
 }

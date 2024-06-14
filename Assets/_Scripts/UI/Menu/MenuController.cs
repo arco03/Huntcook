@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Scripts.Audio;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace _Scripts.UI.Menu
@@ -22,6 +23,7 @@ namespace _Scripts.UI.Menu
 
         public void Options()
         {
+            AudioManager.instance.PlaySfx("Button");
             menuPanel.SetActive(false);
             optionPanel.SetActive(true);
             creditPanel.SetActive(false);
@@ -29,6 +31,7 @@ namespace _Scripts.UI.Menu
 
         public void Credits()
         {
+            AudioManager.instance.PlaySfx("Button");
             menuPanel.SetActive(false);
             optionPanel.SetActive(false);
             creditPanel.SetActive(true);
@@ -36,6 +39,7 @@ namespace _Scripts.UI.Menu
 
         public void Back()
         {
+            AudioManager.instance.PlaySfx("Button");
             menuPanel.SetActive(true);
             optionPanel.SetActive(false);
             creditPanel.SetActive(false);
@@ -43,6 +47,7 @@ namespace _Scripts.UI.Menu
 
         public void Quit()
         {
+            AudioManager.instance.PlaySfx("Button");
             Application.Quit();
             Debug.Log("Quit Game");
         }

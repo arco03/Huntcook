@@ -36,7 +36,7 @@ namespace _Scripts.Ingredient
                 
                 IngredientPoint ingredientPoint = _ingredientsPoints[randomIndex];
                 Ingredient food = _factory.Create(ingredientData);
-                ingredientPoint.ingredientData = ingredientData;
+                ingredientPoint.SetUp(ingredientData);
 
                 Vector3 ingredientPointTransform = ingredientPoint.transform.position;
                 food.transform.position = new Vector3(ingredientPointTransform.x, ingredientPointTransform.y, ingredientPointTransform.z);

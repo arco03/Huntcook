@@ -24,7 +24,6 @@ namespace _Scripts.Player
         public int _attackDamage = 1;
         public bool isAttacking;
         private Rigidbody _rb;
-        public bool capture = false;
         
         private void Awake()
         {
@@ -58,7 +57,6 @@ namespace _Scripts.Player
             { 
                 
                 if(!colliderDetected) continue;
-                capture = true;
                 colliderDetected.gameObject.TryGetComponent<Ingredient.Ingredient>(out Ingredient.Ingredient component);
                 component?.Interaction(collectPoint);
                 break;

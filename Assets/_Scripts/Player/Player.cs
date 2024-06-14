@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using _Scripts.Audio;
 using _Scripts.Ingredient;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -41,6 +42,7 @@ namespace _Scripts.Player
 
             if (Input.GetKeyDown(KeyCode.E) && !character.isAttacking)
             {
+                AudioManager.instance.PlaySfx("Knife");
                 character.isAttacking = true;
                 character.Animator("Attack");
             }

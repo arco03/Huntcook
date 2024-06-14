@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Audio;
 using _Scripts.Dish;
 using _Scripts.Ingredient;
 using _Scripts.UI.Ingredient;
@@ -38,7 +39,7 @@ namespace _Scripts.Manager
         public int count = 0;
         public int index;
         public int level;
-        public bool entrar;
+        public string soundName;
 
         private void Awake()
         {
@@ -93,11 +94,12 @@ namespace _Scripts.Manager
                 return;
             while (count <= data[index].amount)
             {
-                 data[index].amount--;
-                 uiManager.UpdateDish(data[index]);
+                data[index].amount--;
+                uiManager.UpdateDish(data[index]);
                  
                 
                 Debug.Log($"Plato List {data[index].amount}");
+                AudioManager.instance.PlaySfx(soundName);
                 StartCoroutine(ChangeLightColorTemporarily());
                 StartCoroutine(TimeReset());
                 

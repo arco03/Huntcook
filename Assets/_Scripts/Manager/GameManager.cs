@@ -1,4 +1,5 @@
-﻿using _Scripts.UI.State;
+﻿using System.Collections;
+using _Scripts.UI.State;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -60,6 +61,5 @@ namespace _Scripts.Manager
             TimeManager.OnTimeOver -= HandleGameOver;
             DishManager.OnDishComplete -= HandleWin;
         }
-        
     }
 }

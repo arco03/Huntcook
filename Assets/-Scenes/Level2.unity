@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17278337, g: 0.21591267, b: 0.2978504, a: 1}
+  m_IndirectSpecularColor: {r: 0.17278303, g: 0.21591173, b: 0.29784954, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -885,7 +885,7 @@ PrefabInstance:
     - target: {fileID: 5900684439387356563, guid: 72818489589a28e418f60d32438af69c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.13700008
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: 5900684439387356563, guid: 72818489589a28e418f60d32438af69c,
         type: 3}
@@ -1897,6 +1897,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2336952522432195675, guid: ecbadba248e1d6c4abd39957ae02304d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00020999853
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336952522432195675, guid: ecbadba248e1d6c4abd39957ae02304d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0026899986
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336952522432195675, guid: ecbadba248e1d6c4abd39957ae02304d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.002
+      objectReference: {fileID: 0}
     - target: {fileID: 2764571310537577344, guid: ecbadba248e1d6c4abd39957ae02304d,
         type: 3}
       propertyPath: collectPoint
@@ -3117,6 +3132,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4641931046834731202, guid: 51221d6e42dde25448400f5676aab03d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 5047974526568801767, guid: 51221d6e42dde25448400f5676aab03d,
         type: 3}
       propertyPath: m_IsActive
@@ -3483,6 +3503,7 @@ GameObject:
   - component: {fileID: 2080015236}
   - component: {fileID: 2080015235}
   - component: {fileID: 2080015234}
+  - component: {fileID: 2080015238}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -3589,6 +3610,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.42804813, y: 4.2036896, z: 12.079069}
   m_Center: {x: 5.55395, y: 1.6018445, z: -0.02792263}
+--- !u!65 &2080015238
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080015232}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.1821613, y: 4.017265, z: 0.33432055}
+  m_Center: {x: 3.472602, y: 1.5086324, z: -2.7359245}
 --- !u!1001 &3296366482588091087
 PrefabInstance:
   m_ObjectHideFlags: 0

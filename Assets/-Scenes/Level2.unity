@@ -732,18 +732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4806889bfa47239a0bacdf98f781f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &523727563 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6276612429619449299, guid: 425e8a654aa19ac42b6a72ee6463d216,
-    type: 3}
-  m_PrefabInstance: {fileID: 2013396272}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30513aee37d8494f8faa8eaeb15f4d57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &574634523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5900684439387356563, guid: 72818489589a28e418f60d32438af69c,
@@ -1645,13 +1633,12 @@ MonoBehaviour:
   - {fileID: 1212511600}
   - {fileID: 1123157410}
   - {fileID: 1073685612}
-  ingredientController: {fileID: 523727563}
   lightPoint: {fileID: 1715733676}
   readyColor: {r: 0, g: 0.98039216, b: 0.10980392, a: 0}
+  nameSound: Bell
   count: 0
   index: 0
   level: 2
-  entrar: 0
 --- !u!4 &1175160312
 Transform:
   m_ObjectHideFlags: 0

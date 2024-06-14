@@ -19,17 +19,17 @@ namespace _Scripts.Dish
         private Animator _anim;
         private int _currentIngredient;
         
-        private DishState currentState;
-        public bool tutorialDetector;
+        private DishState _currentState;
+        
         public DishState CurrentState
         {
             set
             {
-                if (currentState == value) return;
+                if (_currentState == value) return;
                 
-                currentState = value;
+                _currentState = value;
 
-                if (currentState == DishState.Done)
+                if (_currentState == DishState.Done)
                 {
                     DishManager.DishReady(dishData);
                 }
@@ -52,20 +52,19 @@ namespace _Scripts.Dish
             }
         }
 
-        public void AddIngredient([NotNull] Ingredient.Ingredient ingredient)
+        private void AddIngredient([NotNull] Ingredient.Ingredient ingredient)
         {
-            if (ingredient == null) return;
-            if ( ingredient.ingredientData == dishData.ingredientsList[_currentIngredient] )
+            if (!ingredient) return;
+            
+            if (ingredient.ingredientData == dishData.ingredientsList[_currentIngredient])
             {
                 ingredientsPrefabs[_currentIngredient].SetActive(true);
                 _currentIngredient++;
                 if (ingredient) Destroy(ingredient.gameObject);
             }
-
-
         }
 
-        public void CheckRecipeReady()
+        private void CheckRecipeReady()
         {
             // If Recipe is ready then start the animation
             if (_currentIngredient >= dishData.ingredientsList.Count)
@@ -73,9 +72,7 @@ namespace _Scripts.Dish
                 _anim.enabled = true;
                 CurrentState = DishState.Done;
                 StartCoroutine(DishTimer());
-
             }
-
         }
 
         private void OnTriggerEnter(Collider other)

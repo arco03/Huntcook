@@ -1,5 +1,4 @@
 ﻿using System;
-using _Scripts.UI.State;
 using UnityEngine;
 
 namespace _Scripts.Manager

@@ -29,7 +29,7 @@ namespace _Scripts.Ingredient
         {
             if (other.gameObject.TryGetComponent<Ingredient>(out Ingredient ingredient))
             {
-                if (ingredient.ingredientData == ingredientData && ingredient.currentIngredientState == IngredientState.Point )
+                if (ingredient.ingredientData == ingredientData && ingredient.currentIngredientState == IngredientState.Point && !ingredient.isPicked)
                 {
                     state = PointState.Taken;
                     ingredient.transform.position = transform.position;

@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using _Scripts.Ghost;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace _Scripts.Player
 {
@@ -17,13 +14,15 @@ namespace _Scripts.Player
         [SerializeField] private Vector3 offsetLower;
         [SerializeField] private LayerMask ingredientMask;
         [SerializeField] private LayerMask ghostMask;
-        [SerializeField] private float attackRadius;
         [SerializeField] private Transform collectPoint;
         [SerializeField] private Animator animator;
         
-        public int _attackDamage = 1;
+        [Header("Attack Config")]
+        [SerializeField] private float attackRadius;
+        [SerializeField] private int attackDamage = 1;
         public bool isAttacking;
         private Rigidbody _rb;
+        private Ingredient.Ingredient _currentIngredient;
         
         private void Awake()
         {
@@ -43,6 +42,13 @@ namespace _Scripts.Player
 
         public void Use()
         {
+            if (_currentIngredient)
+            {
+                _currentIngredient.Interaction(collectPoint);
+                _currentIngredient = null;
+                return;
+            }
+            
             // Physics.OverlapSphere(transform.position, _radius,_mask);
             Vector3 rotatedOffsetUpper = transform.rotation * offsetUpper;
             Vector3 rotatedOffsetLower = transform.rotation * offsetLower;
@@ -54,12 +60,16 @@ namespace _Scripts.Player
                 ingredientMask);
            
             foreach (Collider colliderDetected in colliders)
-            { 
-                
+            {
                 if(!colliderDetected) continue;
                 colliderDetected.gameObject.TryGetComponent<Ingredient.Ingredient>(out Ingredient.Ingredient component);
-                component?.Interaction(collectPoint);
-                break;
+                
+                if (!component.isPicked)
+                {
+                    component.Interaction(collectPoint);
+                    _currentIngredient = component;
+                    return;
+                }
             }
         }
 
@@ -82,7 +92,7 @@ namespace _Scripts.Player
             foreach (Collider ghost in colliders)
             {
                 ghost.gameObject.TryGetComponent<Ghost.Ghost>(out Ghost.Ghost phantom);
-                phantom?.TakeDamage(_attackDamage);
+                phantom?.TakeDamage(attackDamage);
             }
 
             isAttacking = false;

@@ -1,10 +1,8 @@
-﻿using System;
-using _Scripts.Player;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Scripts.Tutorial
 {
-    public class detectorChef : MonoBehaviour
+    public class DetectorChef : MonoBehaviour
     {
         public bool detector;
         public bool detectorGhost;

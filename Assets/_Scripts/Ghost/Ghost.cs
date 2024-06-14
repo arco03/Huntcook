@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Ingredient;
 using _Scripts.Manager;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 namespace _Scripts.Ghost
 {
@@ -79,32 +77,27 @@ namespace _Scripts.Ghost
         public void TakeDamage(int damage)
         {
             currentHealth -= damage;
-            if (currentHealth <= 0 && hasIngredient)
+            if (currentHealth > 0) return;
+            
+            detector = true;
+            particleDead.SetActive(true);
+            Quaternion particleRotation = particleDead.transform.rotation;
+            Instantiate(particleDead, transform.position, particleRotation);
+            
+            if (_currentIngredient)
             {
-                detector = true;
-                particleDead.SetActive(true);
-                Quaternion particleRotation = particleDead.transform.rotation;
-                Instantiate(particleDead, transform.position, particleRotation);
-                
-                if (gameObject != null)
-                { 
-                    
-                    int ghostIndex = Array.IndexOf(GameInstaller.Instance.ghostData, this.ghostData); 
-                    GameInstaller.Instance.RespawnGhost(ghostIndex);
-                    Destroy(gameObject);
-                   _currentIngredient.Interaction(transform);
-                   
-                }
-               
-
+                _currentIngredient.Interaction(transform);
             }
             
+            int ghostIndex = Array.IndexOf(GameInstaller.Instance.ghostData, ghostData); 
+            GameInstaller.Instance.RespawnGhost(ghostIndex);
+            
+            Destroy(gameObject);
         }
 
         public void Update()
         {
             UpdateStates();
-            
         }
 
         private void Move(StateIa state)
@@ -115,7 +108,6 @@ namespace _Scripts.Ghost
 
         private void UpdateStates()
         {
-
             if (_assignPoint.state == PointState.Taken && !hasIngredient)
             {
                 currentState = StateIa.Search;
@@ -159,11 +151,14 @@ namespace _Scripts.Ghost
                 colliderDetected.gameObject.TryGetComponent(out Ingredient.Ingredient ingredient);
                 if (ingredient.ingredientData != data) continue;
 
-                ingredient.Interaction(collectPoint);
-                _currentIngredient = ingredient;
-                hasIngredient = true;
-                currentState = StateIa.Idle;
-                break;
+                if (!ingredient.isPicked)
+                {
+                    ingredient.Interaction(collectPoint);
+                    _currentIngredient = ingredient;
+                    hasIngredient = true;
+                    currentState = StateIa.Idle;
+                    return;
+                }
             }
         }
 

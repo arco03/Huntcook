@@ -41,6 +41,7 @@ namespace _Scripts.Manager
         {
             timerController.Close();
             recipeController.Close();
+            ingredientListController.Close();
         }
     }
 }

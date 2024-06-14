@@ -9,11 +9,13 @@ namespace _Scripts.UI.Menu
         [SerializeField] private GameObject menuPanel;
         [SerializeField] private GameObject optionPanel;
         [SerializeField] private GameObject creditPanel;
+        [SerializeField] private GameObject controlsPanel;
         private void Awake()
         {
             menuPanel.SetActive(true);
             optionPanel.SetActive(false);
             creditPanel.SetActive(false);
+            controlsPanel.SetActive(false);
         }
 
         public void Play(string nameScene)
@@ -27,6 +29,17 @@ namespace _Scripts.UI.Menu
             menuPanel.SetActive(false);
             optionPanel.SetActive(true);
             creditPanel.SetActive(false);
+            controlsPanel.SetActive(false);
+        }
+        
+        public void Controls()
+        {
+            AudioManager.instance.PlaySfx("Button");
+            
+            menuPanel.SetActive(false);
+            optionPanel.SetActive(false);
+            creditPanel.SetActive(false);
+            controlsPanel.SetActive(true);
         }
 
         public void Credits()
@@ -35,6 +48,7 @@ namespace _Scripts.UI.Menu
             menuPanel.SetActive(false);
             optionPanel.SetActive(false);
             creditPanel.SetActive(true);
+            controlsPanel.SetActive(false);
         }
 
         public void Back()
@@ -43,6 +57,7 @@ namespace _Scripts.UI.Menu
             menuPanel.SetActive(true);
             optionPanel.SetActive(false);
             creditPanel.SetActive(false);
+            controlsPanel.SetActive(false);
         }
 
         public void Quit()

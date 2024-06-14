@@ -2235,12 +2235,13 @@ MonoBehaviour:
   - {fileID: 1073685612}
   - {fileID: 1048664722}
   - {fileID: 713490686}
+  ingredientController: {fileID: 0}
   lightPoint: {fileID: 1715733676}
   readyColor: {r: 0, g: 0.98039216, b: 0.10980392, a: 0}
-  nameSound: Bell
   count: 0
   index: 0
   level: 3
+  soundName: 
 --- !u!4 &1175160312
 Transform:
   m_ObjectHideFlags: 0
@@ -4045,6 +4046,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 675420610303652836, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -87
+      objectReference: {fileID: 0}
     - target: {fileID: 1057450637640185327, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4054,6 +4060,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1521888189598848479, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1896920915946806220, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
@@ -4155,6 +4166,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2080478879559320014, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 2080478879559320014, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+    - target: {fileID: 2265070228116694063, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 54
+      objectReference: {fileID: 0}
     - target: {fileID: 2420141811973236218, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
       propertyPath: m_text
@@ -4235,6 +4262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037167909369532423, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -293
       objectReference: {fileID: 0}
     - target: {fileID: 6674618419906859219, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}

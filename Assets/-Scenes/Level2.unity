@@ -1633,12 +1633,13 @@ MonoBehaviour:
   - {fileID: 1212511600}
   - {fileID: 1123157410}
   - {fileID: 1073685612}
+  ingredientController: {fileID: 0}
   lightPoint: {fileID: 1715733676}
   readyColor: {r: 0, g: 0.98039216, b: 0.10980392, a: 0}
-  nameSound: Bell
   count: 0
   index: 0
   level: 2
+  soundName: 
 --- !u!4 &1175160312
 Transform:
   m_ObjectHideFlags: 0
@@ -3195,6 +3196,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 675420610303652836, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -74
+      objectReference: {fileID: 0}
     - target: {fileID: 1057450637640185327, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3310,6 +3316,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2080478879559320014, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 2080478879559320014, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+    - target: {fileID: 2265070228116694063, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 67
+      objectReference: {fileID: 0}
     - target: {fileID: 2420141811973236218, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
       propertyPath: m_text
@@ -3338,7 +3360,7 @@ PrefabInstance:
     - target: {fileID: 4871978230922194445, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5123504108614078163, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
@@ -3364,6 +3386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037167909369532423, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -274
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

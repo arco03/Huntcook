@@ -24,6 +24,7 @@ namespace _Scripts.Manager
             recipeController.Initialize();
             ingredientListController.Initialize();
         }
+        
 
         public void UpdateTime(float timeElapse)
         {

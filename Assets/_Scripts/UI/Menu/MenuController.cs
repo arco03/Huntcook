@@ -10,6 +10,7 @@ namespace _Scripts.UI.Menu
         [SerializeField] private GameObject optionPanel;
         [SerializeField] private GameObject creditPanel;
         [SerializeField] private GameObject controlsPanel;
+        [SerializeField] private AudioManager audioManager;
         private void Awake()
         {
             menuPanel.SetActive(true);
@@ -25,7 +26,7 @@ namespace _Scripts.UI.Menu
 
         public void Options()
         {
-            AudioManager.instance.PlaySfx("Button");
+            audioManager.PlaySfx("Button");
             menuPanel.SetActive(false);
             optionPanel.SetActive(true);
             creditPanel.SetActive(false);
@@ -34,8 +35,8 @@ namespace _Scripts.UI.Menu
         
         public void Controls()
         {
-            AudioManager.instance.PlaySfx("Button");
             
+            audioManager.PlaySfx("Button");
             menuPanel.SetActive(false);
             optionPanel.SetActive(false);
             creditPanel.SetActive(false);
@@ -44,7 +45,8 @@ namespace _Scripts.UI.Menu
 
         public void Credits()
         {
-            AudioManager.instance.PlaySfx("Button");
+            audioManager.PlaySfx("Button");
+
             menuPanel.SetActive(false);
             optionPanel.SetActive(false);
             creditPanel.SetActive(true);
@@ -53,7 +55,8 @@ namespace _Scripts.UI.Menu
 
         public void Back()
         {
-            AudioManager.instance.PlaySfx("Button");
+            audioManager.PlaySfx("Button");
+
             menuPanel.SetActive(true);
             optionPanel.SetActive(false);
             creditPanel.SetActive(false);
@@ -62,7 +65,8 @@ namespace _Scripts.UI.Menu
 
         public void Quit()
         {
-            AudioManager.instance.PlaySfx("Button");
+            audioManager.PlaySfx("Button");
+
             Application.Quit();
             Debug.Log("Quit Game");
         }

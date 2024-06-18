@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Audio;
 using _Scripts.Dish;
 using _Scripts.Ghost;
 using _Scripts.Ingredient;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Manager
 {
@@ -41,6 +43,9 @@ namespace _Scripts.Manager
 
         [SerializeField] private float timeGhost;
         [SerializeField] private string musicLevel;
+        [SerializeField] private AudioManager audioManager;
+
+
 
         private void Start()
         {
@@ -56,8 +61,8 @@ namespace _Scripts.Manager
             _instance = this;
 
             StartCoroutine(GhostTime());
-
-            AudioManager.instance.PlayMusic(musicLevel);
+            audioManager = FindObjectOfType<AudioManager>();
+            audioManager.PlayMusic(musicLevel);
         }
 
         public IEnumerator GhostTime() {

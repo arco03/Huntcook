@@ -7,6 +7,7 @@ namespace _Scripts.UI.Ingredient
     {
         [SerializeField] private Image ingredientImage;
 
+
         public void Initialize(Sprite sprite, Transform parent)
         {
             ingredientImage.sprite = sprite;

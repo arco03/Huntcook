@@ -30,7 +30,7 @@ namespace _Scripts.Manager
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
         private IngredientSpawner _ingredientSpawner;
         public List<IngredientPoint> ingredientPoints;
-        [SerializeField] private IngredientController ingredientController;
+       // [SerializeField] private IngredientController ingredientController;
 
         [SerializeField] private Light lightPoint;
         [SerializeField] private Color readyColor;
@@ -43,7 +43,7 @@ namespace _Scripts.Manager
 
         private void Awake()
         {
-            
+           
             OnDishReady += HandleDishReady;
             DishFactory dishFactory = new DishFactory(dishConfiguration);
             _dishSpawner = new DishSpawner(dishFactory);
@@ -99,7 +99,7 @@ namespace _Scripts.Manager
                  
                 
                 Debug.Log($"Plato List {data[index].amount}");
-                AudioManager.instance.PlaySfx(soundName);
+                // AudioManager.instance.PlaySfx(soundName);
                 StartCoroutine(ChangeLightColorTemporarily());
                 StartCoroutine(TimeReset());
                 

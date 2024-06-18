@@ -5,23 +5,23 @@ namespace _Scripts.Audio
 {
     public class AudioManager : MonoBehaviour
     {
-        public static AudioManager instance;
+        // public static AudioManager instance;
         
         public Sound[] MusicSounds, sfxSounds;
         public AudioSource musicSource, sfxSource;
         
-        private void Awake()
-        {
-            if (instance == null)
-            {
-                instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
+        // private void Awake()
+        // {
+        //     if (instance == null)
+        //     {
+        //         instance = this;
+        //         DontDestroyOnLoad(gameObject);
+        //     }
+        //     else
+        //     {
+        //         Destroy(gameObject);
+        //     }
+        // }
 
         private void Start()
         {
@@ -30,6 +30,7 @@ namespace _Scripts.Audio
 
         public void PlayMusic(string name)
         {
+            Debug.Log("musica");
             Sound sound = Array.Find(MusicSounds, x => x.name == name);
 
             if (sound == null)

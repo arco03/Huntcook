@@ -14,14 +14,14 @@ namespace _Scripts.UI.State
         { 
             Time.timeScale = 0f; 
             gameOverPanel.SetActive(true);
-            uIManager.OnDisable();
+           // uIManager.OnDisable();
         }
 
         public void ShowWin()
         {
             Time.timeScale = 0f;
             winPanel.SetActive(true);
-            uIManager.OnDisable();
+           // uIManager.OnDisable();
         }
 
     }

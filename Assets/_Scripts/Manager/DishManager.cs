@@ -99,7 +99,7 @@ namespace _Scripts.Manager
                  
                 
                 Debug.Log($"Plato List {data[index].amount}");
-                AudioManager.instance.PlaySfx(soundName);
+                //AudioManager.instance.PlaySfx(soundName);
                 StartCoroutine(ChangeLightColorTemporarily());
                 StartCoroutine(TimeReset());
                 

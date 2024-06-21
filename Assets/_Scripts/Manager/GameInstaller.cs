@@ -57,7 +57,7 @@ namespace _Scripts.Manager
 
             StartCoroutine(GhostTime());
 
-            AudioManager.instance.PlayMusic(musicLevel);
+            //AudioManager.instance.PlayMusic(musicLevel);
         }
 
         public IEnumerator GhostTime() {

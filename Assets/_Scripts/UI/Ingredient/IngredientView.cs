@@ -5,7 +5,7 @@ namespace _Scripts.UI.Ingredient
 {
     public class IngredientView : MonoBehaviour
     {
-        [SerializeField] private Image ingredientImage;
+        public Image ingredientImage;
 
 
         public void Initialize(Sprite sprite, Transform parent)
@@ -16,7 +16,7 @@ namespace _Scripts.UI.Ingredient
 
         public void Close()
         {
-            Destroy(gameObject);
+            // Destroy(gameObject);
         }
     }
 }

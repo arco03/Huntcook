@@ -7,7 +7,7 @@ namespace _Scripts.UI.State
     { 
         [SerializeField] private GameObject gameOverPanel;
         [SerializeField] private GameObject winPanel;
-        [SerializeField] private UIManager uIManager;
+     //   [SerializeField] private UIManager uIManager;
         [SerializeField] private GameObject uiRecipe;
         
         public void ShowGameOver() 

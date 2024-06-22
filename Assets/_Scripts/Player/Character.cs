@@ -21,13 +21,14 @@ namespace _Scripts.Player
         [SerializeField] private float attackRadius;
         [SerializeField] private int attackDamage = 1;
         public bool isAttacking;
+        public bool detection = false;
         private Rigidbody _rb;
         private Ingredient.Ingredient _currentIngredient;
         
         private void Awake()
         {
-              
             _rb = GetComponent<Rigidbody>();
+            
         }
         
         public void Move(float x, float z)
@@ -63,7 +64,7 @@ namespace _Scripts.Player
             {
                 if(!colliderDetected) continue;
                 colliderDetected.gameObject.TryGetComponent<Ingredient.Ingredient>(out Ingredient.Ingredient component);
-                
+                detection = true;
                 if (!component.isPicked)
                 {
                     component.Interaction(collectPoint);

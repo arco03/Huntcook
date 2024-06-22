@@ -1,25 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using _Scripts.Audio;
 using _Scripts.Dish;
 using _Scripts.Ingredient;
-using _Scripts.UI.Ingredient;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace _Scripts.Manager
 {
+    [Serializable]
     public class DishManager : MonoBehaviour
     {
         public delegate void DishCompletedHandler(DishData dishData);
 
         public static event DishCompletedHandler OnDishReady;
         public static event Action OnDishComplete;
-        public UIManager uiManager;
+        //public UIManager uiManager;
 
         public static void DishReady(DishData dishData) => OnDishReady?.Invoke(dishData);
-        private DishSpawner _dishSpawner;
+       [SerializeField] private DishSpawner _dishSpawner;
 
         [Header("Spawner Configurations")] [SerializeField]
         private float repeatingTime;
@@ -28,7 +27,7 @@ namespace _Scripts.Manager
         [HideInInspector] public DishData[] data;
 
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
-        private IngredientSpawner _ingredientSpawner;
+        [SerializeField] private IngredientSpawner _ingredientSpawner;
         public List<IngredientPoint> ingredientPoints;
        // [SerializeField] private IngredientController ingredientController;
 
@@ -40,27 +39,19 @@ namespace _Scripts.Manager
         public int index;
         public int level;
         public string soundName;
-
-        private void Awake()
-        {
-           
-            OnDishReady += HandleDishReady;
-            DishFactory dishFactory = new DishFactory(dishConfiguration);
-            _dishSpawner = new DishSpawner(dishFactory);
-
-            IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
-            _ingredientSpawner = new IngredientSpawner(ingredientPoints, ingredientFactory);
-        }
-
+        private static DishManager _instance;
+        
+        public static DishManager Instance => _instance;
+   
         private void Start()
         {
+            _instance = this;
+            OnDishReady += HandleDishReady;
             TypeLevel(level);
             InvokeRepeating(nameof(Spawn), repeatingTime, repeatingTime);
-            uiManager.UpdateDish(data[index]);
+         // uiManager.UpdateDish(data[index]);
         }
-
-
-
+        
         private void TypeLevel(int level)
         {
             int minAmount = 1; // Mínimo valor posible para el amount
@@ -84,7 +75,13 @@ namespace _Scripts.Manager
         {
             data = dish;
             _transform = positionPlate;
+            
+            DishFactory dishFactory = new DishFactory(dishConfiguration);
+            _dishSpawner = new DishSpawner(dishFactory);
 
+            IngredientFactory ingredientFactory = new IngredientFactory(ingredientConfiguration);
+            _ingredientSpawner = new IngredientSpawner(ingredientPoints, ingredientFactory);
+            
             _dishSpawner.Spawn(data[index], _transform);
         }
 
@@ -95,7 +92,7 @@ namespace _Scripts.Manager
             while (count <= data[index].amount)
             {
                 data[index].amount--;
-                uiManager.UpdateDish(data[index]);
+              //  uiManager.UpdateDish(data[index]);
                  
                 
                 Debug.Log($"Plato List {data[index].amount}");
@@ -122,7 +119,7 @@ namespace _Scripts.Manager
                 count = 0;
                
                 if (index < data.Length)
-                    uiManager.UpdateDish(data[index]);
+                 //   uiManager.UpdateDish(data[index]);
                 if (index >= data.Length)
                     OnDishComplete?.Invoke();
 

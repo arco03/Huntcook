@@ -38,7 +38,6 @@ namespace _Scripts.Player
                 tutorial = true;
                 character.Animator("Hand");
                 
- 
             }
 
             if (Input.GetKeyDown(KeyCode.E) && !character.isAttacking)

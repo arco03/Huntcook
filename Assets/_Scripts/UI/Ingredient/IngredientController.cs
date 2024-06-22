@@ -8,7 +8,7 @@ namespace _Scripts.UI.Ingredient
     public class IngredientController : MonoBehaviour
     {
         [SerializeField] private IngredientView prefabView;
-        [SerializeField] private GameObject backgroundImage;
+        [SerializeField] public GameObject backgroundImage;
         private List<IngredientView> _currentIngredients;
         private void Awake()
         {

@@ -45,7 +45,10 @@ namespace _Scripts.Manager
         [SerializeField] private string musicLevel;
         [SerializeField] private AudioManager audioManager;
 
-
+        private void Awake()
+        {
+            _instance = this;
+        }
 
         private void Start()
         {
@@ -58,7 +61,7 @@ namespace _Scripts.Manager
             {
                 _positions.Add( enums[i],dishManager.ingredientPoints[i].transform.position );
             }
-            _instance = this;
+            
 
             StartCoroutine(GhostTime());
             audioManager = FindObjectOfType<AudioManager>();

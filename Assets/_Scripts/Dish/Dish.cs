@@ -41,7 +41,7 @@ namespace _Scripts.Dish
         {
             _anim = GetComponent<Animator>();
             _anim.enabled = false;
-        }
+            }
 
         private void Start()
         {
@@ -71,7 +71,7 @@ namespace _Scripts.Dish
             {
                 _anim.enabled = true;
                 CurrentState = DishState.Done;
-                StartCoroutine(DishTimer());
+               // StartCoroutine(DishTimer());
             }
         }
 
@@ -82,7 +82,6 @@ namespace _Scripts.Dish
             CheckRecipeReady();
             
         }
-
 
         IEnumerator DishTimer()
         {

@@ -1,33 +1,45 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Tutorial
 {
     public class DetectorChef : MonoBehaviour
     {
-        public bool detector;
-        public bool detectorGhost;
-        public bool detectorPlate;
-        
 
-        
+        [SerializeField] private GameObject Enter;
+        [SerializeField] private GameObject letter;
 
-        public void OnTriggerStay(Collider other)
+        private bool hasEntered = false;
+        private bool hasE = false;
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Ingredients"))
+            
+            if (other.gameObject.CompareTag("Ingredients") && !hasEntered)
             {
-                detector = true;
+                Enter.SetActive(true);
+                StartCoroutine(Desactivate(Enter));
+                hasEntered = true;
+                
+                
             }
-
-            if (other.gameObject.CompareTag("Ghost"))
-            {   
-               detectorGhost = true;
-            }
-
-            if (other.gameObject.CompareTag("DishPoint"))
+            
+            if (other.gameObject.CompareTag("Ghost") && !hasE)
             {
-                detectorPlate = true;
-
+                letter.SetActive(true);
+                StartCoroutine(Desactivate(letter));
+                hasE = true;
+                
+                
             }
+            
+        }
+
+        IEnumerator Desactivate(GameObject _name)
+        {
+            yield return new WaitForSeconds(5f);
+            _name.SetActive(false);
         }
     }
 }

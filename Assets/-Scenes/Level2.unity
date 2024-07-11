@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17278303, g: 0.21591173, b: 0.29784954, a: 1}
+  m_IndirectSpecularColor: {r: 0.17278337, g: 0.21591267, b: 0.2978504, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -637,7 +637,6 @@ MonoBehaviour:
   totalGhost: 5
   timeGhost: 15
   musicLevel: Level2
-  audioManager: {fileID: 586447540}
 --- !u!4 &455655584
 Transform:
   m_ObjectHideFlags: 0
@@ -3322,7 +3321,7 @@ PrefabInstance:
     - target: {fileID: 675420610303652836, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -74
+      value: -44
       objectReference: {fileID: 0}
     - target: {fileID: 1057450637640185327, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
@@ -3453,7 +3452,7 @@ PrefabInstance:
     - target: {fileID: 2265070228116694063, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 67
+      value: 97
       objectReference: {fileID: 0}
     - target: {fileID: 2420141811973236218, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
@@ -3485,6 +3484,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5083689564609703029, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 161
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083689564609703029, guid: 425e8a654aa19ac42b6a72ee6463d216,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -21
+      objectReference: {fileID: 0}
     - target: {fileID: 5123504108614078163, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3513,7 +3522,7 @@ PrefabInstance:
     - target: {fileID: 6037167909369532423, guid: 425e8a654aa19ac42b6a72ee6463d216,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -274
+      value: -178
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

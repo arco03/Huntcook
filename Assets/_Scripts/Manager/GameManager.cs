@@ -1,5 +1,6 @@
 ﻿using _Scripts.UI.Ingredient;
 using _Scripts.UI.Recipe;
+using _Scripts.UI.Star;
 using _Scripts.UI.State;
 using _Scripts.UI.Timer;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace _Scripts.Manager
         
         public GameState CurrentState { get; private set; }
         [SerializeField] private StateController stateController;
+        [SerializeField] private StarController starController;
    
     
         private void OnEnable()
@@ -41,6 +43,7 @@ namespace _Scripts.Manager
         private void HandleWin()
         {
             ChangeState(GameState.Win);
+            starController.CompletedLevel();
             stateController.Win();
         }
     

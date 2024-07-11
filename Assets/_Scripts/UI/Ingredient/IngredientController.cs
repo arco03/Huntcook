@@ -46,5 +46,10 @@ namespace _Scripts.UI.Ingredient
             }
         }
 
+        public void CloseView()
+        { 
+            prefabView.CloseView();
+        }
+
     }
 }

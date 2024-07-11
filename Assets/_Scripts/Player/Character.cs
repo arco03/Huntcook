@@ -37,10 +37,8 @@ namespace _Scripts.Player
             
             _rb.velocity = new Vector3(forwardMovement.x, _rb.velocity.y, forwardMovement.z);
             
-             Quaternion deltaRotation = Quaternion.Euler(Vector3.up * (x * rotationSpeed * Time.fixedDeltaTime));
-             _rb.MoveRotation(_rb.rotation * deltaRotation);
-                
-            
+            Quaternion deltaRotation = Quaternion.Euler(Vector3.up * (x * rotationSpeed * Time.fixedDeltaTime));
+            _rb.MoveRotation(_rb.rotation * deltaRotation);
         }
 
         public void Use()

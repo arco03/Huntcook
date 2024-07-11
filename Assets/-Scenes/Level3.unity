@@ -706,7 +706,6 @@ MonoBehaviour:
   totalGhost: 8
   timeGhost: 10
   musicLevel: Level3
-  audioManager: {fileID: 1131042633}
 --- !u!4 &455655584
 Transform:
   m_ObjectHideFlags: 0
@@ -2310,6 +2309,7 @@ MonoBehaviour:
   - {fileID: 1073685612}
   - {fileID: 1048664722}
   - {fileID: 713490686}
+  ingredientController: {fileID: 2118881640}
   lightPoint: {fileID: 1715733676}
   readyColor: {r: 0, g: 0.98039216, b: 0.10980392, a: 0}
   count: 0
@@ -3224,9 +3224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateController: {fileID: 2118881639}
-  timerController: {fileID: 0}
-  recipeController: {fileID: 0}
-  ingredientListController: {fileID: 0}
 --- !u!4 &1633646045
 Transform:
   m_ObjectHideFlags: 0
@@ -4397,6 +4394,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 201887c84e9a4188ab02f9a3b60179c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2118881640 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6276612429619449299, guid: 425e8a654aa19ac42b6a72ee6463d216,
+    type: 3}
+  m_PrefabInstance: {fileID: 2118881637}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30513aee37d8494f8faa8eaeb15f4d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3296366482588091087

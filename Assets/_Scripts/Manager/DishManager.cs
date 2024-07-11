@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.Audio;
 using _Scripts.Dish;
 using _Scripts.Ingredient;
+using _Scripts.UI.Ingredient;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,7 +17,7 @@ namespace _Scripts.Manager
 
         public static event DishCompletedHandler OnDishReady;
         public static event Action OnDishComplete;
-        //public UIManager uiManager;
+        public UIManager uiManager;
 
         public static void DishReady(DishData dishData) => OnDishReady?.Invoke(dishData);
        [SerializeField] private DishSpawner _dishSpawner;
@@ -29,7 +31,7 @@ namespace _Scripts.Manager
         [SerializeField] private IngredientConfiguration ingredientConfiguration;
         [SerializeField] private IngredientSpawner _ingredientSpawner;
         public List<IngredientPoint> ingredientPoints;
-       // [SerializeField] private IngredientController ingredientController;
+        [SerializeField] private IngredientController ingredientController;
 
         [SerializeField] private Light lightPoint;
         [SerializeField] private Color readyColor;
@@ -39,17 +41,13 @@ namespace _Scripts.Manager
         public int index;
         public int level;
         public string soundName;
-        private static DishManager _instance;
-        
-        public static DishManager Instance => _instance;
-   
         private void Start()
         {
-            _instance = this;
+           
             OnDishReady += HandleDishReady;
             TypeLevel(level);
             InvokeRepeating(nameof(Spawn), repeatingTime, repeatingTime);
-         // uiManager.UpdateDish(data[index]);
+            uiManager.UpdateDish(data[index]);
         }
         
         private void TypeLevel(int level)
@@ -85,6 +83,11 @@ namespace _Scripts.Manager
             _dishSpawner.Spawn(data[index], _transform);
         }
 
+        private void OnDisable()
+        {
+            OnDishReady -= HandleDishReady;
+        }
+
         private void HandleDishReady(DishData dataDish)
         {
             if (index >= data.Length)
@@ -92,11 +95,11 @@ namespace _Scripts.Manager
             while (count <= data[index].amount)
             {
                 data[index].amount--;
-              //  uiManager.UpdateDish(data[index]);
+                uiManager.UpdateDish(data[index]);
                  
                 
                 Debug.Log($"Plato List {data[index].amount}");
-                // AudioManager.instance.PlaySfx(soundName);
+                AudioManager.instance.PlaySfx(soundName);
                 StartCoroutine(ChangeLightColorTemporarily());
                 StartCoroutine(TimeReset());
                 
@@ -119,12 +122,13 @@ namespace _Scripts.Manager
                 count = 0;
                
                 if (index < data.Length)
-                 //   uiManager.UpdateDish(data[index]);
+                   uiManager.UpdateDish(data[index]);
                 if (index >= data.Length)
                     OnDishComplete?.Invoke();
 
             }
-            // uiManager.UpdateDish(data[index])
+
+            uiManager.UpdateDish(data[index]);
 
         }
 

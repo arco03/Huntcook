@@ -14,7 +14,6 @@ namespace _Scripts.Player
         [SerializeField] private string vertical;
         [SerializeField] private Character character;
         [SerializeField] private Animator animator;
-        [SerializeField] private AudioManager audioManager;
         private Ingredient.Ingredient status;
         public bool tutorial;
         
@@ -42,7 +41,7 @@ namespace _Scripts.Player
 
             if (Input.GetKeyDown(KeyCode.E) && !character.isAttacking)
             {
-                audioManager.PlaySfx("Knife");
+                AudioManager.instance.PlaySfx("Knife");
                 character.isAttacking = true;
                 character.Animator("Attack");
             }

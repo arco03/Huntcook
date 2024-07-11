@@ -43,7 +43,7 @@ namespace _Scripts.Manager
 
         [SerializeField] private float timeGhost;
         [SerializeField] private string musicLevel;
-        [SerializeField] private AudioManager audioManager;
+        //public AudioManager audioManager;
 
         private void Awake()
         {
@@ -64,8 +64,8 @@ namespace _Scripts.Manager
             
 
             StartCoroutine(GhostTime());
-            audioManager = FindObjectOfType<AudioManager>();
-            audioManager.PlayMusic(musicLevel);
+            
+            AudioManager.instance.PlayMusic(musicLevel);
         }
 
         public IEnumerator GhostTime() {

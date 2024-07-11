@@ -10,10 +10,7 @@ namespace _Scripts.UI.Ingredient
         [SerializeField] private IngredientView prefabView;
         [SerializeField] public GameObject backgroundImage;
         private List<IngredientView> _currentIngredients;
-        private void Awake()
-        {
-            DontDestroyOnLoad(this.gameObject);
-        }
+
         public void Initialize()
         {
             // TODO: Animations
@@ -22,10 +19,10 @@ namespace _Scripts.UI.Ingredient
 
         public void ClearIngredients()
         {
-            // foreach (IngredientView ingredient in _currentIngredients)
-            // {
-            //     ingredient.Close();
-            // }
+            foreach (IngredientView ingredient in _currentIngredients)
+            {
+                ingredient.Close();
+            }
             _currentIngredients.Clear();
         }
         

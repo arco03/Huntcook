@@ -79,7 +79,6 @@ MonoBehaviour:
   vertical: Vertical
   character: {fileID: 2764571310537577344}
   animator: {fileID: 5070790423038408096}
-  audioManager: {fileID: 0}
   tutorial: 0
 --- !u!114 &2764571310537577344
 MonoBehaviour:
@@ -94,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rotationSpeed: 180
+  rotationSpeed: 250
   radius: 1.5
   offsetUpper: {x: -1.62, y: 1.81, z: 1.97}
   offsetLower: {x: 0.3, y: 0.6, z: 0.57}
@@ -109,6 +108,7 @@ MonoBehaviour:
   attackRadius: 1
   attackDamage: 1
   isAttacking: 0
+  detection: 0
 --- !u!95 &5070790423038408096
 Animator:
   serializedVersion: 5

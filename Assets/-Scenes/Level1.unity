@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589169, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.1727686, g: 0.21589239, b: 0.2978261, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1311,12 +1311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4806889bfa47239a0bacdf98f781f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &756468035 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2336952522432195675, guid: ecbadba248e1d6c4abd39957ae02304d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5887972763137851761}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &828029436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4821,16 +4815,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 2764571310537577344, guid: ecbadba248e1d6c4abd39957ae02304d,
-        type: 3}
-      propertyPath: collectPoint
-      value: 
-      objectReference: {fileID: 756468035}
-    - target: {fileID: 2764571310537577344, guid: ecbadba248e1d6c4abd39957ae02304d,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 3257358291903879707, guid: ecbadba248e1d6c4abd39957ae02304d,
         type: 3}

@@ -71,7 +71,7 @@ namespace _Scripts.Dish
             {
                 _anim.enabled = true;
                 CurrentState = DishState.Done;
-               // StartCoroutine(DishTimer());
+                StartCoroutine(DishTimer());
             }
         }
 

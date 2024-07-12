@@ -5,7 +5,7 @@ namespace _Scripts.Manager
 {
     public class TimeManager : MonoBehaviour
     {
-        [SerializeField] private float timeElapse;
+        [SerializeField] public float timeElapse;
         public UIManager uiManager;
         public static event Action OnTimeOver;
         

@@ -21,11 +21,6 @@ namespace _Scripts.UI.Recipe
         {
             recipeView.SetDish(data.image, data.amount, data.recipeName);
         }
-
-        public void UpdateDish(DishData data, int amount)
-        {
-            recipeView.SetDish(data.image, amount, data.recipeName);
-        }
         
     }
     

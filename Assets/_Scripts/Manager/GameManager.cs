@@ -1,7 +1,5 @@
-﻿using _Scripts.UI.Ingredient;
-using _Scripts.UI.Recipe;
+﻿using _Scripts.UI.Menu;
 using _Scripts.UI.State;
-using _Scripts.UI.Timer;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -49,7 +47,10 @@ namespace _Scripts.Manager
             CurrentState = newState;
             Debug.Log($"Game State change to: {newState}");
         }
-        
+        public void ChangeToLoad(string scene)
+        {
+            SceneLoader.Instance.LoadLevel(scene, "Loading");
+        }
         public void ChangeScene(string nameScene)
         {
            SceneManager.LoadScene(nameScene);

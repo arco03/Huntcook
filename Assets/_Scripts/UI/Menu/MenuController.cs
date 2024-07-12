@@ -1,6 +1,5 @@
 ﻿using _Scripts.Audio;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace _Scripts.UI.Menu
 {
@@ -19,9 +18,9 @@ namespace _Scripts.UI.Menu
             controlsPanel.SetActive(false);
         }
 
-        public void Play(string nameScene)
+        public void Play(string scene)
         {
-            SceneManager.LoadScene(nameScene);
+            SceneLoader.Instance.LoadLevel(scene,  "Tutorial");
         }
 
         public void Options()

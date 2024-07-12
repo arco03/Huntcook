@@ -8,7 +8,7 @@ namespace _Scripts.UI.Ingredient
     public class IngredientController : MonoBehaviour
     {
         [SerializeField] private IngredientView prefabView;
-        [SerializeField] public GameObject backgroundImage;
+        [SerializeField] private GameObject backgroundImage;
         private List<IngredientView> _currentIngredients;
 
         public void Initialize()
@@ -46,5 +46,9 @@ namespace _Scripts.UI.Ingredient
             }
         }
 
+        public void CloseView()
+        { 
+            prefabView.CloseView();
+        }
     }
 }

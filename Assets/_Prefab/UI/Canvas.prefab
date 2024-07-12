@@ -113,7 +113,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 376, y: -161}
+  m_AnchoredPosition: {x: 376, y: -245}
   m_SizeDelta: {x: 900, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &989119166519638404
@@ -146,8 +146,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1-1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 389400ed904809f4887e6adf3a84c430, type: 2}
-  m_sharedMaterial: {fileID: -7106468727557841427, guid: 389400ed904809f4887e6adf3a84c430,
+  m_fontAsset: {fileID: 11400000, guid: 3893236b9bcd28842b284945af98fe15, type: 2}
+  m_sharedMaterial: {fileID: 8574184453226388603, guid: 3893236b9bcd28842b284945af98fe15,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1107,10 +1107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1356,9 +1356,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: YOU WIN!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 585a0cfbe04e2ce4aaac8feb6c1814c2, type: 2}
-  m_sharedMaterial: {fileID: -4427311032804155510, guid: 585a0cfbe04e2ce4aaac8feb6c1814c2,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1609,9 +1608,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: MENU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 585a0cfbe04e2ce4aaac8feb6c1814c2, type: 2}
-  m_sharedMaterial: {fileID: -4427311032804155510, guid: 585a0cfbe04e2ce4aaac8feb6c1814c2,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2080,9 +2078,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NEXT LEVEL
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 585a0cfbe04e2ce4aaac8feb6c1814c2, type: 2}
-  m_sharedMaterial: {fileID: -4427311032804155510, guid: 585a0cfbe04e2ce4aaac8feb6c1814c2,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2346,14 +2343,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: _Scripts.Manager.GameManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: ChangeToLoad
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level1
+          m_StringArgument: Level2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6894515635513116688

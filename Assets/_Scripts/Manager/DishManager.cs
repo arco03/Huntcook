@@ -128,7 +128,7 @@ namespace _Scripts.Manager
 
             }
 
-            uiManager.UpdateDish(data[index]);
+            //uiManager.UpdateDish(data[index]);
 
         }
 

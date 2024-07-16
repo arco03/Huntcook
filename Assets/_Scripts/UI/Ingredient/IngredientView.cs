@@ -17,7 +17,7 @@ namespace _Scripts.UI.Ingredient
 
         public void Close()
         {
-            if(!gameObject) 
+            if(gameObject) 
                 Destroy(gameObject);
             
         }
